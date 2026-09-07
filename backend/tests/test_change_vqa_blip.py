@@ -50,12 +50,36 @@ def test_change_vqa_blip_is_not_the_default_route():
     assert "change_vqa_blip" not in TASK_TOOLCHAIN[TaskType.CHANGE_VQA]
 
 
-def test_default_setting_keeps_deterministic_change_vqa():
-    """With the default CHANGE_VQA_MODEL, routing resolves to the deterministic detector."""
-    from app.agent.planner import select_change_vqa_tool
+def test_shipped_default_change_vqa_model_is_blip():
+    """The production/prototype default (independent of the test env override) is blip."""
+    from app.core.config import Settings
 
-    tool_id, _note = select_change_vqa_tool("What changed between these two images?")
-    assert tool_id == "change_vqa"
+    assert Settings.model_fields["change_vqa_model"].default == "blip"
+
+
+def test_default_setting_prefers_blip_change_vqa(monkeypatch):
+    """Prototype default (CHANGE_VQA_MODEL=blip): routes to change_vqa_blip when the
+    checkpoint is available, and falls back to the deterministic detector when it is not."""
+    from app.agent import planner
+    from app.core.config import get_settings
+
+    monkeypatch.setenv("CHANGE_VQA_MODEL", "blip")
+    get_settings.cache_clear()
+    monkeypatch.setattr(planner, "_tool_available", lambda module: True)
+    try:
+        tool_id, _ = planner.select_change_vqa_tool("What changed between these two images?")
+        assert tool_id == "change_vqa_blip"
+    finally:
+        get_settings.cache_clear()
+
+    monkeypatch.setattr(planner, "_tool_available", lambda module: False)
+    get_settings.cache_clear()
+    try:
+        tool_id, note = planner.select_change_vqa_tool("What changed between these two images?")
+        assert tool_id == "change_vqa"
+        assert "unavailable" in note.lower()
+    finally:
+        get_settings.cache_clear()
 
 
 @needs_ckpt

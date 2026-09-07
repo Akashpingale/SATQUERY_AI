@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { motion } from 'framer-motion'
+
 import { Header } from '@/components/layout/Header'
 import { AssistantPanel } from '@/components/panels/AssistantPanel'
 import { HistoryPanel } from '@/components/panels/HistoryPanel'
@@ -74,18 +76,24 @@ export function Workspace() {
     // scrolling the page.
     <div className="flex min-h-screen flex-col bg-background lg:h-screen lg:min-h-0">
       <Header />
-      <main className="grid-backdrop relative flex-1 lg:min-h-0 lg:overflow-hidden">
+      <main className="space-backdrop relative flex-1 lg:min-h-0 lg:overflow-hidden">
         <div className="mx-auto w-full max-w-[1600px] px-4 py-4 lg:h-full">
           <h1 className="sr-only">SatQuery AI analysis workspace</h1>
           <div className="grid grid-cols-1 gap-4 lg:h-full lg:grid-cols-12">
-            <aside
+            <motion.aside
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
               className="space-y-4 lg:col-span-3 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:pr-1"
               aria-label="Inputs and history"
             >
               <InputPanel uploads={uploads} onInspect={setViewedRole} viewedRole={viewedRole} />
               <HistoryPanel onReopen={(id) => void analysis.load(id)} />
-            </aside>
-            <section
+            </motion.aside>
+            <motion.section
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
               className="lg:col-span-6 lg:h-full lg:min-h-0 lg:overflow-hidden"
               aria-label="Visualization"
             >
@@ -95,8 +103,11 @@ export function Workspace() {
                 t2={uploads.slots.t2.asset ?? null}
                 evidence={analysis.result?.evidence ?? []}
               />
-            </section>
-            <aside
+            </motion.section>
+            <motion.aside
+              initial={{ opacity: 0, x: 12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 }}
               className="lg:col-span-3 lg:h-full lg:min-h-0 lg:overflow-hidden lg:pl-1"
               aria-label="Assistant"
             >
@@ -109,7 +120,7 @@ export function Workspace() {
                 onAnalyze={handleAnalyze}
                 examples={examples}
               />
-            </aside>
+            </motion.aside>
           </div>
         </div>
       </main>

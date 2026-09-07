@@ -1,6 +1,24 @@
-import { useEffect, useMemo, useState } from 'react'
+import { Suspense, lazy, useEffect, useMemo, useState } from 'react'
 
 import { Layers, Map as MapIcon, Radar, Satellite, SunMedium } from 'lucide-react'
+
+// Lazy + WebGL-gated so `three` stays out of the initial bundle and never runs in jsdom.
+const Globe3D = lazy(() => import('@/components/viewer/Globe3D'))
+
+function useWebGLAvailable(): boolean {
+  return useMemo(() => {
+    if (typeof document === 'undefined') return false
+    try {
+      const canvas = document.createElement('canvas')
+      return Boolean(
+        window.WebGLRenderingContext &&
+          (canvas.getContext('webgl2') || canvas.getContext('webgl')),
+      )
+    } catch {
+      return false
+    }
+  }, [])
+}
 
 import { Panel } from '@/components/ui/panel'
 import { MetadataPanel } from '@/components/upload/MetadataPanel'
@@ -25,23 +43,47 @@ function absoluteReference(reference: string): string {
   return `${origin}${reference}`
 }
 
-/** Polished, intentional empty state shown before any imagery is loaded. */
+/**
+ * Polished, intentional empty state shown before any imagery is loaded.
+ *
+ * A lightweight 3D wireframe globe (mission-control centerpiece) renders as a background
+ * layer when WebGL is available; the readable instructions sit on top. When imagery is
+ * uploaded this whole state unmounts, so the 3D element is removed and the imagery takes
+ * priority — it never covers controls or results.
+ */
 function EmptyWorkspace() {
+  const canUse3D = useWebGLAvailable()
   return (
-    <div className="flex min-h-[360px] flex-1 flex-col items-center justify-center rounded-md border border-dashed bg-secondary/30 p-8 text-center">
-      <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
-        <Satellite className="h-8 w-8" aria-hidden="true" />
-      </span>
-      <p className="text-base font-semibold">Your analysis workspace</p>
-      <p className="mt-1 max-w-sm text-sm text-muted-foreground">
-        Upload a remote-sensing image to begin. Previews, overlays, and change maps render here.
-      </p>
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">
-        {['Optical', 'SAR', 'Temporal', 'Multimodal'].map((m) => (
-          <span key={m} className="data-chip">
-            {m}
-          </span>
-        ))}
+    <div className="relative flex min-h-[420px] flex-1 flex-col items-center justify-center overflow-hidden rounded-md border border-primary/15 bg-[#070c16] p-8 text-center">
+      {/* HUD corner brackets */}
+      <span className="pointer-events-none absolute left-3 top-3 h-5 w-5 border-l border-t border-primary/40" aria-hidden="true" />
+      <span className="pointer-events-none absolute right-3 top-3 h-5 w-5 border-r border-t border-primary/40" aria-hidden="true" />
+      <span className="pointer-events-none absolute bottom-3 left-3 h-5 w-5 border-b border-l border-primary/40" aria-hidden="true" />
+      <span className="pointer-events-none absolute bottom-3 right-3 h-5 w-5 border-b border-r border-primary/40" aria-hidden="true" />
+
+      {canUse3D && (
+        <div className="pointer-events-none absolute inset-0 opacity-90" aria-hidden="true">
+          <Suspense fallback={null}>
+            <Globe3D />
+          </Suspense>
+        </div>
+      )}
+
+      <div className="relative z-10 flex flex-col items-center">
+        <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 text-primary shadow-[0_0_24px_-4px_hsl(190_95%_60%_/_0.6)]">
+          <Satellite className="h-8 w-8" aria-hidden="true" />
+        </span>
+        <p className="hud-title text-sm font-semibold text-foreground">Mission workspace</p>
+        <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+          Upload a remote-sensing image to begin. Previews, overlays, and change maps render here.
+        </p>
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">
+          {['Optical', 'SAR', 'Temporal', 'Multimodal'].map((m) => (
+            <span key={m} className="data-chip">
+              {m}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )

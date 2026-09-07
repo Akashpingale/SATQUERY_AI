@@ -272,6 +272,39 @@ MODEL_REGISTRY: dict[str, ToolSpec] = {
             "Adapted on a Lithuania/Summer Sentinel-2 subset only.",
         ],
     ),
+    # External generative BLIP captioner (caption_model/), fine-tuned on VRSBench by this team.
+    # Added as an ADDITIONAL captioning route (the CLIP-based captioning stays available). Unlike
+    # the CLIP captioner, this one GENERATES free text rather than composing from concept scores.
+    # DEGRADED and honest: no benchmarked caption metric has been measured for this checkpoint.
+    "captioning_blip": ToolSpec(
+        id="captioning_blip",
+        name="Captioning (external trained BLIP, generative)",
+        version="blip-captioning-vrsbench-external",
+        task=TaskType.CAPTIONING,
+        modalities=[Modality.OPTICAL],
+        input_contract="{ image_id: str }",
+        output_contract="{ caption: str, score: float, evidence: Evidence[] }",
+        allowed_parameters=[],
+        device="cpu",
+        checkpoint="caption_model/model.safetensors",
+        license="External checkpoint (provided out-of-band); weights unchanged and gitignored.",
+        status=ToolStatus.DEGRADED,
+        phase=16,
+        variant=ModelVariant.NONE,
+        base_model=(
+            "BlipForConditionalGeneration (Salesforce BLIP captioning base), VRSBench fine-tune"
+        ),
+        adapter_path=None,
+        training_dataset="VRSBench (fine-tuned by this team)",
+        training_method="external BLIP captioning fine-tuning (generative); loaded read-only",
+        benchmark_status="not benchmarked (only training loss curves available)",
+        limitations=[
+            "Single-image generative captioner; produces free text, not a classification.",
+            "No benchmarked caption metric (BLEU/CIDEr/etc.) has been measured for this "
+            "checkpoint; confidence is an uncalibrated mean token probability.",
+            "Fine-tuned on VRSBench; benefit on other sensors/resolutions is not established.",
+        ],
+    ),
     "grounding": ToolSpec(
         id="grounding",
         name="Grounding",

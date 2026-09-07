@@ -59,7 +59,11 @@ def main() -> int:
         for t in body.get("trace", [])
     ]
     routed = "cdvqa_transfer" in plan_tools
-    executed = any("cdvqa_transfer" in t["step"] for t in trace if t["step"].lower().startswith("execution"))
+    executed = any(
+        "cdvqa_transfer" in t["step"]
+        for t in trace
+        if t["step"].lower().startswith("execution")
+    )
 
     summary = {
         "health": health,

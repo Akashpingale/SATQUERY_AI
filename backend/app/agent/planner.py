@@ -81,6 +81,36 @@ _LEARNED_CHANGE_VQA = {
 }
 
 
+def select_captioning_tool() -> tuple[str, str]:
+    """Resolve the captioning step to the trained BLIP captioner or the CLIP captioner.
+
+    ``CAPTIONING_MODEL``:
+    - ``blip`` (prototype default): the team's trained generative BLIP captioner
+      (``caption_model/``) when available.
+    - ``clip``: the existing CLIP-based captioning (baseline / Phase 5 adapted).
+
+    If BLIP is requested but its checkpoint is unavailable, routing falls back to the CLIP
+    captioner (via the adapted/baseline preference) so captioning never breaks. Returns
+    ``(tool_id, selection_note)`` for the trace.
+    """
+    from ..core.config import get_settings
+
+    mode = (get_settings().captioning_model or "blip").strip().lower()
+    if mode == "blip":
+        if _tool_available("caption_model_infer"):
+            return (
+                "captioning_blip",
+                "selected the trained BLIP captioner 'captioning_blip' (CAPTIONING_MODEL=blip).",
+            )
+        base, note = select_model_for_tool("captioning")
+        return base, (
+            "CAPTIONING_MODEL=blip requested, but the caption_model checkpoint is "
+            f"unavailable; using the CLIP-based captioner. {note}".strip()
+        )
+    # clip (or any other value): existing CLIP captioning (adapted preferred if present).
+    return select_model_for_tool("captioning")
+
+
 def select_change_vqa_tool(query: str = "") -> tuple[str, str]:
     """Resolve the Change-VQA step to the deterministic detector or a learned model.
 
@@ -220,6 +250,8 @@ def build_plan(
         # model-selection layer so the declared TASK_TOOLCHAIN stays deterministic.
         if base_tool_id == "change_vqa":
             tool_id, note = select_change_vqa_tool(query)
+        elif base_tool_id == "captioning":
+            tool_id, note = select_captioning_tool()
         else:
             tool_id, note = select_model_for_tool(base_tool_id)
         if note:

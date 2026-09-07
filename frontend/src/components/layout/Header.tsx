@@ -50,11 +50,13 @@ export function Header() {
     <header className="sticky top-0 z-30 border-b bg-panel-header/95 backdrop-blur supports-[backdrop-filter]:bg-panel-header/80">
       <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-2.5">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-panel">
+          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-[0_0_18px_-2px_hsl(190_95%_60%_/_0.7)]">
             <Satellite className="h-5 w-5" aria-hidden="true" />
           </span>
           <div className="leading-tight">
-            <span className="block text-[15px] font-semibold tracking-tight">SatQuery AI</span>
+            <span className="hud-title block text-[15px] font-semibold text-foreground">
+              SatQuery AI
+            </span>
             <span className="block text-xs text-muted-foreground">
               Remote-sensing intelligence workspace
             </span>

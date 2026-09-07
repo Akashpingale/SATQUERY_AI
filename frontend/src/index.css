@@ -47,40 +47,44 @@
   }
 
   .dark {
-    --background: 220 44% 7%;
-    --foreground: 210 38% 96%;
+    /* Space-tech "mission control": deep navy/near-black base ~#0a0e1a, electric-cyan
+       primary, violet accent. Tuned for strong contrast so glow never hurts readability. */
+    --background: 222 47% 6%;
+    --foreground: 205 40% 94%;
 
-    --card: 221 40% 11%;
-    --card-foreground: 210 38% 96%;
+    --card: 220 42% 10%;
+    --card-foreground: 205 40% 94%;
 
-    --panel: 221 40% 11%;
-    --panel-header: 221 40% 13%;
-    --panel-foreground: 210 38% 96%;
+    --panel: 220 44% 9%;
+    --panel-header: 220 42% 12%;
+    --panel-foreground: 205 40% 94%;
 
-    --primary: 199 90% 52%;
-    --primary-foreground: 220 44% 7%;
+    --primary: 190 95% 55%;
+    --primary-foreground: 222 47% 6%;
 
-    --secondary: 217 32% 18%;
-    --secondary-foreground: 210 38% 96%;
+    --secondary: 218 34% 16%;
+    --secondary-foreground: 205 40% 94%;
 
-    --muted: 217 32% 17%;
-    --muted-foreground: 215 20% 66%;
+    --muted: 218 32% 15%;
+    --muted-foreground: 210 22% 68%;
 
-    --accent: 189 90% 48%;
-    --accent-foreground: 220 44% 7%;
+    --accent: 265 85% 68%;
+    --accent-foreground: 222 47% 6%;
 
-    --destructive: 0 63% 52%;
+    --destructive: 0 72% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 152 52% 46%;
-    --success-foreground: 220 44% 7%;
+    --success: 152 62% 48%;
+    --success-foreground: 222 47% 6%;
 
-    --warning: 34 92% 56%;
-    --warning-foreground: 220 44% 7%;
+    --warning: 36 95% 58%;
+    --warning-foreground: 222 47% 6%;
 
-    --border: 217 30% 22%;
-    --input: 217 30% 24%;
-    --ring: 199 90% 55%;
+    /* Cool, low-saturation border reads as a thin instrument edge; glass utilities add
+       a faint cyan glow on top. */
+    --border: 205 38% 26%;
+    --input: 215 30% 26%;
+    --ring: 190 95% 60%;
   }
 
   * {
@@ -123,5 +127,98 @@
   /* Compact data chip used for CRS / resolution / dimensions overlays and badges. */
   .data-chip {
     @apply inline-flex items-center gap-1 rounded-md border bg-card/80 px-2 py-0.5 text-[11px] font-medium tabular-nums text-muted-foreground backdrop-blur;
+  }
+}
+
+/*
+ * ============================================================================
+ * Space-tech "mission control" visual language (dark theme only).
+ * Purely presentational utilities layered on top of the existing components — they
+ * change appearance, never structure or behavior. All are gated to `.dark` so the
+ * light theme is untouched.
+ * ============================================================================
+ */
+@layer components {
+  /* Deep-space backdrop: layered radial nebula glows + a faint starfield + survey grid.
+     Painted on the shell background so it sits BEHIND panels and never washes out content. */
+  .dark .space-backdrop {
+    background-color: #0a0e1a;
+    background-image:
+      radial-gradient(1200px 600px at 15% -10%, hsl(190 95% 55% / 0.10), transparent 60%),
+      radial-gradient(1000px 700px at 100% 0%, hsl(265 85% 60% / 0.10), transparent 55%),
+      radial-gradient(900px 900px at 50% 120%, hsl(205 90% 45% / 0.08), transparent 60%),
+      radial-gradient(1px 1px at 20% 30%, hsl(0 0% 100% / 0.5) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 20%, hsl(0 0% 100% / 0.35) 50%, transparent 51%),
+      radial-gradient(1px 1px at 40% 70%, hsl(0 0% 100% / 0.4) 50%, transparent 51%),
+      radial-gradient(1px 1px at 85% 60%, hsl(0 0% 100% / 0.3) 50%, transparent 51%),
+      linear-gradient(to right, hsl(205 60% 60% / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(205 60% 60% / 0.05) 1px, transparent 1px);
+    background-size:
+      auto, auto, auto, 260px 260px, 320px 320px, 300px 300px, 380px 380px, 44px 44px, 44px 44px;
+  }
+
+  /* Glassmorphism panel surface: semi-transparent, backdrop blur, thin glowing cyan edge. */
+  .dark .glass-panel {
+    background-color: hsl(220 44% 10% / 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: hsl(190 80% 60% / 0.16);
+    box-shadow:
+      0 1px 0 0 hsl(190 90% 70% / 0.06) inset,
+      0 10px 30px -12px hsl(222 60% 2% / 0.7);
+  }
+
+  .dark .glass-header {
+    background-color: hsl(220 44% 12% / 0.6);
+    border-color: hsl(190 80% 60% / 0.14);
+  }
+
+  /* Wider tracking + monospace for technical/mission-control headers. */
+  .hud-title {
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  /* Controlled cyan text glow for key readouts (kept subtle for readability). */
+  .dark .glow-cyan {
+    text-shadow: 0 0 14px hsl(190 95% 60% / 0.35);
+  }
+
+  /* Thin animated "scanline" sweep for the active/analyzing state. */
+  .dark .hud-scan {
+    position: relative;
+    overflow: hidden;
+  }
+  .dark .hud-scan::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      hsl(190 95% 60% / 0.08) 50%,
+      transparent 100%
+    );
+    animation: hud-scan 2.4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes hud-scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+}
+
+/* Respect reduced-motion for all decorative animations. */
+@media (prefers-reduced-motion: reduce) {
+  .dark .hud-scan::after,
+  .animate-pulse-ring,
+  .animate-fade-in {
+    animation: none !important;
   }
 }

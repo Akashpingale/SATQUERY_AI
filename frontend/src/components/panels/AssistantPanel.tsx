@@ -128,7 +128,7 @@ export function AssistantPanel({
         )}
 
         {isRunning && (
-          <div className="rounded-md border bg-secondary/30 p-3">
+          <div className="hud-scan rounded-md border border-primary/25 bg-secondary/30 p-3">
             <p className="mb-2.5 text-xs text-muted-foreground">
               Running the agent pipeline: classifying the query, validating inputs, and selecting
               tools…

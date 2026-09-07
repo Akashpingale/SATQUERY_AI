@@ -11,6 +11,7 @@ from __future__ import annotations
 
 from .base import Specialist, SpecialistContext, SpecialistUnavailable
 from .captioning import CaptioningSpecialist
+from .captioning_blip import CaptioningBlipSpecialist
 from .cdvqa_trained import CDVQATrainedSpecialist
 from .cdvqa_transfer import CDVQATransferSpecialist
 from .change_vqa_blip import ChangeVQABlipSpecialist
@@ -33,6 +34,9 @@ SPECIALISTS: dict[str, Specialist] = {
     "vqa_adapted": VQASpecialist("vqa_adapted", variant="adapted"),
     "captioning": CaptioningSpecialist("captioning", variant="baseline"),
     "captioning_adapted": CaptioningSpecialist("captioning_adapted", variant="adapted"),
+    # External BLIP generative captioner (caption_model/), fine-tuned on VRSBench. Added as an
+    # ADDITIONAL captioning specialist; the CLIP-based captioning stays available as a fallback.
+    CaptioningBlipSpecialist.tool_id: CaptioningBlipSpecialist(),
     GroundingSpecialist.tool_id: GroundingSpecialist(),
     # Phase 6. Both read one algorithmic change measurement; neither needs model weights,
     # so temporal change works on any machine including CI.
@@ -75,6 +79,7 @@ def is_implemented(tool_id: str) -> bool:
 
 __all__ = [
     "SPECIALISTS",
+    "CaptioningBlipSpecialist",
     "CDVQATrainedSpecialist",
     "CDVQATransferSpecialist",
     "ChangeVQABlipSpecialist",

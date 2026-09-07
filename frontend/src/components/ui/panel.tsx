@@ -36,23 +36,25 @@ export const Panel = React.forwardRef<HTMLElement, PanelProps>(
       <section
         ref={ref}
         className={cn(
-          'flex flex-col overflow-hidden rounded-lg border bg-panel text-panel-foreground shadow-panel',
+          'glass-panel flex flex-col overflow-hidden rounded-lg border bg-panel text-panel-foreground shadow-panel',
           fill && 'h-full',
           className,
         )}
         {...props}
       >
-        <div className="flex shrink-0 items-center gap-3 border-b bg-panel-header px-4 py-3">
+        <div className="glass-header flex shrink-0 items-center gap-3 border-b bg-panel-header px-4 py-3">
           {icon && (
             <span
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/10 text-primary"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-primary/30 bg-primary/10 text-primary shadow-[0_0_12px_-2px_hsl(190_95%_60%_/_0.5)]"
               aria-hidden="true"
             >
               {icon}
             </span>
           )}
           <div className="min-w-0 flex-1 leading-tight">
-            <Heading className="truncate text-sm font-semibold tracking-tight">{title}</Heading>
+            <Heading className="hud-title truncate text-[13px] font-semibold text-foreground">
+              {title}
+            </Heading>
             {description && (
               <p className="truncate text-xs text-muted-foreground">{description}</p>
             )}

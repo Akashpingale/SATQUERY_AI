@@ -9,6 +9,8 @@ import {
   Wrench,
 } from 'lucide-react'
 
+import { motion } from 'framer-motion'
+
 import { AgentWorkflow } from '@/components/results/AgentWorkflow'
 import { ConfidenceBadge } from '@/components/results/ConfidenceBadge'
 import { EvidencePanel } from '@/components/results/EvidencePanel'
@@ -55,9 +57,18 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
   // A result from the fine-tuned model is labelled, so baseline and adapted answers are
   // never confused. Derived from the model-variant evidence the backend attaches.
   const isAdapted = result.evidence.some((item) => item.detail?.variant === 'adapted')
+  // Prototype: the team's trained BLIP models are highlighted so a demo can point at them.
+  const TRAINED_TOOL_IDS = new Set(['captioning_blip', 'change_vqa_blip'])
+  const isTrained = selectedTool ? TRAINED_TOOL_IDS.has(selectedTool.tool_id) : false
 
   return (
-    <section className="animate-fade-in space-y-3" aria-label="Analysis result">
+    <motion.section
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
+      className="space-y-3"
+      aria-label="Analysis result"
+    >
       <div className="flex flex-wrap items-center gap-2">
         <Badge variant={variant}>
           <Icon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -66,7 +77,7 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
         <Badge variant="outline">{taskLabel}</Badge>
       </div>
 
-      <div className="rounded-md border bg-card p-3">
+      <div className="rounded-md border border-primary/25 bg-card p-3 shadow-[0_0_24px_-10px_hsl(190_95%_60%_/_0.5)]">
         {result.query && (
           <p className="mb-2 border-l-2 border-primary/40 pl-2.5 text-xs italic text-muted-foreground">
             {result.query}
@@ -74,10 +85,10 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
         )}
         {result.answer ? (
           <>
-            <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-              Answer
+            <p className="hud-title mb-1 text-[11px] font-semibold text-primary">Answer</p>
+            <p className="glow-cyan whitespace-pre-line text-sm leading-relaxed text-foreground">
+              {result.answer}
             </p>
-            <p className="whitespace-pre-line text-sm leading-relaxed">{result.answer}</p>
           </>
         ) : (
           <p className="text-sm text-muted-foreground">No answer was produced for this request.</p>
@@ -113,6 +124,12 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
                 <span className="tabular-nums">v{selectedTool.tool_version}</span>
               ) : null}
             </p>
+            {isTrained && (
+              <Badge variant="default">
+                <Sparkles className="h-3 w-3" aria-hidden="true" />
+                Our trained model
+              </Badge>
+            )}
             {isAdapted && (
               <Badge variant="default">
                 <Sparkles className="h-3 w-3" aria-hidden="true" />
@@ -166,6 +183,6 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
           Download report
         </a>
       )}
-    </section>
+    </motion.section>
   )
 }

@@ -136,7 +136,13 @@ def test_single_image_tasks_route_to_their_specialist(
     body = _analyze(client, query, [optical_asset])
 
     assert body["task"] == expected_task
-    assert body["plan"]["steps"][0]["tool_id"] in {expected_tool, f"{expected_tool}_adapted"}
+    # baseline, Phase 5 adapted, or the prototype's trained BLIP variant, depending on config
+    # and which checkpoints are present.
+    assert body["plan"]["steps"][0]["tool_id"] in {
+        expected_tool,
+        f"{expected_tool}_adapted",
+        f"{expected_tool}_blip",
+    }
     assert any(e["step"] == "Task classification" for e in body["trace"])
     # Phase 4 implements these, so they must not be reported as "not implemented".
     assert "not implemented yet" not in str(body["issues"])
@@ -173,15 +179,26 @@ def test_model_unavailability_is_reported_not_faked(client, optical_asset, monke
     assert body["issues"][0]["code"] == "model_unavailable"
 
 
-def test_temporal_change_now_completes_with_a_measured_answer(client, temporal_assets):
+def test_temporal_change_now_completes_with_a_measured_answer(
+    client, temporal_assets, monkeypatch
+):
     """Phase 6 implemented this path; it used to report `unavailable`.
 
     The fixture pair is pixel-identical, so the honest measured answer is "no significant
-    change" - which is a real finding, not a placeholder. Full temporal coverage lives in
-    ``test_temporal_api.py``.
+    change" - which is a real finding, not a placeholder. This asserts the DETERMINISTIC
+    measurement route, which remains available; the prototype default is the trained BLIP
+    model (CHANGE_VQA_MODEL=blip), so the route is pinned here explicitly. Full temporal
+    coverage lives in ``test_temporal_api.py``.
     """
-    t1, t2 = temporal_assets
-    body = _analyze(client, "What changed between these two dates?", [t1, t2])
+    from app.core.config import get_settings
+
+    monkeypatch.setenv("CHANGE_VQA_MODEL", "deterministic")
+    get_settings.cache_clear()
+    try:
+        t1, t2 = temporal_assets
+        body = _analyze(client, "What changed between these two dates?", [t1, t2])
+    finally:
+        get_settings.cache_clear()
 
     assert body["task"] in {"temporal_change", "change_vqa"}
     assert body["status"] == "completed"

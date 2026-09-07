@@ -13,6 +13,8 @@ recorded as such.
 | Grounding | [`google/owlvit-base-patch32`](https://huggingface.co/google/owlvit-base-patch32) | 153.2 M | Apache-2.0 | `degraded` |
 | **Temporal change / change VQA** | **Algorithmic — no model** (change vector analysis) | — | OSS (NumPy/SciPy/Rasterio) | `degraded` |
 | **Optical+SAR cross-modal** | **Algorithmic — no model** (feature-level fusion) | — | OSS (NumPy/SciPy/Rasterio) | `degraded` |
+| **Change VQA (prototype default)** | **`change_vqa_blip` — external BlipForQuestionAnswering, CDVQA/SECOND fine-tune** (`change_model/`) | ~385 M | External checkpoint (out-of-band) | `degraded` |
+| **Captioning (prototype default)** | **`captioning_blip` — external BlipForConditionalGeneration, VRSBench fine-tune** (`caption_model/`) | ~247 M | External checkpoint (out-of-band) | `degraded` |
 
 The two Hugging Face models are ungated: no token is required. Weights download on first use
 into `HF_HOME` (~1.2 GB combined) and are never committed. The adapter is produced locally
@@ -106,6 +108,31 @@ preference.
 > It is a community fine-tune of OpenAI CLIP on the RSICD dataset. Confirm the licensing
 > terms of the base model, the fine-tune, and RSICD before any commercial or redistributed
 > use. This is recorded rather than assumed.
+
+## Prototype trained BLIP models (change_vqa_blip, captioning_blip)
+
+Two externally-trained BLIP checkpoints supplied by the team are integrated as **additional**
+specialists and made the **prototype defaults** for their tasks. All prior routes (deterministic
+change VQA, `cdvqa_trained`, `cdvqa_transfer`, and the CLIP-based captioner) remain registered
+and selectable; routing falls back to them automatically if a BLIP checkpoint is unavailable, so
+nothing breaks.
+
+| | `change_vqa_blip` | `captioning_blip` |
+|---|---|---|
+| Architecture | `BlipForQuestionAnswering` (single-image, generative) | `BlipForConditionalGeneration` (single-image, generative) |
+| Checkpoint | `change_model/model.safetensors` (read-only) | `caption_model/model.safetensors` (read-only) |
+| Training data | CDVQA + SECOND (external fine-tune) | VRSBench (external fine-tune) |
+| Task | `change_vqa` | `captioning` |
+| Default route? | Yes, when `CHANGE_VQA_MODEL=blip` (prototype default); falls back to deterministic | Yes, when `CAPTIONING_MODEL=blip` (prototype default); falls back to CLIP captioner |
+| Benchmark | CDVQA held-out **Test 0.5467 / Test2 0.5033** (below `cdvqa_trained` 0.7114/0.6632) | **Not benchmarked** — only training-loss curves available |
+| Honesty | It is single-image; a T1/T2 pair is shown under the frozen `t1` convention. Not a two-image temporal detector | Generative free text; confidence is an uncalibrated mean token probability |
+
+Selection is config-driven (`CHANGE_VQA_MODEL`, `CAPTIONING_MODEL`); the resolved model_id is
+shown in the result card ("Selected tool" + "Our trained model" badge), the plan, the trace, and
+the evidence. Weights are loaded read-only and never modified. **No accuracy improvement is
+claimed for these over the existing routes** — `change_vqa_blip` scores below `cdvqa_trained` on
+CDVQA, and `captioning_blip` has no measured caption metric; they are the prototype's demonstrated
+trained contribution, made default by request.
 
 ## Why these models
 

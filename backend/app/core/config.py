@@ -72,7 +72,16 @@ class Settings(BaseSettings):
     #   blip           - external generative BLIP change_model
     #   auto           - deterministic for measurement questions; the best learned model for
     #                    classification-style ("changed into what") questions
-    change_vqa_model: str = "deterministic"
+    # Prototype default: the team's trained BLIP change-VQA model. Falls back to the
+    # deterministic detector automatically if the change_model checkpoint is unavailable.
+    change_vqa_model: str = "blip"
+
+    # Captioning model selection for the prototype:
+    #   blip - the team's trained generative BLIP captioner (caption_model/); DEFAULT
+    #   clip - the existing CLIP-based captioning (baseline / Phase 5 adapted)
+    # Falls back to the CLIP captioner automatically if the caption_model checkpoint is
+    # unavailable, so captioning never breaks.
+    captioning_model: str = "blip"
 
     @model_validator(mode="after")
     def _anchor_paths(self) -> Settings:

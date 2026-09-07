@@ -26,6 +26,13 @@ os.environ["STORAGE_DIR"] = os.path.join(_TMP_DIR, "storage")
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
+# The production PROTOTYPE default routes change-VQA and captioning to the team's trained
+# BLIP models. The existing contract tests validate the deterministic change specialist and
+# the CLIP captioner (both still available as alternatives), so the test session pins those
+# routes. Tests that specifically exercise the BLIP models set these vars themselves.
+os.environ["CHANGE_VQA_MODEL"] = "deterministic"
+os.environ["CAPTIONING_MODEL"] = "clip"
+
 from app.core.config import get_settings  # noqa: E402
 
 get_settings.cache_clear()  # ensure our env vars are picked up
