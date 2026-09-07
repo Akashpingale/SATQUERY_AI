@@ -1,0 +1,133 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+.python-version
+
+# ---- Node / Frontend ----
+node_modules/
+dist/
+dist-ssr/
+build/
+coverage/
+.vite/
+*.local
+*.tsbuildinfo
+playwright-report/
+test-results/
+.playwright/
+
+# ---- Generated verification reports ----
+scripts/*_report.txt
+
+# ---- Env & secrets (NEVER commit) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+*.secret
+
+# ---- Models, datasets, runtime storage (large / generated) ----
+models/**
+!models/.gitkeep
+!models/README.md
+data/raw/**
+!data/raw/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+data/demo/**
+!data/demo/.gitkeep
+# Phase 5 dataset working copy: 445 MB of Parquet annotations, a 2.3 GB LMDB imagery
+# store, and the prepared JSONL splits. All of it is re-derivable via
+# scripts/download_bigearthnet.py + scripts/prepare_bigearthnet_txt.py, so only the
+# manifest under data/manifests/ (small JSON, tracked) records what was used.
+data/bigearthnet/**
+*.parquet
+*.mdb
+storage/**
+!storage/**/.gitkeep
+reports/*
+!reports/.gitkeep
+# Exception: the Phase 5 metric reports are small JSON files and ARE tracked. They are
+# the record of what was actually trained and measured, so docs can be checked against
+# them instead of taken on trust. Model weights stay ignored via the rules below.
+!reports/phase5/
+reports/phase5/*
+!reports/phase5/*.json
+# Phase 9 benchmark evidence (small JSON/JSONL/MD) IS tracked; fixtures (*.tif) and model
+# weights stay ignored via the rules below.
+!reports/benchmarks/
+# Phase 10 external-model verification evidence (small JSON/MD/JSONL) IS tracked.
+!reports/change_model/
+# Phase 11 public-benchmark validation evidence (small JSON/MD) IS tracked.
+!reports/phase11/
+
+# Phase 12 final system-validation + SIH26167 compliance evidence (small JSON/MD) IS tracked.
+# Large raw dumps under reports/phase12/e2e/ are re-derivable via scripts/phase12/.
+!reports/phase12/
+
+# Phase 13 release-readiness evidence (small JSON/MD) IS tracked.
+# Raw dumps under reports/phase13/e2e/ are re-derivable via scripts/phase12/e2e_validate.py.
+!reports/phase13/
+
+# Phase 14 change_model integration evidence (small JSON/MD) IS tracked.
+# Raw dumps under reports/phase14/e2e/ are re-derivable via scripts/phase14/.
+!reports/phase14/
+
+# Phase 15 real-training evidence (small JSON/MD) IS tracked. Trained checkpoints/features
+# under models/phase15/ stay ignored (large binaries) via the models/ rules.
+!reports/phase15/
+
+# ---- Phase 10 externally-supplied model (~1.35 GB weights; provided out-of-band) ----
+# The trusted `change_model/` checkpoint is placed locally and NEVER committed. See
+# reports/change_model/CHANGE_MODEL_VERIFICATION_REPORT.md for how to obtain/place it.
+# Anchored to repo root so it does NOT also match reports/change_model/ (tracked evidence).
+/change_model/
+
+# ---- Phase 9 datasets (large; provisioned locally, re-derivable from archives) ----
+# CDVQA QA JSON and extracted SECOND imagery are large and not committed. Only the
+# provenance manifests (small JSON, with archive SHA256 + real counts) are tracked.
+datasets/**
+!datasets/
+!datasets/cdvqa/
+!datasets/second/
+!datasets/*/manifest.json
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.tif
+*.tiff
+*.geotiff
+
+# ---- Databases ----
+*.sqlite
+*.sqlite3
+*.db
+
+# ---- Logs & temp ----
+*.log
+logs/
+tmp/
+temp/
+
+# ---- IDE / OS ----
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# NOTE: .kiro/ IS intentionally tracked (steering, specs, hooks are project assets).

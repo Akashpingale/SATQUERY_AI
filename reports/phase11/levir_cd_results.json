@@ -1,0 +1,54 @@
+{
+  "benchmark": "LEVIR-CD (public test split)",
+  "source": "huggingface: ericyu/LEVIRCD_Cropped_256 (256x256 crops)",
+  "evaluation_type": "FULL TEST EVALUATION",
+  "test_rows_total": 2048,
+  "evaluated": 2048,
+  "changed_pixel_fraction": 0.05094,
+  "device": "cuda",
+  "seconds": 51.2,
+  "cross_dataset_note": "The learned model was trained ONLY on SECOND (Phase 9) and never on this benchmark. Label semantics and sensor/resolution differ from SECOND, so this is a cross-dataset generalization test; large degradation vs the in-domain SECOND result (IoU 0.4219) is expected and is reported honestly.",
+  "learned_second_model": {
+    "micro_iou": 0.0773,
+    "precision": 0.0831,
+    "recall": 0.5274,
+    "f1": 0.1435,
+    "pixel_accuracy": 0.6793,
+    "mean_iou_changed_images": {
+      "n": 935,
+      "mean": 0.1267,
+      "std": 0.1268,
+      "median": 0.0894,
+      "ci_low": 0.1186,
+      "ci_high": 0.1349
+    },
+    "pixels": {
+      "tp": 3606297,
+      "fp": 39813793,
+      "fn": 3231107,
+      "tn": 87566531
+    }
+  },
+  "deterministic_otsu_reference": {
+    "micro_iou": 0.0466,
+    "precision": 0.051,
+    "recall": 0.3539,
+    "f1": 0.0891,
+    "pixel_accuracy": 0.6313,
+    "mean_iou_changed_images": {
+      "n": 935,
+      "mean": 0.0897,
+      "std": 0.0971,
+      "median": 0.0661,
+      "ci_low": 0.0834,
+      "ci_high": 0.0959
+    },
+    "pixels": {
+      "tp": 2420084,
+      "fp": 45074201,
+      "fn": 4417320,
+      "tn": 82306123
+    }
+  },
+  "reference_note": "Otsu radiometric-difference baseline (same method as the Phase 9 SECOND baseline); not the georeferenced production cva-robust config."
+}

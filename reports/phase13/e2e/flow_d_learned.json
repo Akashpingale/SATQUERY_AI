@@ -1,0 +1,166 @@
+{
+  "generated_utc": "2026-09-06T19:42:04.843635+00:00",
+  "purpose": "Validate the non-default learned temporal route (SECOND + CDVQA).",
+  "routing_guard": {
+    "task_toolchain": {
+      "metadata_inspection": [
+        "raster_preprocessor"
+      ],
+      "vqa": [
+        "vqa"
+      ],
+      "captioning": [
+        "captioning"
+      ],
+      "grounding": [
+        "grounding"
+      ],
+      "temporal_change": [
+        "registration_validator",
+        "temporal_change"
+      ],
+      "change_vqa": [
+        "registration_validator",
+        "change_vqa"
+      ],
+      "optical_sar_fusion": [
+        "registration_validator",
+        "optical_sar_fusion"
+      ]
+    },
+    "learned_tools_on_default_toolchain": [],
+    "deterministic_remains_default": true
+  },
+  "availability": {
+    "second_change_learned": {
+      "available": true,
+      "reason": ""
+    },
+    "cdvqa_trained": {
+      "available": true,
+      "reason": ""
+    }
+  },
+  "second_change_learned_runs": [
+    {
+      "pair": "00003.png",
+      "changed_fraction": 0.49606,
+      "mean_confidence": 0.775,
+      "analysis_px": 256,
+      "model_version": "second-siamese-unet-binary (256px)",
+      "output_valid": true
+    },
+    {
+      "pair": "00011.png",
+      "changed_fraction": 0.47998,
+      "mean_confidence": 0.7286,
+      "analysis_px": 256,
+      "model_version": "second-siamese-unet-binary (256px)",
+      "output_valid": true
+    },
+    {
+      "pair": "00013.png",
+      "changed_fraction": 0.33997,
+      "mean_confidence": 0.758,
+      "analysis_px": 256,
+      "model_version": "second-siamese-unet-binary (256px)",
+      "output_valid": true
+    }
+  ],
+  "second_checkpoint_loaded": true,
+  "cdvqa_trained_runs": [
+    {
+      "pair": "00003.png",
+      "question": "Did new buildings appear?",
+      "answer": "yes",
+      "confidence": 0.5688,
+      "top5": [
+        [
+          "yes",
+          0.5688
+        ],
+        [
+          "no",
+          0.431
+        ],
+        [
+          "low_vegetation",
+          0.0001
+        ],
+        [
+          "nvg_surface",
+          0.0
+        ],
+        [
+          "trees",
+          0.0
+        ]
+      ],
+      "model_version": "cdvqa-clip-rsicd-frozen+head (19-class)"
+    },
+    {
+      "pair": "00011.png",
+      "question": "Did new buildings appear?",
+      "answer": "yes",
+      "confidence": 0.7768,
+      "top5": [
+        [
+          "yes",
+          0.7768
+        ],
+        [
+          "no",
+          0.223
+        ],
+        [
+          "trees",
+          0.0
+        ],
+        [
+          "low_vegetation",
+          0.0
+        ],
+        [
+          "nvg_surface",
+          0.0
+        ]
+      ],
+      "model_version": "cdvqa-clip-rsicd-frozen+head (19-class)"
+    },
+    {
+      "pair": "00013.png",
+      "question": "Did new buildings appear?",
+      "answer": "yes",
+      "confidence": 0.8708,
+      "top5": [
+        [
+          "yes",
+          0.8708
+        ],
+        [
+          "no",
+          0.1291
+        ],
+        [
+          "trees",
+          0.0
+        ],
+        [
+          "buildings",
+          0.0
+        ],
+        [
+          "nvg_surface",
+          0.0
+        ]
+      ],
+      "model_version": "cdvqa-clip-rsicd-frozen+head (19-class)"
+    }
+  ],
+  "cdvqa_checkpoint_loaded": true,
+  "notes": [
+    "Learned route is non-default; the agent's TASK_TOOLCHAIN routes temporal/change-VQA to the deterministic CVA specialists.",
+    "Learned SECOND/CDVQA read RGB via PIL; they target SECOND-style aerial RGB, not arbitrary multi-band GeoTIFF. Demo GeoTIFFs are served by the deterministic route (Flow B), confirming the robust default.",
+    "Checkpoints were loaded read-only; nothing was retrained or overwritten."
+  ]
+}

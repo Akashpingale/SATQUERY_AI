@@ -1,0 +1,71 @@
+{
+  "phase": 14,
+  "artifact": "forensic_reality_audit",
+  "generated_utc": "2026-09-07",
+  "production_code_modified": false,
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 2050",
+    "gpu_vram_mb": 4096,
+    "cuda_available": true,
+    "torch": "2.6.0+cu124",
+    "ram_gb": 15.7,
+    "network_hf_throughput_mb_s": 0.02,
+    "network_other_hosts": "restricted (DNS getaddrinfo failed on non-HF test host)",
+    "large_dataset_download_feasible": false
+  },
+  "local_datasets": {
+    "second": {"files": 11872, "mb": 2301, "usable_for_training": true},
+    "levir_cd": {"files": 1, "mb": 66, "format": "parquet (test)"},
+    "oscd": {"files": 1, "mb": 1, "format": "parquet"},
+    "vrsbench": {"files": 1, "mb": 10, "note": "referring.json only; images absent"}
+  },
+  "query_traces": [
+    {"query": "Describe this scene.", "task": "captioning", "specialist": "CaptioningSpecialist", "model": "clip-rsicd-v2(+LoRA)", "mechanism": "CLIP image-text cosine similarity -> softmax over concept vocab -> composed sentence", "verdict": "REAL-RETRIEVAL", "generative": false, "labeled_correctly": true},
+    {"query": "What land cover dominates this image?", "task": "vqa", "kind": "DOMINANT", "specialist": "VQASpecialist", "model": "clip-rsicd-v2(+LoRA)", "mechanism": "CLIP similarity -> softmax over land-cover concepts", "verdict": "REAL-RETRIEVAL", "is_pixel_area": false, "is_trained_classifier": false, "labeled_correctly": true},
+    {"query": "Where is water visible?", "task": "grounding", "specialist": "GroundingSpecialist", "model": "owlvit-base-patch32 (+CLIP patch fallback)", "mechanism": "open-vocab detector forward pass -> boxes/overlay", "verdict": "REAL", "benchmark_iou": "UNPROVEN (VRSBench blocked)"},
+    {"query": "How many buildings are visible?", "task": "vqa", "kind": "COUNT", "verdict": "REFUSED", "reason": "contrastive model has no counting mechanism; no detector present", "fabricated_number": false},
+    {"query": "What changed between these images?", "task": "change_vqa", "specialist": "ChangeVQA(deterministic)", "model": "cva-robust-1.1.0", "mechanism": "co-registration + robust change-vector analysis on real pixels", "verdict": "REAL-DETERMINISTIC", "default": true},
+    {"query": "What changed from A to B (from-to)?", "task": "change_vqa", "verdict": "REAL-DETERMINISTIC (binary/measurement)", "semantic_from_to_classifier": false, "labeled_correctly": true},
+    {"query": "Compare optical and SAR.", "task": "optical_sar_fusion", "model": "xmodal-1.0.0", "mechanism": "co-registration + feature-level cross-modal analysis on real pixels", "verdict": "REAL-DETERMINISTIC", "benchmarked_vs_single_modality": false},
+    {"query": "CDVQA-style change question", "task": "change_vqa", "default": "deterministic", "learned_available": "cdvqa_trained (Test 0.7114)", "learned_verdict": "REAL-TRAINED but NOT_INTEGRATED (non-default, reads RGB PNG only)"}
+  ],
+  "critical_issue_findings": {
+    "captioning_is_generative_claimed": false,
+    "captioning_actual": "retrieval/concept composition (labeled)",
+    "concept_percent_presented_as_pixel_area": false,
+    "concept_percent_actual_ui_label": "'Model scores' + note 'softmax over vocabulary, not calibrated probabilities of ground truth'",
+    "classifier_called_vqa": false,
+    "retrieval_called_generative": false,
+    "binary_change_called_semantic": false
+  },
+  "anti_cheating_scan": {
+    "hardcoded_answers": false,
+    "filename_or_groundtruth_lookup_at_inference": false,
+    "fake_probabilities": false,
+    "test_set_tuning_in_shipped_code": false,
+    "violations_found": []
+  },
+  "capability_states": {
+    "single_image_vqa": {"impl": true, "trained": false, "type": "retrieval", "production_verified": "REAL-RETRIEVAL (bounded)"},
+    "captioning": {"impl": true, "trained": false, "type": "retrieval", "generative": false},
+    "land_cover": {"impl": true, "trained_classifier": false, "segmentation": false},
+    "counting": {"impl": "refuses", "model": false},
+    "grounding": {"impl": true, "model": "owlvit", "benchmarked": false},
+    "temporal_change": {"impl": true, "default": "deterministic", "learned_in_domain_iou": 0.4219, "cross_sensor": "weak"},
+    "change_vqa": {"impl": true, "default": "deterministic", "learned_test_acc": 0.7114, "learned_integrated": false},
+    "semantic_change": {"impl": false, "claimed": false},
+    "optical_sar_fusion": {"impl": true, "type": "deterministic-feature-level", "benchmarked_vs_single_modality": false},
+    "agentic_orchestration": {"impl": true, "verified": true}
+  },
+  "overall_integrity_verdict": "HONEST — no fabrication, no mislabeled capabilities, no anti-cheating violations. Gap vs SIH ideal is capability depth (no trained generative/VQA/segmentation/detection models), not integrity.",
+  "feasibility_this_environment": {
+    "14A_real_vqa": "BLOCKED (dataset provisioning: RSVQA/VRSBench-VQA not local; download infeasible)",
+    "14B_generative_captioning": "BLOCKED (dataset provisioning: caption datasets not local; download infeasible)",
+    "14C_land_cover_segmentation": "BLOCKED (segmentation dataset not local)",
+    "14D_detector_counting": "BLOCKED (detection dataset not local)",
+    "14E_grounding_iou": "BLOCKED (VRSBench images ~3.79GB, ~0.02 MB/s)",
+    "14F_temporal_change_improvement": "FEASIBLE (SECOND 2.3GB local + RTX 2050 4GB; small Siamese U-Net)",
+    "14G_semantic_change": "BLOCKED (from-to labeled data / SECOND semantic labels pipeline; heavy)",
+    "14H_optical_sar_benchmark": "BLOCKED (no labeled co-registered optical+SAR benchmark local)"
+  }
+}

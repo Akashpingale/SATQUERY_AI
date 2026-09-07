@@ -1,0 +1,81 @@
+{
+  "phase": 15,
+  "generated_utc": "2026-09-07",
+  "task": "CDVQA change-VQA (closed 19-answer vocabulary)",
+  "protocol": "Train fits; Val selects checkpoint; Test/Test2 evaluated once, never tuned. Seed 42.",
+  "device": "NVIDIA GeForce RTX 2050 (4GB)",
+  "change_model_sha256": "E1DD3D496B0472D9D3F9D051810BE066F440BDD4178B35D990128B6590469F2F",
+  "change_model_unchanged": true,
+  "experiments": [
+    {
+      "experiment_id": "A_cdvqa_trained_baseline",
+      "model": "CDVQAModel (GRU + fusion head)",
+      "features": "CLIP-rsicd (512)",
+      "base_checkpoint": null,
+      "dataset": "CDVQA over SECOND",
+      "train_samples": 65967, "validation_samples": 16441,
+      "test_samples": 39686, "test2_samples": 31036,
+      "epochs": 20, "optimizer_steps": null,
+      "best_val_accuracy": 0.7166,
+      "test_accuracy": 0.7114, "test2_accuracy": 0.6632,
+      "checkpoint": "models/phase9/cdvqa/cdvqa_best.pt",
+      "status": "existing_baseline_measured",
+      "note": "Pre-existing Phase 9 baseline (reports/benchmarks/cdvqa). Not retrained in Phase 15."
+    },
+    {
+      "experiment_id": "B_change_model_blip_generative",
+      "model": "BlipForQuestionAnswering (generative, single-image)",
+      "features": "BLIP end-to-end (generative)",
+      "base_checkpoint": "change_model/model.safetensors",
+      "dataset": "CDVQA over SECOND (bi-temporal via frozen t1 convention)",
+      "epochs": 0, "optimizer_steps": 0,
+      "best_val_accuracy": 0.60,
+      "test_accuracy": 0.5467, "test2_accuracy": 0.5033,
+      "checkpoint": "change_model/model.safetensors",
+      "status": "existing_external_measured",
+      "note": "Phase 10/14 external model. Not trained in Phase 15; used as a feature source in C/C2."
+    },
+    {
+      "experiment_id": "C_blip_features_only",
+      "hypothesis": "BLIP (change_model) vision features alone can match/beat CLIP-rsicd for CDVQA.",
+      "model": "CDVQAModel (GRU + fusion head)",
+      "features": "change_model BLIP vision (768)",
+      "base_checkpoint": "change_model/ (BLIP vision features, frozen)",
+      "train_samples": 65967, "validation_samples": 16441,
+      "test_samples": 39686, "test2_samples": 31036,
+      "epochs": 15, "optimizer_steps": 3870,
+      "best_val_accuracy": 0.6881,
+      "test_accuracy": 0.6832, "test2_accuracy": 0.6346,
+      "checkpoint": "models/phase15/cdvqa_blip/cdvqa_transfer_best.pt",
+      "status": "trained",
+      "decision": "REJECTED - BLIP features alone are weaker than CLIP-rsicd (0.6832 < 0.7114). Ablation."
+    },
+    {
+      "experiment_id": "C2_clip_blip_concat",
+      "hypothesis": "Adding change_model BLIP features to CLIP-rsicd features gives a complementary signal that improves CDVQA accuracy.",
+      "model": "CDVQAModel (GRU + fusion head)",
+      "features": "CLIP-rsicd (512) + change_model BLIP vision (768) = 1280",
+      "base_checkpoint": "change_model/ (BLIP vision features, frozen) + CLIP-rsicd (frozen)",
+      "train_samples": 65967, "validation_samples": 16441,
+      "test_samples": 39686, "test2_samples": 31036,
+      "epochs": 15, "optimizer_steps": 3870,
+      "params_total": 1422099, "params_trainable": 1422099,
+      "train_seconds": 99.4,
+      "best_val_accuracy": 0.7200,
+      "test_accuracy": 0.7156, "test2_accuracy": 0.6668,
+      "checkpoint": "models/phase15/cdvqa_clip_blip/cdvqa_transfer_best.pt",
+      "sha256": "0e17b9ca42f213c3e110d8480596cb0a570c5a7e98c4085a19c0856ecd09d330",
+      "status": "trained_and_improved",
+      "decision": "PROMOTED to additional specialist (cdvqa_transfer). Val 0.7200>0.7166, Test 0.7156>0.7114, Test2 0.6668>0.6632 - improvement on all three."
+    }
+  ],
+  "improvement": {
+    "baseline": "A_cdvqa_trained_baseline",
+    "best": "C2_clip_blip_concat",
+    "val_delta_pp": 0.34,
+    "test_delta_pp": 0.42,
+    "test2_delta_pp": 0.36,
+    "direction": "all three up; no split regressed",
+    "significance_note": "Small but consistent gain (Test n=39686, ~0.23pp SE). Consistency across val/Test/Test2 supports it; not a large improvement."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "phase": 13,
+  "generated_utc": "2026-09-07",
+  "note": "Final SIH26167 compliance. Updated ONLY where Phase 13 produced new evidence (VRSBench provisioning attempt; regression re-run; security review). No PARTIAL/UNPROVEN promoted to PASS. No fabricated results.",
+  "baseline": "reports/phase12/PHASE12_SIH26167_COMPLIANCE_MATRIX.md",
+  "summary": {"PASS": 18, "PARTIAL": 3, "INCOMPATIBLE": 3, "BLOCKED": 1, "UNPROVEN": 0, "NOT_APPLICABLE": 0},
+  "requirements": [
+    {"id": 1, "requirement": "Single-image optical/multispectral analysis", "status": "PASS", "evidence": "Flow A live (re-verified Phase13)", "artifact": "reports/phase13/e2e/flow_a_single_image.json", "limitation": "uncalibrated zero-shot scores"},
+    {"id": 2, "requirement": "Single-image SAR analysis", "status": "PARTIAL", "evidence": "SAR ingest+preview+fusion (Flow C)", "artifact": "reports/phase13/e2e/flow_c_optical_sar.json", "limitation": "no SAR semantic classifier; SAR VQA is same zero-shot CLIP"},
+    {"id": 3, "requirement": "Single-image VQA", "status": "PASS", "evidence": "Flow A, vqa_adapted route", "artifact": "reports/phase13/e2e/flow_a_single_image.json", "limitation": "retrieval/concept scoring, NOT generative; not benchmarked on public VQA"},
+    {"id": 4, "requirement": "Captioning", "status": "PASS", "evidence": "captioning_adapted registered+routed; component tests", "artifact": "registry", "limitation": "retrieval-composed, NOT generative"},
+    {"id": 5, "requirement": "Grounding", "status": "PARTIAL", "evidence": "OWL-ViT wired; Playwright Flow 2 overlay evidence", "artifact": "reports/phase13_playwright.log", "limitation": "public-split IoU unmeasured; VRSBench BLOCKED"},
+    {"id": 6, "requirement": "Bi-temporal analysis", "status": "PASS", "evidence": "Flow B (co-registration+registration check)", "artifact": "reports/phase13/e2e/flow_b_temporal.json", "limitation": null},
+    {"id": 7, "requirement": "Change detection", "status": "PASS", "evidence": "Flow B deterministic CVA; learned SECOND in-domain IoU 0.4219", "artifact": "reports/benchmarks/second", "limitation": "learned cross-sensor weak; deterministic default"},
+    {"id": 8, "requirement": "Change description", "status": "PASS", "evidence": "Flow B answer (extent/location/direction)", "artifact": "reports/phase13/e2e/flow_b_temporal.json", "limitation": "no change-type classifier"},
+    {"id": 9, "requirement": "Change-based VQA", "status": "PASS", "evidence": "deterministic change_vqa (Flow B); learned cdvqa_trained Test 0.7114/Test2 0.6632", "artifact": "reports/benchmarks/cdvqa", "limitation": "learned closed-vocab, non-default"},
+    {"id": 10, "requirement": "Optical+SAR complementary analysis", "status": "PASS", "evidence": "Flow C feature-level cross-modal (corr 0.823, complementarity 0.1766)", "artifact": "reports/phase13/e2e/flow_c_optical_sar.json", "limitation": "SAR uncalibrated log-backscatter"},
+    {"id": 11, "requirement": "Agentic orchestration", "status": "PASS", "evidence": "all flow traces", "artifact": "reports/phase13/PHASE13_AGENT_TRACE_EVIDENCE.md", "limitation": null},
+    {"id": 12, "requirement": "Validation / tool selection / execution", "status": "PASS", "evidence": "validate_plan; registry allowlist; Flow E rejects pre-execution", "artifact": "reports/phase13/e2e/flow_e_failure_fallback.json", "limitation": null},
+    {"id": 13, "requirement": "Result combination", "status": "PASS", "evidence": "multi-step plans + 11-15 evidence items (Flows B/C)", "artifact": "reports/phase13/e2e/", "limitation": null},
+    {"id": 14, "requirement": "Confidence", "status": "PASS", "evidence": "High/Medium/Low/Unable with signals across flows", "artifact": "reports/phase13/e2e/SUMMARY.json", "limitation": "underlying model scores uncalibrated (surfaced honestly)"},
+    {"id": 15, "requirement": "Evidence", "status": "PASS", "evidence": "typed evidence per flow; /evidence/{token}", "artifact": "reports/phase13/e2e/", "limitation": null},
+    {"id": 16, "requirement": "Auditable trace", "status": "PASS", "evidence": "step-by-step trace, no chain-of-thought", "artifact": "reports/phase13/PHASE13_AGENT_TRACE_EVIDENCE.md", "limitation": null},
+    {"id": 17, "requirement": "VLM adaptation / fine-tuning", "status": "PASS", "evidence": "Phase 5 LoRA on BigEarthNet.txt wired; retrieval 0.0115->0.0791 (~6.9x)", "artifact": "reports/phase5", "limitation": "proves adaptation/retrieval gain, NOT VQA/caption accuracy"},
+    {"id": 18, "requirement": "Public benchmark evidence", "status": "PARTIAL", "evidence": "CDVQA, SECOND in-domain, LEVIR-CD n=2048, OSCD n=50, BigEarthNet retrieval", "artifact": "reports/phase11", "limitation": "RSVQA/VRSBench-VQA/captioning INCOMPATIBLE; VRSBench grounding BLOCKED"},
+    {"id": 19, "requirement": "Hidden-data isolation", "status": "PASS", "evidence": "only public datasets + synthetic fixtures; no ISRO/SAC data", "artifact": "data/manifests/demo_manifest.json", "limitation": null},
+    {"id": 20, "requirement": "GeoTIFF/TIFF workflow", "status": "PASS", "evidence": "all demo fixtures GeoTIFF; Flows A/B/C", "artifact": "reports/phase13/e2e/", "limitation": null},
+    {"id": 21, "requirement": "PNG/JPEG benchmark workflow", "status": "PASS", "evidence": "upload accepts PNG/JPEG; benchmarks on PNG", "artifact": "backend/app/security/files.py", "limitation": null},
+    {"id": 22, "requirement": "Failure / fallback behavior", "status": "PASS", "evidence": "Flow E: incompatible->rejected, unsupported->Unable, compat endpoint->false; no fabrication", "artifact": "reports/phase13/e2e/flow_e_failure_fallback.json", "limitation": null},
+    {"id": 23, "requirement": "Reproducibility", "status": "PASS", "evidence": "deterministic fixtures + manifests/checksums; documented commands; scripts/phase12+13", "artifact": "reports/phase13/PHASE13_MACHINE_READABLE_RESULTS.json", "limitation": "some evals need external datasets on disk (paths documented)"},
+    {"id": 24, "requirement": "Frontend demonstration", "status": "PASS", "evidence": "126/126 vitest; Playwright 6/6; live Vite server", "artifact": "reports/phase13_playwright.log", "limitation": "human NVDA verification NOT COMPLETED"}
+  ],
+  "format_level": {
+    "RSVQA": "INCOMPATIBLE",
+    "VRSBench_VQA": "INCOMPATIBLE",
+    "VRSBench_Captioning": "INCOMPATIBLE",
+    "VRSBench_Grounding": "BLOCKED"
+  }
+}

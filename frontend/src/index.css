@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cool, slightly blue neutrals for a scientific/geospatial feel. */
+    --background: 213 40% 97%;
+    --foreground: 222 47% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 12%;
+
+    /* Panel chrome: a distinct header tint that reads as instrument surface. */
+    --panel: 0 0% 100%;
+    --panel-header: 213 44% 98%;
+    --panel-foreground: 222 47% 12%;
+
+    /* Confident azure primary + cyan accent (remote-sensing / mission-control). */
+    --primary: 205 94% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 213 40% 93%;
+    --secondary-foreground: 222 40% 24%;
+
+    --muted: 213 36% 93%;
+    --muted-foreground: 215 18% 42%;
+
+    --accent: 189 94% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 58% 32%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 33 92% 40%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 214 30% 87%;
+    --input: 214 30% 85%;
+    --ring: 205 94% 40%;
+
+    /* Crisper corners: scientific, not playful. */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 44% 7%;
+    --foreground: 210 38% 96%;
+
+    --card: 221 40% 11%;
+    --card-foreground: 210 38% 96%;
+
+    --panel: 221 40% 11%;
+    --panel-header: 221 40% 13%;
+    --panel-foreground: 210 38% 96%;
+
+    --primary: 199 90% 52%;
+    --primary-foreground: 220 44% 7%;
+
+    --secondary: 217 32% 18%;
+    --secondary-foreground: 210 38% 96%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 66%;
+
+    --accent: 189 90% 48%;
+    --accent-foreground: 220 44% 7%;
+
+    --destructive: 0 63% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 52% 46%;
+    --success-foreground: 220 44% 7%;
+
+    --warning: 34 92% 56%;
+    --warning-foreground: 220 44% 7%;
+
+    --border: 217 30% 22%;
+    --input: 217 30% 24%;
+    --ring: 199 90% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1;
+  }
+
+  /* Numeric readouts (measurements, coordinates, scores) line up column-wise. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Visible focus for keyboard users (accessibility). */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /*
+   * Subtle survey-grid backdrop for the workspace shell. Purely decorative and low
+   * contrast, painted as the shell's own background so it sits BEHIND the panels and
+   * never washes out their content. (No overlay/vignette pseudo-element: it would paint
+   * on top of the columns and fade the lower content — the scrollbar is the only
+   * "more content" indicator we need.)
+   */
+  .grid-backdrop {
+    background-color: hsl(var(--background));
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center top;
+  }
+
+  /* Compact data chip used for CRS / resolution / dimensions overlays and badges. */
+  .data-chip {
+    @apply inline-flex items-center gap-1 rounded-md border bg-card/80 px-2 py-0.5 text-[11px] font-medium tabular-nums text-muted-foreground backdrop-blur;
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "key": "second",
+    "name": "SECOND (SEmantic Change detectiON Dataset)",
+    "task": "semantic / from-to change detection",
+    "source": "Additional public dataset (NOT SIH-provided). User-provided source: https://drive.usercontent.google.com/download?id=1QlAdzrHpfBIOZ6SK78yHF2i1u6tikmBc",
+    "license": "See SECOND dataset release (research use); verify before redistribution",
+    "expected_path": "data/benchmarks/second",
+    "compatibility_note": "ADDITIONAL PUBLIC dataset for external validation/training of change detection \u2014 explicitly NOT an SIH26167-prescribed dataset. Provides semantic change masks (from-to land-cover). The current deterministic detector produces BINARY radiometric change only; using SECOND for binary change requires collapsing semantic labels to changed/unchanged (a documented, lossy conversion). A learned semantic detector would be a new component; the Phase 6 detector is not removed.",
+    "approx_size": "~GB (SECOND_train_set.rar)"
+  },
+  "provisioned": false,
+  "status": "NOT RUN \u2014 dataset not provisioned",
+  "reason": "SECOND (SEmantic Change detectiON Dataset) is not present at D:\\SatQuery-AI\\data\\benchmarks\\second. It is not downloaded automatically (licence-aware, multi-GB). Provision it, then re-run.",
+  "reproducible_command": "python scripts/eval_external.py --dataset second",
+  "environment": {
+    "benchmark": "external:second",
+    "dataset": "SECOND (SEmantic Change detectiON Dataset)",
+    "split": "n/a (not provisioned)",
+    "samples": 0,
+    "seed": 42,
+    "timestamp_utc": "2026-09-06T09:01:19.104876+00:00",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "device": {
+      "device": "cuda",
+      "torch_cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 2050",
+      "gpu_vram_bytes": 4294443008
+    },
+    "git_commit": "HEAD / uncommitted",
+    "models": {},
+    "extra": {}
+  }
+}

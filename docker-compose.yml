@@ -1,0 +1,76 @@
+# SatQuery AI - full stack for a clean-machine run.
+#   docker compose up --build
+#   Frontend: http://localhost:8080   API docs: http://localhost:8000/docs
+#
+# Copy .env.example to .env and set POSTGRES_PASSWORD before running in any shared
+# environment. Defaults below exist only for local convenience.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-satquery}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-satquery}
+      POSTGRES_DB: ${POSTGRES_DB:-satquery}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-satquery} -d ${POSTGRES_DB:-satquery}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+      LOG_FORMAT: json
+      DEVICE: cpu
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-satquery}:${POSTGRES_PASSWORD:-satquery}@postgres:5432/${POSTGRES_DB:-satquery}
+      CORS_ORIGINS: http://localhost:8080
+      # Absolute paths: the container layout differs from the repo layout, so these
+      # are set explicitly rather than relying on repo-root resolution.
+      STORAGE_DIR: /app/storage
+      MODELS_DIR: /app/models
+      DATA_DIR: /app/data
+      # Model weights are cached on a volume so they are downloaded once, not per
+      # container start. Weights are NOT baked into the image (~1.2 GB).
+      HF_HOME: /app/models/hf-cache
+      # Phase 5 LoRA adapter. Absolute because the ml package is installed into
+      # site-packages here, so repo-relative resolution does not apply. The adapter is
+      # not baked into the image; copy it into the `models` volume to serve the adapted
+      # variant. Without it the backend serves the baseline and records the fallback in
+      # the execution trace (it never pretends to be adapted).
+      PHASE5_ADAPTER_DIR: /app/models/phase5/adapter
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - storage:/app/storage
+      - models:/app/models
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+      args:
+        VITE_API_BASE_URL: /api/v1
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+
+volumes:
+  pgdata:
+  storage:
+  models:

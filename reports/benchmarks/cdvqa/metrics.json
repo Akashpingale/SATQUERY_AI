@@ -1,0 +1,163 @@
+{
+  "benchmark": "CDVQA (real held-out)",
+  "sih_status": "SIH26167 multitemporal change-VQA benchmark",
+  "samples": {
+    "Train": 65967,
+    "Val": 16441,
+    "Test": 39686,
+    "Test2": 31036
+  },
+  "best_val_accuracy": 0.7166,
+  "test_accuracy": 0.7114,
+  "test2_accuracy": 0.6632,
+  "test_accuracy_by_type": {
+    "change_or_not": 0.8376,
+    "change_ratio": 0.3941,
+    "change_ratio_types": 0.7176,
+    "change_to_what": 0.5834,
+    "decrease_or_not": 0.7922,
+    "increase_or_not": 0.7813,
+    "largest_change": 0.5847,
+    "smallest_change": 0.3247
+  },
+  "test2_accuracy_by_type": {
+    "change_or_not": 0.8353,
+    "change_ratio": 0.3967,
+    "change_ratio_types": 0.7192,
+    "change_to_what": 0.5827,
+    "decrease_or_not": 0.8062,
+    "increase_or_not": 0.774,
+    "largest_change": 0.5833,
+    "smallest_change": 0.3209
+  },
+  "baseline_majority_per_type": {
+    "test": 0.5084,
+    "test2": 0.456
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0828,
+      "val_acc": 0.6713
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.7609,
+      "val_acc": 0.682
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7382,
+      "val_acc": 0.6881
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7212,
+      "val_acc": 0.6855
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.7035,
+      "val_acc": 0.7006
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.688,
+      "val_acc": 0.7037
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.673,
+      "val_acc": 0.7009
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.6607,
+      "val_acc": 0.7066
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.6479,
+      "val_acc": 0.7122
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.6343,
+      "val_acc": 0.7043
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.623,
+      "val_acc": 0.7144
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.6094,
+      "val_acc": 0.7096
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.5981,
+      "val_acc": 0.7135
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.5865,
+      "val_acc": 0.713
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.5737,
+      "val_acc": 0.7166
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.562,
+      "val_acc": 0.7098
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.5508,
+      "val_acc": 0.7108
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.5415,
+      "val_acc": 0.7162
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.5296,
+      "val_acc": 0.7141
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.5187,
+      "val_acc": 0.7154
+    }
+  ],
+  "config": {
+    "seed": 42,
+    "epochs": 20,
+    "batch_size": 256,
+    "lr": 0.001,
+    "max_len": 20,
+    "device": "cuda",
+    "image_encoder": "flax-community/clip-rsicd-v2 (frozen)",
+    "feature_dim": 512,
+    "params_total": 832275,
+    "params_trainable": 832275,
+    "train_seconds": 128.2,
+    "answer_classes": 19,
+    "word_vocab": 48,
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "leakage": {
+      "Train_vs_Val": 0,
+      "Train_vs_Test": 0,
+      "Val_vs_Test": 0,
+      "Train_vs_Test2": 0
+    },
+    "gpu": "NVIDIA GeForce RTX 2050"
+  }
+}

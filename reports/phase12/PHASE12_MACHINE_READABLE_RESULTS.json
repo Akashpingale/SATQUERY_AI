@@ -1,0 +1,146 @@
+{
+  "phase": 12,
+  "title": "Final system validation + SIH26167 compliance audit",
+  "generated_utc": "2026-09-06",
+  "integrity_note": "Validation-only. No retraining, no model integration, no checkpoint overwrite, no hidden ISRO/SAC data, no test-set tuning, no fabricated results. Production defaults unchanged.",
+  "status": "COMPLETE",
+  "environment": {
+    "os": "Windows",
+    "device": "cpu",
+    "backend": "http://localhost:8000 (FastAPI/uvicorn, SQLite dev DB, healthy)",
+    "frontend": "http://localhost:5173 (Vite dev server)",
+    "offline_models": "HF_HUB_OFFLINE=1, TRANSFORMERS_OFFLINE=1, HF_HOME=models/hf-cache"
+  },
+  "end_to_end_flows": {
+    "A_single_image_vqa": {
+      "status": "completed",
+      "task": "vqa",
+      "route": "vqa_adapted (clip-rsicd-v2+lora-ben-txt)",
+      "confidence": {"level": "Medium", "score": 0.47},
+      "evidence_items": 4,
+      "notes": "Adapted model selected (adapter present); uncalibrated zero-shot scores surfaced honestly.",
+      "artifact": "reports/phase12/e2e/flow_a_single_image.json"
+    },
+    "B_temporal_change": {
+      "status": "completed",
+      "task": "change_vqa",
+      "route": "registration_validator -> change_vqa (cva-robust-1.1.0, deterministic)",
+      "confidence": {"level": "High", "score": 0.867},
+      "changed_fraction": 0.0857,
+      "evidence_items": 11,
+      "notes": "Deterministic default; detected change matches injected synthetic block; learned models NOT selected.",
+      "artifact": "reports/phase12/e2e/flow_b_temporal.json"
+    },
+    "C_optical_sar_fusion": {
+      "status": "completed",
+      "task": "optical_sar_fusion",
+      "route": "registration_validator -> optical_sar_fusion (xmodal-1.0.0)",
+      "confidence": {"level": "High", "score": 0.952},
+      "cross_modal": {"correlation": 0.823, "complementarity": 0.1766},
+      "evidence_items": 15,
+      "notes": "Genuine feature-level cross-modal analysis; SAR treated as uncalibrated log-backscatter.",
+      "artifact": "reports/phase12/e2e/flow_c_optical_sar.json"
+    },
+    "D_learned_temporal_nondefault": {
+      "status": "validated_direct_invocation",
+      "routing_guard": {"learned_tools_on_default_toolchain": [], "deterministic_remains_default": true},
+      "second_change_learned": {
+        "checkpoint_loaded": true,
+        "pairs": ["00003.png", "00011.png", "00013.png"],
+        "changed_fraction": [0.49606, 0.47998, 0.33997],
+        "output_valid": true
+      },
+      "cdvqa_trained": {
+        "checkpoint_loaded": true,
+        "question": "Did new buildings appear?",
+        "answers": ["yes", "yes", "yes"],
+        "softmax_confidence": [0.5688, 0.7768, 0.8708],
+        "vocabulary": "closed 19-answer"
+      },
+      "notes": "Non-default; agent never auto-selects. Learned specialists read RGB via PIL, cannot open multi-band uint16 GeoTIFF; deterministic route serves GeoTIFF. Checkpoints read-only.",
+      "artifact": "reports/phase12/e2e/flow_d_learned.json"
+    },
+    "E_failure_fallback": {
+      "incompatible_pair": {"status": "rejected", "issue": "incompatible_inputs / no geographic overlap", "fabricated_answer": false},
+      "unsupported_query": {"status": "rejected", "task": "unsupported", "confidence_level": "Unable to determine", "answer": null},
+      "compatibility_endpoint": {"compatible": false, "overlap_ratio": 0.0, "issue": "no_overlap"},
+      "artifact": "reports/phase12/e2e/flow_e_failure_fallback.json"
+    }
+  },
+  "regression": {
+    "backend_pytest": {"passed": 447, "failed": 0, "baseline": 447, "log": "reports/phase12/pytest_run.log"},
+    "ruff": {"result": "clean"},
+    "frontend_vitest": {"passed": 126, "total": 126, "files": 15, "baseline_note": "Prior handoff cited 119; current committed baseline is 126 (+7 = ImageViewer preview regression tests from the Phase 9 SAR-preview fix and related visualization polish). No tests removed.", "log": "reports/phase12/fe_test.log"},
+    "frontend_typecheck": {"result": "clean"},
+    "frontend_eslint": {"result": "clean", "max_warnings": 0},
+    "frontend_build": {"result": "clean", "js_kb": 311.62, "gzip_kb": 93.28, "built_in_s": 5.44, "log": "reports/phase12/fe_build.log"},
+    "docker_compose_config": {"result": "valid", "services": ["postgres", "backend", "frontend"]},
+    "playwright": {"passed": 6, "total": 6, "duration_s": 44.4, "workers": 1, "log": "reports/phase12/playwright_run.log"}
+  },
+  "benchmarks_cited_unchanged": {
+    "cdvqa_trained": {"test": 0.7114, "test2": 0.6632, "majority_baseline": [0.5084, 0.4560], "source": "reports/benchmarks/cdvqa"},
+    "second_change_learned_in_domain": {"iou": 0.4219, "f1": 0.5934, "source": "reports/benchmarks/second"},
+    "levir_cd_cross_dataset": {"n": 2048, "learned_iou": 0.0773, "learned_f1": 0.1435, "otsu_iou": 0.0466, "source": "reports/phase11/levir_cd_results.json"},
+    "oscd_cross_dataset": {"n": 50, "learned_iou": 0.1053, "learned_f1": 0.1905, "otsu_iou": 0.1453, "otsu_f1": 0.2538, "deterministic_beats_learned": true, "source": "reports/phase11/oscd_results.json"},
+    "bigearthnet_adaptation_retrieval": {"before": 0.0115, "after": 0.0791, "factor": "~6.9x", "source": "reports/phase5"},
+    "change_model_external": {"cdvqa_test_n600": 0.5467, "decision": "VERIFIED_BUT_NOT_INTEGRATED", "source": "reports/change_model"}
+  },
+  "compliance_summary": {
+    "PASS": 18,
+    "PARTIAL": 3,
+    "INCOMPATIBLE": ["RSVQA", "VRSBench_VQA", "VRSBench_Captioning"],
+    "BLOCKED": ["VRSBench_Grounding_IoU"],
+    "UNPROVEN": [],
+    "detail": "reports/phase12/PHASE12_SIH26167_COMPLIANCE_MATRIX.md"
+  },
+  "vrsbench_grounding": {
+    "status": "BLOCKED",
+    "annotations_present": true,
+    "annotation_file": "D:/dataset/vrsbench/referring.json",
+    "referring_expressions": 16159,
+    "distinct_images": 9318,
+    "missing_asset": "VRSBench Images_val.zip (~3.98 GB)",
+    "disk_free_gb": 241.2,
+    "blocker": "validation images not provisioned",
+    "detail": "reports/phase12/PHASE12_VRSBENCH_GROUNDING_BLOCKER.md"
+  },
+  "accessibility": {
+    "automated_axe": {"states": 13, "violations": 0, "status": "DONE"},
+    "keyboard_code_level": "DONE",
+    "color_contrast": "manual (jsdom cannot compute)",
+    "human_nvda_verification": "PENDING",
+    "detail": "docs/accessibility.md"
+  },
+  "bedrock": {
+    "required": false,
+    "found_in_code": false,
+    "note": "No bedrock/boto3/InvokeModel usage anywhere in code; only a passing mention in the master plan as an optional credential. Entire demonstrated workflow runs locally (CLIP/OWL-ViT/algorithmic/learned checkpoints) on CPU offline."
+  },
+  "docker": {
+    "compose_config": "valid",
+    "services": ["postgres", "backend", "frontend"],
+    "build_up_attempted": false,
+    "build_up_note": "Full image build not run in this environment (large ML image; time/bandwidth). Recommended as a clean-machine smoke test (P2-6)."
+  },
+  "gap_analysis": {"P0": [], "P1": ["VRSBench grounding IoU", "NVDA pass", "auth before public deploy"], "P2": ["constrained/generative VQA head", "generative captioning", "learned cross-sensor generalization", "learned-route GeoTIFF support", "SAR semantic analysis", "docker build/up smoke"], "detail": "reports/phase12/PHASE12_GAP_ANALYSIS.md"},
+  "production_safety": {
+    "models_retrained": 0,
+    "checkpoints_overwritten": 0,
+    "defaults_changed": 0,
+    "change_model_integrated": false,
+    "deterministic_change_default": true,
+    "learned_models_non_default": true
+  },
+  "deliverables": [
+    "reports/phase12/PHASE12_FINAL_SYSTEM_VALIDATION.md",
+    "reports/phase12/PHASE12_SIH26167_COMPLIANCE_MATRIX.md",
+    "reports/phase12/PHASE12_MODEL_CAPABILITY_MATRIX.md",
+    "reports/phase12/PHASE12_GAP_ANALYSIS.md",
+    "reports/phase12/PHASE12_MACHINE_READABLE_RESULTS.json",
+    "reports/phase12/PHASE12_END_TO_END_TRACE_EVIDENCE.md",
+    "reports/phase12/PHASE12_VRSBENCH_GROUNDING_BLOCKER.md",
+    "reports/phase12/e2e/ (raw API dumps + SUMMARY.json)",
+    "scripts/phase12/e2e_validate.py",
+    "scripts/phase12/flow_d_learned.py"
+  ]
+}

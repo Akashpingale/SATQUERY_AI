@@ -1,0 +1,122 @@
+{
+  "benchmark": "confidence_calibration_synthetic",
+  "kind": "engineering-validation calibration (synthetic; small N; thresholds unchanged)",
+  "answered": 12,
+  "calibration": {
+    "samples": 12,
+    "bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.2,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.4,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.6,
+        "count": 2,
+        "mean_confidence": 0.579,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.8,
+        "count": 4,
+        "mean_confidence": 0.6425,
+        "accuracy": 1.0
+      },
+      {
+        "lower": 0.8,
+        "upper": 1.0,
+        "count": 6,
+        "mean_confidence": 0.805,
+        "accuracy": 1.0
+      }
+    ],
+    "ece": 0.2868,
+    "mce": 0.421,
+    "brier": 0.0912,
+    "overall_confidence": 0.7132,
+    "overall_accuracy": 1.0,
+    "note": "Synthetic change-occurrence set; production end-to-end confidence. Small N."
+  },
+  "selective_accuracy": [
+    {
+      "threshold": 0.0,
+      "coverage": 1.0,
+      "selective_accuracy": 1.0,
+      "answered": 12
+    },
+    {
+      "threshold": 0.1,
+      "coverage": 1.0,
+      "selective_accuracy": 1.0,
+      "answered": 12
+    },
+    {
+      "threshold": 0.2,
+      "coverage": 1.0,
+      "selective_accuracy": 1.0,
+      "answered": 12
+    },
+    {
+      "threshold": 0.3,
+      "coverage": 1.0,
+      "selective_accuracy": 1.0,
+      "answered": 12
+    },
+    {
+      "threshold": 0.4,
+      "coverage": 1.0,
+      "selective_accuracy": 1.0,
+      "answered": 12
+    },
+    {
+      "threshold": 0.5,
+      "coverage": 1.0,
+      "selective_accuracy": 1.0,
+      "answered": 12
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.8333,
+      "selective_accuracy": 1.0,
+      "answered": 10
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.5,
+      "selective_accuracy": 1.0,
+      "answered": 6
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.5,
+      "selective_accuracy": 1.0,
+      "answered": 6
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.0,
+      "selective_accuracy": 0.0,
+      "answered": 0
+    }
+  ],
+  "abstention": {
+    "answered_correct": 12,
+    "answered_incorrect": 0,
+    "abstained_would_be_correct": 0,
+    "abstained_would_be_incorrect": 0,
+    "coverage": 1.0,
+    "selective_accuracy": 1.0,
+    "abstention_precision": 0.0
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "key": "rsvqa",
+    "name": "RSVQA (Low/High Resolution)",
+    "task": "remote-sensing visual question answering",
+    "source": "https://rsvqa.sylvainlobry.com/ (Zenodo)",
+    "license": "See RSVQA release (research use)",
+    "expected_path": "data/benchmarks/rsvqa",
+    "compatibility_note": "Answer format is yes/no, counts, and area/comparison classes. The current VQA specialist is zero-shot CLIP concept-scoring over a fixed vocabulary and cannot emit these answer types, so a direct accuracy would be near-zero and misrepresentative. A constrained/generative VQA head is required for a valid run.",
+    "approx_size": "RSVQA-LR ~ hundreds of MB; RSVQA-HR larger"
+  },
+  "provisioned": false,
+  "status": "NOT RUN \u2014 dataset not provisioned",
+  "reason": "RSVQA (Low/High Resolution) is not present at D:\\SatQuery-AI\\data\\benchmarks\\rsvqa. It is not downloaded automatically (licence-aware, multi-GB). Provision it, then re-run.",
+  "reproducible_command": "python scripts/eval_external.py --dataset rsvqa",
+  "environment": {
+    "benchmark": "external:rsvqa",
+    "dataset": "RSVQA (Low/High Resolution)",
+    "split": "n/a (not provisioned)",
+    "samples": 0,
+    "seed": 42,
+    "timestamp_utc": "2026-09-06T09:01:18.955776+00:00",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "device": {
+      "device": "cuda",
+      "torch_cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 2050",
+      "gpu_vram_bytes": 4294443008
+    },
+    "git_commit": "HEAD / uncommitted",
+    "models": {},
+    "extra": {}
+  }
+}

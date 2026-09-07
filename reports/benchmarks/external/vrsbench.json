@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "key": "vrsbench",
+    "name": "VRSBench",
+    "task": "captioning + grounding + VQA",
+    "source": "https://vrsbench.github.io/ (Hugging Face)",
+    "license": "See VRSBench release",
+    "expected_path": "data/benchmarks/vrsbench",
+    "compatibility_note": "Grounding (box IoU) is compatible with the OWL-ViT zero-shot grounding specialist if annotations are provisioned. Captioning expects generated natural-language captions; the current captioner is retrieval-composed and cannot produce valid generative-caption predictions. VQA has the same answer-format limitation as RSVQA.",
+    "approx_size": "~GBs"
+  },
+  "provisioned": false,
+  "status": "NOT RUN \u2014 dataset not provisioned",
+  "reason": "VRSBench is not present at D:\\SatQuery-AI\\data\\benchmarks\\vrsbench. It is not downloaded automatically (licence-aware, multi-GB). Provision it, then re-run.",
+  "reproducible_command": "python scripts/eval_external.py --dataset vrsbench",
+  "environment": {
+    "benchmark": "external:vrsbench",
+    "dataset": "VRSBench",
+    "split": "n/a (not provisioned)",
+    "samples": 0,
+    "seed": 42,
+    "timestamp_utc": "2026-09-06T09:01:19.245400+00:00",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "device": {
+      "device": "cuda",
+      "torch_cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 2050",
+      "gpu_vram_bytes": 4294443008
+    },
+    "git_commit": "HEAD / uncommitted",
+    "models": {},
+    "extra": {}
+  }
+}

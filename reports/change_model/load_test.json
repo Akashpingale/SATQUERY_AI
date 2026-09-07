@@ -1,0 +1,70 @@
+{
+  "model_dir": "D:\\SatQuery-AI\\change_model",
+  "load_cpu_seconds": 0.99,
+  "parameters": 361230140,
+  "dtype": "torch.float32",
+  "rss_after_load_mb": 566.6,
+  "move_to_gpu_seconds": 4.04,
+  "vram_allocated_mb": 1447.5,
+  "device": "cuda",
+  "inference": [
+    {
+      "image": "SECOND/im1/00020.png",
+      "question": "What is in this image?",
+      "answer": "trees",
+      "latency_seconds": 1.992,
+      "valid_output": true
+    },
+    {
+      "image": "SECOND/im1/00020.png",
+      "question": "Is there water in this image?",
+      "answer": "no",
+      "latency_seconds": 0.244,
+      "valid_output": true
+    },
+    {
+      "image": "SECOND/im1/00020.png",
+      "question": "Are there buildings in this image?",
+      "answer": "yes",
+      "latency_seconds": 0.234,
+      "valid_output": true
+    },
+    {
+      "image": "SECOND/im1/00020.png",
+      "question": "How many roads are visible?",
+      "answer": "0 _ to _ 10",
+      "latency_seconds": 0.508,
+      "valid_output": true
+    },
+    {
+      "image": "data/demo/demo_optical.tif",
+      "question": "What is in this image?",
+      "answer": "trees",
+      "latency_seconds": 0.251,
+      "valid_output": true
+    },
+    {
+      "image": "data/demo/demo_optical.tif",
+      "question": "Is there water in this image?",
+      "answer": "no",
+      "latency_seconds": 0.213,
+      "valid_output": true
+    },
+    {
+      "image": "data/demo/demo_optical.tif",
+      "question": "Are there buildings in this image?",
+      "answer": "yes",
+      "latency_seconds": 0.225,
+      "valid_output": true
+    },
+    {
+      "image": "data/demo/demo_optical.tif",
+      "question": "How many roads are visible?",
+      "answer": "0 _ to _ 10",
+      "latency_seconds": 0.501,
+      "valid_output": true
+    }
+  ],
+  "mean_latency_seconds": 0.521,
+  "peak_vram_mb": 1508.5
+}

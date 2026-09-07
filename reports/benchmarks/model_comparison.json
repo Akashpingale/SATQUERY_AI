@@ -1,0 +1,53 @@
+{
+  "generated_note": "Real, executed evaluations only. Metric families are kept strictly separate: retrieval recall is NOT VQA/caption/grounding accuracy.",
+  "baseline_vs_adapted_retrieval": {
+    "task": "image-text retrieval (BigEarthNet.txt, Lithuania/Summer held-out test)",
+    "sih_status": "SIH-prescribed adaptation dataset (BigEarthNet.txt)",
+    "split": "test",
+    "samples": 2053,
+    "metric": "mean recall (mean of i2t/t2i R@1/5/10)",
+    "baseline": {
+      "model": "flax-community/clip-rsicd-v2",
+      "mean_recall": 0.011528,
+      "i2t_recall_at_1": 0.005358,
+      "t2i_recall_at_1": 0.001461
+    },
+    "adapted": {
+      "model": "clip-rsicd-v2 + LoRA (BigEarthNet.txt, r16a32)",
+      "mean_recall": 0.079071,
+      "i2t_recall_at_1": 0.034584,
+      "t2i_recall_at_1": 0.018509
+    },
+    "improvement": {
+      "mean_recall_absolute": 0.067543,
+      "mean_recall_relative_x": 6.86
+    },
+    "source": "reports/phase5/evaluation_metrics.json (executed in Phase 5; reproduce with scripts/evaluate_phase5.py)",
+    "caveat": "Retrieval metric only. This is NOT VQA, captioning, or grounding accuracy and must never be reported as such."
+  },
+  "synthetic_engineering_validation": {
+    "note": "Executed offline through the production specialists; synthetic fixtures, NOT real-world benchmarks.",
+    "change_detection_synthetic": {
+      "micro_iou": 1.0, "f1": 1.0, "occurrence_accuracy": 1.0, "scenarios": 4,
+      "source": "reports/benchmarks/change_detection/metrics.json"
+    },
+    "change_vqa_synthetic": {
+      "accuracy": 1.0, "samples": 12, "wilson_ci": [0.7575, 1.0],
+      "source": "reports/benchmarks/change_vqa/metrics.json"
+    },
+    "cross_modal_synthetic": {
+      "checks_passed": 2, "checks_total": 4,
+      "source": "reports/benchmarks/cross_modal/metrics.json"
+    },
+    "confidence_calibration_synthetic": {
+      "samples": 12, "ece": 0.2868, "brier": 0.0912, "overall_accuracy": 1.0, "overall_confidence": 0.7132,
+      "finding": "mildly under-confident on this easy fixture; thresholds NOT re-tuned",
+      "source": "reports/benchmarks/calibration/metrics.json"
+    }
+  },
+  "external_benchmarks": {
+    "status": "NOT RUN — datasets not provisioned in this environment",
+    "datasets": ["rsvqa", "vrsbench", "cdvqa", "second", "levir_cd", "oscd"],
+    "detail": "See reports/benchmarks/external/*.json and docs/benchmarking.md for reasons, compatibility caveats, and reproducible commands."
+  }
+}

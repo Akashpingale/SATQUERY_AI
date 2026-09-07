@@ -1,0 +1,42 @@
+{
+  "phase": 15,
+  "experiment": "cdvqa_clip_blip (promoted) + cdvqa_blip (ablation)",
+  "seed": 42,
+  "dataset": "CDVQA (datasets/cdvqa/CDVQA-main) over SECOND imagery (D:/dataset/second)",
+  "splits": {"train": 65967, "val": 16441, "test": 39686, "test2": 31036, "unique_images": 2968},
+  "leakage_check": {"Train_vs_Val": 0, "Train_vs_Test": 0, "Val_vs_Test": 0, "Train_vs_Test2": 0},
+  "answer_classes": 19,
+  "word_vocab": 48,
+  "model": "CDVQAModel (embedding + GRU question encoder + image_proj + classifier)",
+  "image_features": {
+    "clip_blip": "CLIP-rsicd (512, frozen) concatenated with change_model BLIP vision pooler (768, frozen) = 1280",
+    "blip": "change_model BLIP vision pooler (768, frozen)",
+    "representation_input": "[T1, T2, T2-T1] per feature source"
+  },
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "scheduler": "none",
+  "epochs": 15,
+  "batch_size": 256,
+  "gradient_accumulation": 1,
+  "weight_decay": 0.0,
+  "dropout": 0.3,
+  "image_resolution": {"clip": 224, "blip": 384},
+  "max_question_length": 20,
+  "precision": "fp32",
+  "device": "cuda (NVIDIA GeForce RTX 2050, 4GB)",
+  "optimizer_steps_per_experiment": 3870,
+  "params_total_clip_blip": 1422099,
+  "params_trainable_clip_blip": 1422099,
+  "train_seconds_clip_blip": 99.4,
+  "blip_feature_extraction_seconds": 877,
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "checkpoints": {
+    "clip_blip": "models/phase15/cdvqa_clip_blip/cdvqa_transfer_best.pt",
+    "clip_blip_sha256": "0e17b9ca42f213c3e110d8480596cb0a570c5a7e98c4085a19c0856ecd09d330",
+    "blip": "models/phase15/cdvqa_blip/cdvqa_transfer_best.pt"
+  },
+  "reproduce": "python scripts/phase15/train_cdvqa_transfer.py --features clip_blip --epochs 15 --seed 42",
+  "protocol": "Train fits; Val selects checkpoint; Test/Test2 evaluated once; no test-set tuning; change_model weights read-only (unchanged)."
+}

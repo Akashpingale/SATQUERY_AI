@@ -1,0 +1,42 @@
+{
+  "phase": 15,
+  "model": "cdvqa_transfer (clip_blip)",
+  "source": "reports/phase15/errors_clip_blip.jsonl (frozen Test + Test2 misclassifications)",
+  "test_by_type_correct_of_total": {
+    "change_or_not": "11665/13882 (0.8403)",
+    "change_ratio": "777/1936 (0.4013)",
+    "change_ratio_types": "4201/5811 (0.7229)",
+    "change_to_what": "1802/2991 (0.6025)",
+    "decrease_or_not": "3695/4658 (0.7933)",
+    "increase_or_not": "3599/4600 (0.7824)",
+    "largest_change": "1676/2904 (0.5771)",
+    "smallest_change": "984/2904 (0.3388)"
+  },
+  "weakest_categories": [
+    {"type": "smallest_change", "test_acc": 0.3388, "failure_class": "ratio/counting failure",
+     "reason": "Identifying the smallest-magnitude change class requires fine quantitative ranking that a frozen-feature classifier cannot recover; near chance among small ratio buckets."},
+    {"type": "change_ratio", "test_acc": 0.4013, "failure_class": "ratio failure",
+     "reason": "Estimating a numeric change-ratio bucket needs quantitative area reasoning not present in pooled image features."},
+    {"type": "largest_change", "test_acc": 0.5771, "failure_class": "spatial-extent comparison failure",
+     "reason": "Comparing which land-cover class changed most requires spatial/area reasoning; slight regression (-0.76 pp) vs baseline."}
+  ],
+  "strong_categories": [
+    {"type": "change_or_not", "test_acc": 0.8403, "note": "binary occurrence is well captured"},
+    {"type": "decrease_or_not", "test_acc": 0.7933},
+    {"type": "increase_or_not", "test_acc": 0.7824},
+    {"type": "change_ratio_types", "test_acc": 0.7229}
+  ],
+  "where_change_model_helped_most": [
+    "change_to_what (+1.91 pp): naming the post-change land-cover class benefits from BLIP's CDVQA-tuned visual features.",
+    "smallest_change (+1.41 pp) and change_ratio (+0.72 pp): small but real gains on the hardest ratio types."
+  ],
+  "cross_cutting_reasons": [
+    "Fine quantitative reasoning (ratios, smallest/largest magnitude) is the dominant failure mode - shared with the baseline; a pooled-feature classifier lacks the spatial arithmetic needed.",
+    "Domain: trained/evaluated on SECOND 0.1524 m aerial RGB; other sensors/resolutions unproven.",
+    "Closed 19-answer vocabulary bounds achievable coverage."
+  ],
+  "next_experiment_implications": [
+    "Ratio/counting categories would need spatially-aware features (patch/region tokens) or an auxiliary area estimator, not just pooled embeddings.",
+    "A per-question-type router could send binary/semantic questions to cdvqa_transfer and keep deterministic measurement for extent/ratio - a future accuracy-aware improvement."
+  ]
+}

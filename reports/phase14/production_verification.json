@@ -1,0 +1,68 @@
+{
+  "phase": 14,
+  "artifact": "production_verification",
+  "generated_utc": "2026-09-07",
+  "verdict": "VERIFIED_AND_INTEGRATED_AS_ADDITIONAL_SPECIALIST",
+  "model_id": "change_vqa_blip",
+  "checkpoint": "change_model/model.safetensors",
+  "architecture": "BlipForQuestionAnswering (single-image, 384px, generative)",
+  "checkpoint_sha256_before": "E1DD3D496B0472D9D3F9D051810BE066F440BDD4178B35D990128B6590469F2F",
+  "checkpoint_sha256_after": "E1DD3D496B0472D9D3F9D051810BE066F440BDD4178B35D990128B6590469F2F",
+  "checkpoint_unchanged": true,
+  "e2e_proof": {
+    "via": "live API /api/v1/analysis (CHANGE_VQA_MODEL=blip)",
+    "query": "Did the scene change between the two dates?",
+    "task": "change_vqa",
+    "plan_tools": ["registration_validator", "change_vqa_blip"],
+    "selection_note": "selected the external trained BLIP Change-VQA model (CHANGE_VQA_MODEL=blip).",
+    "execution_trace_step": "Execution (change_vqa_blip)",
+    "generated_answer_token": "yes",
+    "generation_confidence": 0.83,
+    "status": "completed",
+    "confidence_level": "Medium",
+    "checks": {
+      "routed_to_change_vqa_blip": true,
+      "executed_change_vqa_blip_in_trace": true,
+      "status_completed": true,
+      "answer_present": true
+    },
+    "artifact": "reports/phase14/e2e/change_model_e2e.json"
+  },
+  "benchmark": {
+    "change_vqa_blip": {"cdvqa_test": 0.5467, "cdvqa_test2": 0.5033, "n": 600},
+    "cdvqa_trained": {"cdvqa_test": 0.7114, "cdvqa_test2": 0.6632},
+    "majority_baseline": {"cdvqa_test": 0.5084, "cdvqa_test2": 0.4560},
+    "conclusion": "cdvqa_trained > change_vqa_blip; BLIP added as additional generative option, NOT default, NOT an accuracy improvement.",
+    "retrained": false,
+    "test_tuned": false
+  },
+  "preservation": {
+    "task_toolchain_change_vqa": ["registration_validator", "change_vqa"],
+    "default_change_vqa_model": "deterministic",
+    "deterministic_default_preserved": true,
+    "existing_models_deleted_or_replaced": 0,
+    "weights_modified": false,
+    "retrained": false
+  },
+  "regression": {
+    "backend_pytest": {"passed": 455, "failed": 0, "baseline": 447, "added": 8},
+    "ruff": "clean",
+    "frontend_vitest": {"passed": 126, "total": 126},
+    "frontend_typecheck": "clean",
+    "frontend_eslint": "clean",
+    "frontend_build": "clean",
+    "docker_compose_config": "valid"
+  },
+  "integration_files": [
+    "ml/inference/change_model_infer.py",
+    "backend/app/agent/specialists/change_vqa_blip.py",
+    "backend/app/agent/specialists/__init__.py",
+    "backend/app/registry/models.py",
+    "backend/app/agent/planner.py",
+    "backend/app/agent/orchestrator.py",
+    "backend/app/core/config.py",
+    "backend/tests/test_change_vqa_blip.py",
+    "scripts/phase14/e2e_change_model.py",
+    "scripts/phase14_blip_smoke.py"
+  ]
+}

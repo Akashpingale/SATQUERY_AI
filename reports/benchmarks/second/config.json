@@ -1,0 +1,21 @@
+{
+  "seed": 42,
+  "epochs": 12,
+  "batch_size": 8,
+  "size": 256,
+  "lr": 0.001,
+  "device": "cuda",
+  "params": 1929281,
+  "train_seconds": 1638.6,
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 2050",
+  "split_seed": 42,
+  "splits": {
+    "train": 2077,
+    "val": 445,
+    "test": 446
+  },
+  "task": "binary change (derived from SECOND semantic labels: changed = not no-change)",
+  "train_pairs_used": 2077
+}

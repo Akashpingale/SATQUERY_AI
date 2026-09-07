@@ -1,0 +1,28 @@
+{
+  "base_model": "flax-community/clip-rsicd-v2",
+  "output_dir": "D:\\SatQuery-AI\\models\\phase5\\adapter",
+  "rank": 16,
+  "alpha": 32,
+  "dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "out_proj"
+  ],
+  "epochs": 6,
+  "batch_size": 32,
+  "gradient_accumulation_steps": 1,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "max_grad_norm": 1.0,
+  "precision": "fp16",
+  "seed": 42,
+  "num_workers": 0,
+  "image_size": 224,
+  "max_text_tokens": 77,
+  "max_train_samples": null,
+  "max_eval_samples": null,
+  "log_every": 10
+}

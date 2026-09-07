@@ -1,0 +1,24 @@
+{
+  "seed": 42,
+  "epochs": 20,
+  "batch_size": 256,
+  "lr": 0.001,
+  "max_len": 20,
+  "device": "cuda",
+  "image_encoder": "flax-community/clip-rsicd-v2 (frozen)",
+  "feature_dim": 512,
+  "params_total": 832275,
+  "params_trainable": 832275,
+  "train_seconds": 128.2,
+  "answer_classes": 19,
+  "word_vocab": 48,
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "leakage": {
+    "Train_vs_Val": 0,
+    "Train_vs_Test": 0,
+    "Val_vs_Test": 0,
+    "Train_vs_Test2": 0
+  },
+  "gpu": "NVIDIA GeForce RTX 2050"
+}

@@ -1,0 +1,600 @@
+{"qid": 14725, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 4196, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 22156, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 1378, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 38555, "type": "change_ratio_types", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 36301, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 15080, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 38564, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 14432, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 471, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 4652, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 3858, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 15003, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 4417, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 2058, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 21654, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 4643, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 33695, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 15597, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 18250, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 31812, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 14040, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 35339, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 8671, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 37423, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 37762, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 30976, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 15925, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 30996, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 26677, "type": "change_ratio_types", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 12478, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 6181, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 6352, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 28249, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 23219, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 27759, "type": "change_ratio_types", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 26941, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 30606, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 3550, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 6449, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 3972, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 26386, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 22236, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 7161, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 16295, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 12556, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 12465, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 35146, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 29400, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 9186, "type": "change_ratio", "truth": "90_to_100", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 27648, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 12025, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 18254, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 30318, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 16371, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 4940, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 29041, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 36066, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 6416, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 3315, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 35427, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 967, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 6112, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 15491, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 10899, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 26634, "type": "change_to_what", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 31826, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 31546, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 14008, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 26282, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 3842, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 10789, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 24836, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 141, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 25586, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 17380, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 29819, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 18694, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 27722, "type": "change_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 36422, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 31894, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 10144, "type": "change_ratio", "truth": "50_to_60", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": false}
+{"qid": 12445, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 19445, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 14267, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 3832, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 37957, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 35533, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 3994, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 20552, "type": "change_ratio", "truth": "90_to_100", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": true}
+{"qid": 3746, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 3286, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 38284, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 31246, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 32954, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 34807, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 10317, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 3727, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 33281, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 5250, "type": "change_ratio", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 12178, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 4490, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 38996, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 4453, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 15414, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 26461, "type": "smallest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 7856, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 37334, "type": "largest_change", "truth": "playgrounds", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 16135, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 37940, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 38962, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 2604, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 5372, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 27474, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 38251, "type": "smallest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 37042, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 34261, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 20733, "type": "change_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 17089, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 13386, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 20590, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 15642, "type": "largest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 17407, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 25938, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 8577, "type": "smallest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 19660, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 29964, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 20720, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 4754, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0", "pred": "0", "correct": false}
+{"qid": 610, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 30034, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 36896, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 6552, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 4801, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 35234, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 13969, "type": "change_ratio", "truth": "20_to_30", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 33153, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 8680, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 22872, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 4508, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 16009, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 24217, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 18676, "type": "change_ratio", "truth": "60_to_70", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": false}
+{"qid": 10338, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 28716, "type": "change_ratio", "truth": "80_to_90", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": false}
+{"qid": 35600, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 19825, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 34664, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 512, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 36346, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 19620, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 6788, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 8800, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 17332, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 7564, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 7014, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 36256, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 10187, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 17848, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 18465, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 39638, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 13803, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 22471, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 13342, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 17300, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 33122, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 32016, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 16457, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 3329, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 6048, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 18132, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 2889, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 232, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 21859, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 8573, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 17167, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 10589, "type": "smallest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 28956, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 36154, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 28028, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 36759, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 633, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 7331, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 4931, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 9768, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 35755, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 2361, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 24196, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 38175, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 36210, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 9705, "type": "change_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 28166, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 8352, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 2741, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 20202, "type": "change_ratio", "truth": "80_to_90", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": false}
+{"qid": 23897, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 2614, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 23449, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 13767, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 16353, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 6736, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 23178, "type": "smallest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 36692, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 26632, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 10128, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 15514, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 10649, "type": "change_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 11603, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 27020, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 1624, "type": "change_ratio", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 11754, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 21770, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 26982, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 16263, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 17485, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 10433, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 7084, "type": "smallest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 25070, "type": "change_ratio_types", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 2537, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 30847, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 14577, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 13079, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 30166, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 22915, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 20000, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 14915, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 14609, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 1550, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 12656, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 26113, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 21512, "type": "change_ratio", "truth": "40_to_50", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 18258, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 4549, "type": "largest_change", "truth": "low_vegetation", "raw": "buildings", "pred": "buildings", "correct": false}
+{"qid": 18292, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 23012, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 33384, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 26193, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 35141, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 21702, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 1808, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 7559, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 17118, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 11702, "type": "decrease_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 38049, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 17397, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 2507, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 7104, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 39096, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 28479, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 22654, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 20557, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 28599, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 33516, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 7578, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 25244, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 37787, "type": "decrease_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 12457, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 16693, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 2908, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 28577, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 110, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 34073, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 35287, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 12912, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 23869, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 28265, "type": "change_ratio", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 4585, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 21639, "type": "change_ratio", "truth": "90_to_100", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": true}
+{"qid": 20572, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 8167, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 19681, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 33234, "type": "change_ratio", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 20269, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 26764, "type": "change_ratio_types", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 21376, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 26371, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 19376, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 36333, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 8341, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 12572, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 27554, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 24847, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 11405, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 37296, "type": "change_ratio", "truth": "50_to_60", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 19723, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 26612, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 35909, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 26, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 19914, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 18803, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 13774, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 28173, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 38009, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 21118, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 30473, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 28952, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 28977, "type": "decrease_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 14005, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 33500, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 31010, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 11120, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 5557, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 18598, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 33780, "type": "change_ratio", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 21966, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 6120, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 15392, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 20343, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 14722, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 13050, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 9656, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 1600, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 3028, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 16046, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 31138, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 4772, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 29846, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 27160, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 37727, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 12742, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 25164, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 32399, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 26191, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 15989, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 9671, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 363, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 6985, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 27862, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 14341, "type": "change_ratio", "truth": "20_to_30", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 11526, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 33944, "type": "change_ratio", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 30444, "type": "change_ratio", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 3291, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 36530, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 16331, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 7953, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 29914, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 8738, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 30450, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 34808, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 36629, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 39023, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 20794, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 29004, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 33081, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 27966, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 35905, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 29223, "type": "change_to_what", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 10430, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 31108, "type": "change_ratio", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 29495, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 16986, "type": "largest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 16203, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 18173, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 34163, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 31758, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 15679, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 17996, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 28827, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 5077, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 18725, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 15367, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 17807, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 22010, "type": "change_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 20952, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 35399, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 5280, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 9068, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 9884, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 15155, "type": "largest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 25102, "type": "largest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 10014, "type": "largest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 14021, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 4209, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 27188, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 26712, "type": "change_to_what", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 21684, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 35560, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 30534, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 27248, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 4080, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 13555, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 27534, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 25524, "type": "change_ratio_types", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 38278, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 1280, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 37728, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 24928, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 31259, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 386, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 23052, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 19569, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 25558, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 27460, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 35272, "type": "change_ratio", "truth": "60_to_70", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 35791, "type": "change_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 39534, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 14453, "type": "decrease_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 31996, "type": "change_to_what", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 14380, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 17887, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 28562, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 31827, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 1902, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 25484, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 22028, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 26497, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 10816, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 30630, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 8364, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 35004, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 1767, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 25822, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 38790, "type": "largest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 36987, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 1776, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 5501, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 28089, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 8893, "type": "change_to_what", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 30257, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 11909, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 3295, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 17049, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 24844, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 21453, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 13871, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 29799, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 21420, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 22118, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 24846, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 18235, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 27627, "type": "change_ratio", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 16532, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 5367, "type": "change_ratio", "truth": "80_to_90", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": false}
+{"qid": 30822, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 1270, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 35351, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 3413, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 22935, "type": "largest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 14694, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 4496, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 2638, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 2033, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 16205, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 13065, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 1335, "type": "change_ratio", "truth": "90_to_100", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 9986, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 15633, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 8272, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 31035, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 7496, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 36960, "type": "smallest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 14284, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 30476, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 16793, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 24175, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 10996, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 7506, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 10732, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 20384, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 37924, "type": "largest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 1682, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 20444, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 37735, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 24596, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 25995, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 12997, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 4980, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 38803, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 15915, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 6678, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 19764, "type": "largest_change", "truth": "buildings", "raw": "buildings", "pred": "buildings", "correct": true}
+{"qid": 39348, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 7933, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 37088, "type": "change_ratio", "truth": "20_to_30", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 2691, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 22754, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 34913, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 28074, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 24285, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 4519, "type": "change_to_what", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 33158, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 22362, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 829, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 27528, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 32125, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 6916, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 28411, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 23736, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 30129, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 10026, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 28540, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 11543, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 34193, "type": "change_to_what", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 17700, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 35269, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 31686, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 30465, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 28545, "type": "largest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 38828, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 17589, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 21122, "type": "change_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 16088, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 5679, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 18279, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 29543, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 15981, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 30455, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 37345, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 24837, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 22046, "type": "change_to_what", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 1880, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 32394, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 21300, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 11917, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 31952, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 13901, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 23253, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 16931, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 22304, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 18327, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 39069, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 18105, "type": "change_ratio", "truth": "90_to_100", "raw": "90 _ to _ 100", "pred": "90_to_100", "correct": true}
+{"qid": 36424, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 665, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 33857, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 12521, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 5610, "type": "change_to_what", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 15817, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 26635, "type": "change_ratio", "truth": "20_to_30", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 32019, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 36384, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 15749, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 31201, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 32166, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 29371, "type": "increase_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 1130, "type": "decrease_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 6098, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 19283, "type": "change_ratio", "truth": "30_to_40", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 14522, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 26502, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 15945, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 20067, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 38112, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 24184, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 31015, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 36272, "type": "change_ratio", "truth": "60_to_70", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 34794, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 22528, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 27885, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 36070, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 21678, "type": "change_ratio", "truth": "90_to_100", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 23056, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 29736, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 17754, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 20094, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 16475, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 15108, "type": "increase_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 7907, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 12621, "type": "largest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 20679, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 7835, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 35118, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 12133, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 12552, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 14180, "type": "change_ratio_types", "truth": "30_to_40", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 31732, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 18120, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 38639, "type": "change_ratio_types", "truth": "0", "raw": "0", "pred": "0", "correct": true}
+{"qid": 34382, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 39111, "type": "increase_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 18546, "type": "smallest_change", "truth": "buildings", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 6588, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 12721, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 19414, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 14908, "type": "decrease_or_not", "truth": "yes", "raw": "no", "pred": "no", "correct": false}
+{"qid": 23650, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 11759, "type": "change_ratio_types", "truth": "0_to_10", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": true}
+{"qid": 19809, "type": "change_ratio_types", "truth": "10_to_20", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 927, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 35005, "type": "increase_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 8295, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 17977, "type": "change_ratio_types", "truth": "30_to_40", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 2982, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 3573, "type": "decrease_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 36264, "type": "smallest_change", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 19145, "type": "decrease_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 8275, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 32170, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 6723, "type": "smallest_change", "truth": "water", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 803, "type": "smallest_change", "truth": "trees", "raw": "trees", "pred": "trees", "correct": true}
+{"qid": 37621, "type": "decrease_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 18634, "type": "change_ratio_types", "truth": "0", "raw": "0 _ to _ 10", "pred": "0_to_10", "correct": false}
+{"qid": 30762, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}
+{"qid": 31373, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 28866, "type": "largest_change", "truth": "nvg_surface", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 22328, "type": "change_to_what", "truth": "low_vegetation", "raw": "trees", "pred": "trees", "correct": false}
+{"qid": 12082, "type": "change_or_not", "truth": "yes", "raw": "yes", "pred": "yes", "correct": true}
+{"qid": 3367, "type": "change_or_not", "truth": "no", "raw": "yes", "pred": "yes", "correct": false}
+{"qid": 16546, "type": "change_or_not", "truth": "no", "raw": "no", "pred": "no", "correct": true}

@@ -1,0 +1,196 @@
+{
+  "benchmark": "SECOND binary change (internal held-out split)",
+  "dataset_status": "additional public dataset (NOT SIH-provided)",
+  "splits": {
+    "train": 2077,
+    "val": 445,
+    "test": 446
+  },
+  "learned_model": {
+    "best_val_iou": 0.42,
+    "test": {
+      "iou": 0.4219,
+      "precision": 0.5736,
+      "recall": 0.6147,
+      "f1": 0.5934,
+      "tp": 3499849,
+      "fp": 2601757,
+      "fn": 2193903,
+      "tn": 20933547
+    }
+  },
+  "deterministic_baseline_reference": {
+    "iou": 0.2248,
+    "precision": 0.3076,
+    "recall": 0.4549,
+    "f1": 0.367
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.1178,
+      "iou": 0.3558,
+      "precision": 0.4408,
+      "recall": 0.6485,
+      "f1": 0.5249,
+      "tp": 3892259,
+      "fp": 4937401,
+      "fn": 2109948,
+      "tn": 18223912
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.0449,
+      "iou": 0.3326,
+      "precision": 0.4127,
+      "recall": 0.6315,
+      "f1": 0.4992,
+      "tp": 3790370,
+      "fp": 5393444,
+      "fn": 2211837,
+      "tn": 17767869
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.0269,
+      "iou": 0.3418,
+      "precision": 0.6062,
+      "recall": 0.4394,
+      "f1": 0.5095,
+      "tp": 2637142,
+      "fp": 1712958,
+      "fn": 3365065,
+      "tn": 21448355
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0043,
+      "iou": 0.3806,
+      "precision": 0.5196,
+      "recall": 0.5871,
+      "f1": 0.5513,
+      "tp": 3524127,
+      "fp": 3257988,
+      "fn": 2478080,
+      "tn": 19903325
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.987,
+      "iou": 0.3543,
+      "precision": 0.4491,
+      "recall": 0.6266,
+      "f1": 0.5232,
+      "tp": 3760957,
+      "fp": 4614230,
+      "fn": 2241250,
+      "tn": 18547083
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.9787,
+      "iou": 0.3913,
+      "precision": 0.5777,
+      "recall": 0.548,
+      "f1": 0.5625,
+      "tp": 3289445,
+      "fp": 2404868,
+      "fn": 2712762,
+      "tn": 20756445
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.9684,
+      "iou": 0.4007,
+      "precision": 0.6844,
+      "recall": 0.4914,
+      "f1": 0.5721,
+      "tp": 2949754,
+      "fp": 1360024,
+      "fn": 3052453,
+      "tn": 21801289
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.9591,
+      "iou": 0.3739,
+      "precision": 0.597,
+      "recall": 0.5001,
+      "f1": 0.5443,
+      "tp": 3001840,
+      "fp": 2026034,
+      "fn": 3000367,
+      "tn": 21135279
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.9497,
+      "iou": 0.3838,
+      "precision": 0.5795,
+      "recall": 0.532,
+      "f1": 0.5547,
+      "tp": 3193087,
+      "fp": 2316523,
+      "fn": 2809120,
+      "tn": 20844790
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.9431,
+      "iou": 0.4163,
+      "precision": 0.5021,
+      "recall": 0.7092,
+      "f1": 0.5879,
+      "tp": 4256545,
+      "fp": 4221691,
+      "fn": 1745662,
+      "tn": 18939622
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.9344,
+      "iou": 0.3483,
+      "precision": 0.406,
+      "recall": 0.7103,
+      "f1": 0.5167,
+      "tp": 4263080,
+      "fp": 6236463,
+      "fn": 1739127,
+      "tn": 16924850
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.9258,
+      "iou": 0.42,
+      "precision": 0.5873,
+      "recall": 0.596,
+      "f1": 0.5916,
+      "tp": 3577131,
+      "fp": 2513808,
+      "fn": 2425076,
+      "tn": 20647505
+    }
+  ],
+  "config": {
+    "seed": 42,
+    "epochs": 12,
+    "batch_size": 8,
+    "size": 256,
+    "lr": 0.001,
+    "device": "cuda",
+    "params": 1929281,
+    "train_seconds": 1638.6,
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "gpu": "NVIDIA GeForce RTX 2050",
+    "split_seed": 42,
+    "splits": {
+      "train": 2077,
+      "val": 445,
+      "test": 446
+    },
+    "task": "binary change (derived from SECOND semantic labels: changed = not no-change)",
+    "train_pairs_used": 2077
+  },
+  "notes": "Binary change derived from semantic labels (documented). Held-out split is an INTERNAL split of the provided SECOND train set, not the official SECOND test set. Baseline is a deterministic radiometric-difference reference (Otsu), in the spirit of Phase 6 CVA, computed on the same held-out pairs."
+}

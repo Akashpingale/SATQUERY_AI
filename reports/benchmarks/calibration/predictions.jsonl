@@ -1,0 +1,12 @@
+{"sample_id": "nochange_0", "truth": "no", "predicted": "no", "answered": true, "correct": true, "confidence": 0.805, "status": "completed", "magnitude": "none"}
+{"sample_id": "nochange_1", "truth": "no", "predicted": "no", "answered": true, "correct": true, "confidence": 0.805, "status": "completed", "magnitude": "none"}
+{"sample_id": "nochange_2", "truth": "no", "predicted": "no", "answered": true, "correct": true, "confidence": 0.805, "status": "completed", "magnitude": "none"}
+{"sample_id": "nochange_3", "truth": "no", "predicted": "no", "answered": true, "correct": true, "confidence": 0.805, "status": "completed", "magnitude": "none"}
+{"sample_id": "nochange_4", "truth": "no", "predicted": "no", "answered": true, "correct": true, "confidence": 0.805, "status": "completed", "magnitude": "none"}
+{"sample_id": "nochange_5", "truth": "no", "predicted": "no", "answered": true, "correct": true, "confidence": 0.805, "status": "completed", "magnitude": "none"}
+{"sample_id": "change_small_0", "truth": "yes", "predicted": "yes", "answered": true, "correct": true, "confidence": 0.579, "status": "completed", "magnitude": "small"}
+{"sample_id": "change_small_1", "truth": "yes", "predicted": "yes", "answered": true, "correct": true, "confidence": 0.579, "status": "completed", "magnitude": "small"}
+{"sample_id": "change_medium_2", "truth": "yes", "predicted": "yes", "answered": true, "correct": true, "confidence": 0.645, "status": "completed", "magnitude": "medium"}
+{"sample_id": "change_medium_3", "truth": "yes", "predicted": "yes", "answered": true, "correct": true, "confidence": 0.644, "status": "completed", "magnitude": "medium"}
+{"sample_id": "change_large_4", "truth": "yes", "predicted": "yes", "answered": true, "correct": true, "confidence": 0.642, "status": "completed", "magnitude": "large"}
+{"sample_id": "change_large_5", "truth": "yes", "predicted": "yes", "answered": true, "correct": true, "confidence": 0.639, "status": "completed", "magnitude": "large"}

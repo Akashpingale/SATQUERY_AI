@@ -1,0 +1,71 @@
+{
+  "benchmark": "change_detection_synthetic",
+  "kind": "engineering-validation (synthetic known masks; not LEVIR-CD/OSCD/SECOND)",
+  "detector": "cva-robust (deterministic radiometric change vector analysis)",
+  "scenarios": 4,
+  "metrics": {
+    "micro_iou": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "mean_iou_changed": 1.0,
+    "occurrence_accuracy": 1.0,
+    "pixels": {
+      "tp": 4044,
+      "fp": 0,
+      "fn": 0,
+      "tn": 32820
+    }
+  },
+  "predictions": [
+    {
+      "id": "nochange",
+      "changed_truth": false,
+      "changed_fraction_truth": 0.0,
+      "predicted_changed": false,
+      "predicted_fraction": 0.0,
+      "inconclusive": false,
+      "iou": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "id": "small",
+      "changed_truth": true,
+      "changed_fraction_truth": 0.01562,
+      "predicted_changed": true,
+      "predicted_fraction": 0.01562,
+      "inconclusive": false,
+      "iou": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "id": "medium",
+      "changed_truth": true,
+      "changed_fraction_truth": 0.09766,
+      "predicted_changed": true,
+      "predicted_fraction": 0.09766,
+      "inconclusive": false,
+      "iou": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    {
+      "id": "large",
+      "changed_truth": true,
+      "changed_fraction_truth": 0.32552,
+      "predicted_changed": true,
+      "predicted_fraction": 0.32552,
+      "inconclusive": false,
+      "iou": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  ],
+  "note": "Detects radiometric change, not semantic class. no-change pairs verify specificity; block pairs verify localization against a known mask."
+}

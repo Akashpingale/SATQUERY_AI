@@ -1,0 +1,54 @@
+{
+  "benchmark": "OSCD (public test split, RGB crops)",
+  "source": "huggingface: ericyu/OSCD_Cropped_256 (Sentinel-2 RGB, 256x256 crops)",
+  "evaluation_type": "FULL TEST EVALUATION",
+  "test_rows_total": 50,
+  "evaluated": 50,
+  "changed_pixel_fraction": 0.05364,
+  "device": "cuda",
+  "seconds": 1.1,
+  "cross_dataset_note": "The learned model was trained ONLY on SECOND (Phase 9) and never on this benchmark. Label semantics and sensor/resolution differ from SECOND, so this is a cross-dataset generalization test; large degradation vs the in-domain SECOND result (IoU 0.4219) is expected and is reported honestly.",
+  "learned_second_model": {
+    "micro_iou": 0.1053,
+    "precision": 0.1735,
+    "recall": 0.2111,
+    "f1": 0.1905,
+    "pixel_accuracy": 0.9038,
+    "mean_iou_changed_images": {
+      "n": 50,
+      "mean": 0.1022,
+      "std": 0.1415,
+      "median": 0.0034,
+      "ci_low": 0.063,
+      "ci_high": 0.1414
+    },
+    "pixels": {
+      "tp": 37107,
+      "fp": 176712,
+      "fn": 138660,
+      "tn": 2924321
+    }
+  },
+  "deterministic_otsu_reference": {
+    "micro_iou": 0.1453,
+    "precision": 0.1651,
+    "recall": 0.5485,
+    "f1": 0.2538,
+    "pixel_accuracy": 0.827,
+    "mean_iou_changed_images": {
+      "n": 50,
+      "mean": 0.1773,
+      "std": 0.1511,
+      "median": 0.1812,
+      "ci_low": 0.1354,
+      "ci_high": 0.2191
+    },
+    "pixels": {
+      "tp": 96408,
+      "fp": 487658,
+      "fn": 79359,
+      "tn": 2613375
+    }
+  },
+  "reference_note": "Otsu radiometric-difference baseline (same method as the Phase 9 SECOND baseline); not the georeferenced production cva-robust config."
+}

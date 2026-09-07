@@ -1,0 +1,331 @@
+{
+  "dataset": "CDVQA (Change Detection Visual Question Answering)",
+  "sih_status": "SIH26167-prescribed multitemporal change-VQA benchmark",
+  "source": "https://github.com/YZHJessica/CDVQA (user-provided archive)",
+  "local_archive": "D:\\dataset\\CDVQA-main.zip",
+  "archive_sha256": "b4043476ece6ad10b19aa02deb71bfe8094eabbed8a359b9fede500e840ff8db",
+  "archive_size_bytes": 5162330,
+  "extracted_path": "D:\\SatQuery-AI\\datasets\\cdvqa\\CDVQA-main",
+  "extraction_tool": "PowerShell Expand-Archive",
+  "extraction_date": "2026-09-06T10:44:01.929436+00:00",
+  "images_note": "CDVQA ships only QA JSON; the referenced image file_names are the SECOND dataset images (0.1524 m). All referenced files are present in the SECOND train archive im1/im2 (verified). Splits are disjoint by image (no Train/Val/Test image overlap); Test2 reuses Test images with harder questions.",
+  "license": "See CDVQA repository (research use)",
+  "splits": {
+    "Train": {
+      "questions": 65967,
+      "answers": 65967,
+      "image_records": 25600,
+      "unique_images": 1600,
+      "question_types": {
+        "change_or_not": 23048,
+        "change_ratio": 3200,
+        "change_ratio_types": 9740,
+        "change_to_what": 5012,
+        "decrease_or_not": 7652,
+        "increase_or_not": 7715,
+        "largest_change": 4800,
+        "smallest_change": 4800
+      },
+      "answer_vocab_size": 19,
+      "top_answers": [
+        [
+          "no",
+          20385
+        ],
+        [
+          "yes",
+          18030
+        ],
+        [
+          "nvg_surface",
+          4805
+        ],
+        [
+          "0",
+          4605
+        ],
+        [
+          "0_to_10",
+          4528
+        ],
+        [
+          "buildings",
+          4416
+        ],
+        [
+          "low_vegetation",
+          2829
+        ],
+        [
+          "trees",
+          1706
+        ],
+        [
+          "10_to_20",
+          1215
+        ],
+        [
+          "water",
+          686
+        ],
+        [
+          "80_to_90",
+          528
+        ],
+        [
+          "20_to_30",
+          523
+        ],
+        [
+          "90_to_100",
+          447
+        ],
+        [
+          "70_to_80",
+          305
+        ],
+        [
+          "30_to_40",
+          273
+        ]
+      ]
+    },
+    "Val": {
+      "questions": 16441,
+      "answers": 16441,
+      "image_records": 6400,
+      "unique_images": 400,
+      "question_types": {
+        "change_or_not": 5751,
+        "change_ratio": 800,
+        "change_ratio_types": 2409,
+        "change_to_what": 1239,
+        "decrease_or_not": 1922,
+        "increase_or_not": 1920,
+        "largest_change": 1200,
+        "smallest_change": 1200
+      },
+      "answer_vocab_size": 19,
+      "top_answers": [
+        [
+          "no",
+          5227
+        ],
+        [
+          "yes",
+          4366
+        ],
+        [
+          "nvg_surface",
+          1202
+        ],
+        [
+          "0",
+          1178
+        ],
+        [
+          "buildings",
+          1166
+        ],
+        [
+          "0_to_10",
+          1124
+        ],
+        [
+          "low_vegetation",
+          675
+        ],
+        [
+          "trees",
+          401
+        ],
+        [
+          "10_to_20",
+          289
+        ],
+        [
+          "water",
+          163
+        ],
+        [
+          "80_to_90",
+          133
+        ],
+        [
+          "90_to_100",
+          123
+        ],
+        [
+          "20_to_30",
+          119
+        ],
+        [
+          "30_to_40",
+          71
+        ],
+        [
+          "70_to_80",
+          70
+        ]
+      ]
+    },
+    "Test": {
+      "questions": 39686,
+      "answers": 39686,
+      "image_records": 15488,
+      "unique_images": 968,
+      "question_types": {
+        "change_or_not": 13882,
+        "change_ratio": 1936,
+        "change_ratio_types": 5811,
+        "change_to_what": 2991,
+        "decrease_or_not": 4658,
+        "increase_or_not": 4600,
+        "largest_change": 2904,
+        "smallest_change": 2904
+      },
+      "answer_vocab_size": 19,
+      "top_answers": [
+        [
+          "no",
+          12364
+        ],
+        [
+          "yes",
+          10776
+        ],
+        [
+          "nvg_surface",
+          2944
+        ],
+        [
+          "0",
+          2773
+        ],
+        [
+          "0_to_10",
+          2727
+        ],
+        [
+          "buildings",
+          2691
+        ],
+        [
+          "low_vegetation",
+          1706
+        ],
+        [
+          "trees",
+          961
+        ],
+        [
+          "10_to_20",
+          695
+        ],
+        [
+          "water",
+          417
+        ],
+        [
+          "20_to_30",
+          297
+        ],
+        [
+          "80_to_90",
+          296
+        ],
+        [
+          "90_to_100",
+          290
+        ],
+        [
+          "30_to_40",
+          184
+        ],
+        [
+          "70_to_80",
+          181
+        ]
+      ]
+    },
+    "Test2": {
+      "questions": 31036,
+      "answers": 31036,
+      "image_records": 15488,
+      "unique_images": 968,
+      "question_types": {
+        "change_or_not": 5126,
+        "change_ratio": 1936,
+        "change_ratio_types": 11616,
+        "change_to_what": 2991,
+        "decrease_or_not": 1754,
+        "increase_or_not": 1805,
+        "largest_change": 2904,
+        "smallest_change": 2904
+      },
+      "answer_vocab_size": 19,
+      "top_answers": [
+        [
+          "0",
+          5547
+        ],
+        [
+          "0_to_10",
+          5130
+        ],
+        [
+          "no",
+          4717
+        ],
+        [
+          "yes",
+          3968
+        ],
+        [
+          "nvg_surface",
+          2944
+        ],
+        [
+          "buildings",
+          2691
+        ],
+        [
+          "low_vegetation",
+          1706
+        ],
+        [
+          "10_to_20",
+          1097
+        ],
+        [
+          "trees",
+          961
+        ],
+        [
+          "20_to_30",
+          433
+        ],
+        [
+          "water",
+          417
+        ],
+        [
+          "80_to_90",
+          296
+        ],
+        [
+          "90_to_100",
+          290
+        ],
+        [
+          "30_to_40",
+          241
+        ],
+        [
+          "70_to_80",
+          181
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "phase": 11,
+  "generated_note": "Evidence-first public benchmark validation. No fabricated numbers; no test-set tuning; no hidden ISRO/SAC data. Production models unchanged.",
+  "benchmarks": {
+    "LEVIR-CD": {
+      "status": "FULL_TEST_EVALUATION",
+      "task": "binary change detection",
+      "n": 2048,
+      "source": "huggingface: ericyu/LEVIRCD_Cropped_256",
+      "learned_second_model": {"micro_iou": 0.0773, "f1": 0.1435, "precision": 0.0831, "recall": 0.5274},
+      "deterministic_otsu_reference": {"micro_iou": 0.0466, "f1": 0.0891},
+      "note": "Cross-dataset (trained on SECOND only). Results file: levir_cd_results.json"
+    },
+    "OSCD": {
+      "status": "FULL_TEST_EVALUATION",
+      "task": "binary change detection",
+      "n": 50,
+      "source": "huggingface: ericyu/OSCD_Cropped_256 (Sentinel-2 RGB)",
+      "learned_second_model": {"micro_iou": 0.1053, "f1": 0.1905},
+      "deterministic_otsu_reference": {"micro_iou": 0.1453, "f1": 0.2538, "recall": 0.5485},
+      "note": "Deterministic beats learned here. Results file: oscd_results.json"
+    },
+    "RSVQA": {
+      "status": "INCOMPATIBLE",
+      "task": "single-image VQA",
+      "reason": "Production VQA is zero-shot CLIP concept scoring over a fixed vocabulary; cannot emit RSVQA yes/no/count/area answers. Needs a constrained/generative VQA head."
+    },
+    "VRSBench_VQA": {
+      "status": "INCOMPATIBLE",
+      "task": "single-image VQA",
+      "reason": "Same answer-format incompatibility as RSVQA."
+    },
+    "VRSBench_Captioning": {
+      "status": "INCOMPATIBLE",
+      "task": "caption generation",
+      "reason": "Production captioner is retrieval/concept composition, not generative; cannot produce valid predictions for generative caption metrics."
+    },
+    "VRSBench_Grounding": {
+      "status": "BLOCKED",
+      "task": "referring-expression localization",
+      "compatible": true,
+      "reason": "OWL-ViT grounding is architecturally compatible (box IoU@0.5); referring annotation format confirmed (referring.json: expression + normalized bbox + image_id). Blocked only on Images_val.zip (~3.98 GB) not provisioned in this environment.",
+      "reproducible_command": "download VRSBench Images_val.zip + Annotations_val, then run OWL-ViT box-IoU eval over referring.json"
+    }
+  },
+  "baselines_unchanged": {
+    "cdvqa_trained": {"test": 0.7114, "test2": 0.6632},
+    "second_change_learned": {"second_iou": 0.4219, "second_f1": 0.5934},
+    "change_model_external": {"cdvqa_test_n600": 0.5467, "decision": "VERIFIED_BUT_NOT_INTEGRATED"}
+  }
+}

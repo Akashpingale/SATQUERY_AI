@@ -1,0 +1,98 @@
+{
+  "phase": 13,
+  "title": "Final benchmark completion + accessibility + release readiness",
+  "generated_utc": "2026-09-07",
+  "status": "COMPLETE",
+  "integrity_note": "Validation/release-readiness only. No retraining, no model integration, no checkpoint changes, no hidden ISRO/SAC data, no test-set tuning, no fabricated results. Deterministic defaults preserved.",
+  "baseline": "reports/phase12/",
+  "vrsbench_grounding": {
+    "status": "BLOCKED",
+    "images_available": false,
+    "provisioning_attempted": true,
+    "source_reachable": true,
+    "source": "huggingface: xiang709/VRSBench",
+    "missing_asset": "Images_val.zip",
+    "missing_asset_mb": 3792,
+    "annotations_present": true,
+    "annotations_match_official": true,
+    "referring_expressions": 16159,
+    "distinct_images": 9318,
+    "disk_free_gb": 241,
+    "measured_throughput_mb_s": 0.02,
+    "extrapolated_download_hours": 50,
+    "metric": null,
+    "iou": null,
+    "reason": "CDN throughput ~0.02 MB/s makes the 3.79 GB transfer infeasible (~50h) in this environment"
+  },
+  "accessibility": {
+    "axe_states": 13,
+    "axe_violations": 0,
+    "keyboard_code_level": "favorable (inspection only)",
+    "human_nvda": "NOT_COMPLETED",
+    "overall": "PARTIAL",
+    "reason": "no human tester / no screen-reader audio environment in this automated context"
+  },
+  "docker": {
+    "compose_config": "VALID",
+    "services": ["postgres", "backend", "frontend"],
+    "healthchecks": {"backend": true, "frontend": true, "postgres": true},
+    "migrations_on_start": true,
+    "full_smoke": "NOT_COMPLETED",
+    "full_smoke_reason": "Docker daemon not running in this environment"
+  },
+  "regression": {
+    "backend_pytest": {"passed": 447, "failed": 0, "baseline": 447},
+    "ruff": "clean",
+    "frontend_vitest": {"passed": 126, "total": 126, "files": 15, "baseline": 126},
+    "frontend_typecheck": "clean",
+    "frontend_eslint": "clean",
+    "frontend_build": {"result": "clean", "js_kb": 311.62, "built_in_s": 4.28},
+    "docker_compose_config": "valid",
+    "playwright": {"passed": 6, "total": 6, "duration_s": 40.3, "workers": 1}
+  },
+  "end_to_end_reverify": {
+    "output_dir": "reports/phase13/e2e/",
+    "A_single_image_vqa": {"status": "completed", "task": "vqa", "confidence": "Medium", "route": "vqa_adapted"},
+    "B_temporal": {"status": "completed", "task": "change_vqa", "confidence": "High", "route": "deterministic CVA"},
+    "C_optical_sar": {"status": "completed", "task": "optical_sar_fusion", "confidence": "High"},
+    "D_learned_nondefault": {"deterministic_remains_default": true, "second_checkpoint_loaded": true, "cdvqa_checkpoint_loaded": true},
+    "E_failure": {"incompatible_pair": "rejected", "unsupported_query": "rejected/Unable to determine", "compatibility_endpoint": false}
+  },
+  "agent_orchestration": "PASS (auditable trace, no chain-of-thought, deterministic default, learned non-default)",
+  "model_registry": {
+    "tools": 14,
+    "deterministic_change_default": true,
+    "learned_models_non_default": true,
+    "change_model_external": "VERIFIED_BUT_NOT_INTEGRATED",
+    "distinctions_preserved": ["retrieval/concept scoring != generative VQA", "BigEarthNet adaptation = retrieval gain not VQA accuracy", "CDVQA = closed-vocab classifier", "SECOND in-domain only, cross-sensor weak"]
+  },
+  "sih26167_compliance": {"PASS": 18, "PARTIAL": 3, "INCOMPATIBLE": 3, "BLOCKED": 1, "UNPROVEN": 0, "detail": "reports/phase13/PHASE13_SIH26167_FINAL_COMPLIANCE.md"},
+  "security": {
+    "hardcoded_secrets": false,
+    "injection_traversal_found": false,
+    "upload_validation": true,
+    "query_sanitization": true,
+    "authentication_present": false,
+    "local_sih_demo_ready": true,
+    "public_deployment_ready": false,
+    "detail": "reports/phase13/PHASE13_SECURITY_RELEASE_REVIEW.md"
+  },
+  "p0_blockers": [],
+  "p1_items": ["VRSBench grounding IoU (provision on faster link)", "Human NVDA pass", "Auth + TLS/rate-limiting before public deploy", "Docker build/up smoke on running daemon"],
+  "p2_items": ["generative VQA head", "generative captioning", "learned cross-sensor generalization", "learned-route GeoTIFF support", "SAR semantic analysis", "production hardening"],
+  "production_safety": {"models_retrained": 0, "checkpoints_overwritten": 0, "defaults_changed": 0, "change_model_integrated": false, "capabilities_removed": 0, "tests_removed": 0},
+  "deliverables": [
+    "reports/phase13/PHASE13_VRSBENCH_GROUNDING_BLOCKER.md",
+    "reports/phase13/PHASE13_ACCESSIBILITY_HUMAN_VERIFICATION.md",
+    "reports/phase13/PHASE13_SIH26167_FINAL_COMPLIANCE.md",
+    "reports/phase13/PHASE13_SIH26167_FINAL_COMPLIANCE.json",
+    "reports/phase13/PHASE13_FINAL_GAP_ANALYSIS.md",
+    "reports/phase13/PHASE13_SECURITY_RELEASE_REVIEW.md",
+    "reports/phase13/PHASE13_FINAL_SYSTEM_VALIDATION.md",
+    "reports/phase13/PHASE13_MACHINE_READABLE_RESULTS.json",
+    "reports/phase13/PHASE13_DOCKER_SMOKE_TEST.md",
+    "reports/phase13/PHASE13_AGENT_TRACE_EVIDENCE.md",
+    "reports/phase13/e2e/ (live re-verify dumps + SUMMARY.json)",
+    "scripts/phase13/fetch_vrsbench_val.py"
+  ]
+}

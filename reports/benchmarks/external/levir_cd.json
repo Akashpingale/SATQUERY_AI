@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "key": "levir_cd",
+    "name": "LEVIR-CD",
+    "task": "binary change detection",
+    "source": "https://chenhao.in/LEVIR/",
+    "license": "See LEVIR-CD release (research use)",
+    "expected_path": "data/benchmarks/levir_cd",
+    "compatibility_note": "Building-change dataset with binary masks. The change detector (cva-robust) measures radiometric change, not building semantics, so it is expected to flag broad radiometric differences rather than only building changes; scores must be read with that caveat. Pairs are co-registered RGB, consumable via align_pair.",
+    "approx_size": "~1-2 GB"
+  },
+  "provisioned": false,
+  "status": "NOT RUN \u2014 dataset not provisioned",
+  "reason": "LEVIR-CD is not present at D:\\SatQuery-AI\\data\\benchmarks\\levir_cd. It is not downloaded automatically (licence-aware, multi-GB). Provision it, then re-run.",
+  "reproducible_command": "python scripts/eval_external.py --dataset levir_cd",
+  "environment": {
+    "benchmark": "external:levir_cd",
+    "dataset": "LEVIR-CD",
+    "split": "n/a (not provisioned)",
+    "samples": 0,
+    "seed": 42,
+    "timestamp_utc": "2026-09-06T09:01:18.677682+00:00",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "device": {
+      "device": "cuda",
+      "torch_cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 2050",
+      "gpu_vram_bytes": 4294443008
+    },
+    "git_commit": "HEAD / uncommitted",
+    "models": {},
+    "extra": {}
+  }
+}

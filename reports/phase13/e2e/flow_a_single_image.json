@@ -1,0 +1,253 @@
+{
+  "upload": {
+    "id": "4b0091d0-25bf-4f9d-a3f7-c71a2162576c",
+    "created_at": "2026-09-06T19:41:57.986127",
+    "original_filename": "demo_optical.tif",
+    "size_bytes": 154850,
+    "role": "optical",
+    "modality": "optical",
+    "detected_modality": "optical",
+    "width": 160,
+    "height": 160,
+    "band_count": 3,
+    "dtype": "uint16",
+    "driver": "GTiff",
+    "georeference": {
+      "is_georeferenced": true,
+      "crs": "EPSG:32643",
+      "crs_epsg": 32643,
+      "transform": [
+        10.0,
+        0.0,
+        500000.0,
+        0.0,
+        -10.0,
+        1500000.0
+      ],
+      "bounds": [
+        500000.0,
+        1498400.0,
+        501600.0,
+        1500000.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ]
+    },
+    "bands": [
+      {
+        "index": 1,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Red"
+      },
+      {
+        "index": 2,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Green"
+      },
+      {
+        "index": 3,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "NIR"
+      }
+    ],
+    "nodata": null,
+    "tags": {
+      "AREA_OR_POINT": "Area"
+    },
+    "preview_url": "/api/v1/uploads/4b0091d0-25bf-4f9d-a3f7-c71a2162576c/preview",
+    "warnings": []
+  },
+  "analysis": {
+    "id": "73ef8a80-e3ab-4bd8-bd27-9b22a4ae75dd",
+    "created_at": "2026-09-06T19:41:58.170433",
+    "status": "completed",
+    "task": "vqa",
+    "query": "What land cover types are visible in this scene?",
+    "answer": "The scene is most consistent with water (52%). The next closest match is a river (24%).",
+    "confidence": {
+      "level": "Medium",
+      "score": 0.47,
+      "signals": [
+        "Specialist result strength 0.52",
+        "Query routing score 0.43",
+        "All inputs georeferenced",
+        "4 evidence item(s) attached",
+        "2 warning(s) reduced confidence"
+      ]
+    },
+    "evidence": [
+      {
+        "kind": "scores",
+        "label": "Concept probabilities from the model",
+        "asset_id": null,
+        "detail": {
+          "model_id": "flax-community/clip-rsicd-v2",
+          "concepts": [
+            {
+              "key": "water",
+              "label": "water",
+              "probability": 0.5211
+            },
+            {
+              "key": "river",
+              "label": "a river",
+              "probability": 0.2365
+            },
+            {
+              "key": "snow",
+              "label": "snow or ice",
+              "probability": 0.161
+            },
+            {
+              "key": "shrubland",
+              "label": "sparse vegetation",
+              "probability": 0.0233
+            },
+            {
+              "key": "cloud",
+              "label": "cloud cover",
+              "probability": 0.0232
+            },
+            {
+              "key": "railway",
+              "label": "a railway",
+              "probability": 0.0126
+            },
+            {
+              "key": "desert",
+              "label": "desert terrain",
+              "probability": 0.0065
+            },
+            {
+              "key": "road",
+              "label": "roads",
+              "probability": 0.0057
+            }
+          ],
+          "note": "Softmax over the model's concept vocabulary; values are relative to that vocabulary and are not calibrated probabilities of ground truth."
+        },
+        "reference": null
+      },
+      {
+        "kind": "model",
+        "label": "Model provenance",
+        "asset_id": null,
+        "detail": {
+          "model_id": "flax-community/clip-rsicd-v2",
+          "device": "cpu",
+          "note": "CLIP fine-tuned on RSICD then LoRA-adapted on BigEarthNet.txt captions."
+        },
+        "reference": null
+      },
+      {
+        "kind": "model",
+        "label": "Model variant",
+        "asset_id": null,
+        "detail": {
+          "variant": "adapted",
+          "version": "clip-rsicd-v2+lora-ben-txt-r16a32",
+          "selection": "registry tool 'vqa_adapted'",
+          "base_model": "flax-community/clip-rsicd-v2",
+          "adapter_path": "D:\\SatQuery-AI\\models\\phase5\\adapter",
+          "training_dataset": "BigEarthNet.txt (Lithuania/Summer captioning subset)",
+          "training_method": "LoRA, symmetric contrastive (InfoNCE) objective",
+          "lora_rank": 16,
+          "lora_alpha": 32
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical.tif",
+        "asset_id": "4b0091d0-25bf-4f9d-a3f7-c71a2162576c",
+        "detail": {},
+        "reference": "/api/v1/uploads/4b0091d0-25bf-4f9d-a3f7-c71a2162576c/preview"
+      }
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "1 image(s) - optical:demo_optical.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (48 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as vqa (routing score 0.43); matched on: visible, what"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: vqa_adapted vclip-rsicd-v2+lora-ben-txt (parameters: defaults)"
+      },
+      {
+        "step": "Model selection",
+        "status": "ok",
+        "detail": "vqa: selected the Phase 5 adapted model (adapter present)"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=adapted; base=flax-community/clip-rsicd-v2; adapter=models/phase5/adapter; trained on=BigEarthNet.txt (Lithuania/Summer captioning subset); method=LoRA, symmetric contrastive (InfoNCE) objective; benchmark=evaluated on held-out BigEarthNet.txt retrieval; see reports/phase5"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Adapted on a Lithuania/Summer Sentinel-2 subset; benefit on other regions, seasons, or sensors is not established. | Trained on Sentinel-2 RGB only; no optical-SAR fusion was learned. | Captions were truncated to CLIP's 77-token limit (~11% of samples affected)."
+      },
+      {
+        "step": "Execution (vqa_adapted)",
+        "status": "warning",
+        "detail": "The scene is most consistent with water (52%). The next closest match is a river (24%)."
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "4 item(s): 2 model, 1 preview, 1 scores"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "Medium (score 0.47)"
+      }
+    ],
+    "plan": {
+      "task": "vqa",
+      "steps": [
+        {
+          "order": 1,
+          "tool_id": "vqa_adapted",
+          "tool_version": "clip-rsicd-v2+lora-ben-txt",
+          "description": "Answer the question about the image",
+          "parameters": {}
+        }
+      ],
+      "selection_notes": [
+        "vqa: selected the Phase 5 adapted model (adapter present)"
+      ]
+    },
+    "issues": [],
+    "warnings": [
+      "Scores come from an uncalibrated zero-shot model and are relative to its concept vocabulary; treat them as indicative rather than absolute.",
+      "This answer used the Phase 5 adapted model (LoRA on BigEarthNet.txt captions). Adaptation was trained on a Lithuania/Summer Sentinel-2 subset, so its benefit on other regions, seasons, or sensors is not established."
+    ],
+    "input_asset_ids": [
+      "4b0091d0-25bf-4f9d-a3f7-c71a2162576c"
+    ]
+  }
+}

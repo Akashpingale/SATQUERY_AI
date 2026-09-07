@@ -1,0 +1,211 @@
+{
+  "experiment_id": "cdvqa_blip",
+  "model": "CDVQAModel (GRU + fusion head)",
+  "base_checkpoint": "change_model/ (BLIP vision features)",
+  "dataset": "CDVQA (real) over SECOND imagery",
+  "train_samples": 65967,
+  "validation_samples": 16441,
+  "test_samples": 39686,
+  "test2_samples": 31036,
+  "epochs": 15,
+  "optimizer_steps": 3870,
+  "best_val_accuracy": 0.6881,
+  "test_accuracy": 0.6832,
+  "test2_accuracy": 0.6346,
+  "test_accuracy_by_type": {
+    "change_or_not": {
+      "acc": 0.8296,
+      "n": 13882,
+      "correct": 11517
+    },
+    "change_ratio": {
+      "acc": 0.3177,
+      "n": 1936,
+      "correct": 615
+    },
+    "change_ratio_types": {
+      "acc": 0.7124,
+      "n": 5811,
+      "correct": 4140
+    },
+    "change_to_what": {
+      "acc": 0.572,
+      "n": 2991,
+      "correct": 1711
+    },
+    "decrease_or_not": {
+      "acc": 0.7389,
+      "n": 4658,
+      "correct": 3442
+    },
+    "increase_or_not": {
+      "acc": 0.7387,
+      "n": 4600,
+      "correct": 3398
+    },
+    "largest_change": {
+      "acc": 0.4886,
+      "n": 2904,
+      "correct": 1419
+    },
+    "smallest_change": {
+      "acc": 0.2996,
+      "n": 2904,
+      "correct": 870
+    }
+  },
+  "test2_accuracy_by_type": {
+    "change_or_not": {
+      "acc": 0.8272,
+      "n": 5126,
+      "correct": 4240
+    },
+    "change_ratio": {
+      "acc": 0.3177,
+      "n": 1936,
+      "correct": 615
+    },
+    "change_ratio_types": {
+      "acc": 0.7071,
+      "n": 11616,
+      "correct": 8214
+    },
+    "change_to_what": {
+      "acc": 0.57,
+      "n": 2991,
+      "correct": 1705
+    },
+    "decrease_or_not": {
+      "acc": 0.74,
+      "n": 1754,
+      "correct": 1298
+    },
+    "increase_or_not": {
+      "acc": 0.738,
+      "n": 1805,
+      "correct": 1332
+    },
+    "largest_change": {
+      "acc": 0.4869,
+      "n": 2904,
+      "correct": 1414
+    },
+    "smallest_change": {
+      "acc": 0.302,
+      "n": 2904,
+      "correct": 877
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0565,
+      "val_acc": 0.6772
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.7726,
+      "val_acc": 0.6761
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7655,
+      "val_acc": 0.6714
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7602,
+      "val_acc": 0.6811
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.7551,
+      "val_acc": 0.6762
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.7504,
+      "val_acc": 0.6761
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.7472,
+      "val_acc": 0.6834
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.7451,
+      "val_acc": 0.6844
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.7435,
+      "val_acc": 0.6838
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.7412,
+      "val_acc": 0.6835
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.7393,
+      "val_acc": 0.6835
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.7378,
+      "val_acc": 0.6848
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.7369,
+      "val_acc": 0.6881
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.734,
+      "val_acc": 0.6863
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.7325,
+      "val_acc": 0.6868
+    }
+  ],
+  "checkpoint": "models\\phase15\\cdvqa_blip\\cdvqa_transfer_best.pt",
+  "sha256": "5dbf680bec5b6f0e8e563e1a6465d6d0da4f0006af38b00a0ab516ea8d0e128f",
+  "config": {
+    "experiment": "cdvqa_blip",
+    "features": "blip",
+    "feature_dim": 768,
+    "seed": 42,
+    "epochs": 15,
+    "batch_size": 256,
+    "lr": 0.001,
+    "optimizer": "Adam",
+    "loss": "CrossEntropyLoss(ignore_index=-1)",
+    "max_len": 20,
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 2050",
+    "image_encoder": "change_model BLIP vision encoder (frozen)",
+    "params_total": 1028883,
+    "params_trainable": 1028883,
+    "optimizer_steps": 3870,
+    "train_seconds": 97.8,
+    "answer_classes": 19,
+    "word_vocab": 48,
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "leakage": {
+      "Train_vs_Val": 0,
+      "Train_vs_Test": 0,
+      "Val_vs_Test": 0,
+      "Train_vs_Test2": 0
+    },
+    "checkpoint": "models\\phase15\\cdvqa_blip\\cdvqa_transfer_best.pt",
+    "checkpoint_sha256": "5dbf680bec5b6f0e8e563e1a6465d6d0da4f0006af38b00a0ab516ea8d0e128f",
+    "checkpoint_bytes": 4119593
+  },
+  "status": "trained"
+}

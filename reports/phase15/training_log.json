@@ -1,0 +1,38 @@
+{
+  "phase": 15,
+  "note": "Real per-epoch training logs (val-selected best checkpoint). Values are actual outputs from scripts/phase15/train_cdvqa_transfer.py.",
+  "cdvqa_clip_blip": {
+    "optimizer_steps": 3870,
+    "history": [
+      {"epoch": 1, "train_loss": 1.1341, "val_acc": 0.6661},
+      {"epoch": 2, "train_loss": 0.7685, "val_acc": 0.6768},
+      {"epoch": 3, "train_loss": 0.7469, "val_acc": 0.6730},
+      {"epoch": 4, "train_loss": 0.7336, "val_acc": 0.6888},
+      {"epoch": 5, "train_loss": 0.7221, "val_acc": 0.6899},
+      {"epoch": 6, "train_loss": 0.7078, "val_acc": 0.7015},
+      {"epoch": 7, "train_loss": 0.6950, "val_acc": 0.7018},
+      {"epoch": 8, "train_loss": 0.6819, "val_acc": 0.7074},
+      {"epoch": 9, "train_loss": 0.6717, "val_acc": 0.7064},
+      {"epoch": 10, "train_loss": 0.6615, "val_acc": 0.7132},
+      {"epoch": 11, "train_loss": 0.6499, "val_acc": 0.7143},
+      {"epoch": 12, "train_loss": 0.6416, "val_acc": 0.7186},
+      {"epoch": 13, "train_loss": 0.6320, "val_acc": 0.7191},
+      {"epoch": 14, "train_loss": 0.6223, "val_acc": 0.7158},
+      {"epoch": 15, "train_loss": 0.6167, "val_acc": 0.7200}
+    ],
+    "best_val_acc": 0.7200,
+    "best_epoch": 15
+  },
+  "cdvqa_blip_ablation": {
+    "optimizer_steps": 3870,
+    "history": [
+      {"epoch": 1, "train_loss": 1.0565, "val_acc": 0.6772},
+      {"epoch": 4, "train_loss": 0.7602, "val_acc": 0.6811},
+      {"epoch": 8, "train_loss": 0.7451, "val_acc": 0.6844},
+      {"epoch": 13, "train_loss": 0.7369, "val_acc": 0.6881},
+      {"epoch": 15, "train_loss": 0.7325, "val_acc": 0.6868}
+    ],
+    "best_val_acc": 0.6881,
+    "best_epoch": 13
+  }
+}

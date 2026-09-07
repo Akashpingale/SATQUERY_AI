@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "key": "cdvqa",
+    "name": "CDVQA (Change Detection VQA)",
+    "task": "bi-temporal change visual question answering",
+    "source": "https://github.com/YZHJessica/CDVQA (dataset release)",
+    "license": "See CDVQA release",
+    "expected_path": "data/benchmarks/cdvqa",
+    "compatibility_note": "The measurement-grounded change-VQA specialist answers occurrence/location/extent/NDVI-NDWI-direction questions. It declines semantic-class questions (e.g. building type) by design. The published CDVQA field schema is unverified here; a documented JSONL adapter (ml.evaluation.change_vqa.load_samples) converts a real release. Coverage is always reported next to accuracy.",
+    "approx_size": "~GBs"
+  },
+  "provisioned": false,
+  "status": "NOT RUN \u2014 dataset not provisioned",
+  "reason": "CDVQA (Change Detection VQA) is not present at D:\\SatQuery-AI\\data\\benchmarks\\cdvqa. It is not downloaded automatically (licence-aware, multi-GB). Provision it, then re-run.",
+  "reproducible_command": "python scripts/eval_external.py --dataset cdvqa",
+  "environment": {
+    "benchmark": "external:cdvqa",
+    "dataset": "CDVQA (Change Detection VQA)",
+    "split": "n/a (not provisioned)",
+    "samples": 0,
+    "seed": 42,
+    "timestamp_utc": "2026-09-06T09:01:18.542557+00:00",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "device": {
+      "device": "cuda",
+      "torch_cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 2050",
+      "gpu_vram_bytes": 4294443008
+    },
+    "git_commit": "HEAD / uncommitted",
+    "models": {},
+    "extra": {}
+  }
+}

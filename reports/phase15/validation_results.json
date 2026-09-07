@@ -1,0 +1,11 @@
+{
+  "phase": 15,
+  "selection_metric": "CDVQA Val accuracy (checkpoint selected at best val epoch)",
+  "baseline_cdvqa_trained": {"best_val_accuracy": 0.7166},
+  "experiments": {
+    "clip_blip": {"best_val_accuracy": 0.7200, "best_epoch": 15},
+    "blip_only": {"best_val_accuracy": 0.6881, "best_epoch": 13}
+  },
+  "decision": "clip_blip selected on validation (0.7200 > baseline 0.7166) BEFORE any test evaluation; blip_only rejected (0.6881 < baseline).",
+  "note": "Val used only for model/checkpoint selection. Test/Test2 not consulted for selection."
+}

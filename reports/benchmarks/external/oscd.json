@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "key": "oscd",
+    "name": "OSCD (Onera Satellite Change Detection)",
+    "task": "binary change detection",
+    "source": "https://rcdaudt.github.io/oscd/",
+    "license": "See OSCD release (research use)",
+    "expected_path": "data/benchmarks/oscd",
+    "compatibility_note": "Sentinel-2 multi-date pairs with binary change masks. Multi-band GeoTIFFs are consumable via align_pair; radiometric-vs-semantic caveat applies as for LEVIR-CD.",
+    "approx_size": "~1 GB"
+  },
+  "provisioned": false,
+  "status": "NOT RUN \u2014 dataset not provisioned",
+  "reason": "OSCD (Onera Satellite Change Detection) is not present at D:\\SatQuery-AI\\data\\benchmarks\\oscd. It is not downloaded automatically (licence-aware, multi-GB). Provision it, then re-run.",
+  "reproducible_command": "python scripts/eval_external.py --dataset oscd",
+  "environment": {
+    "benchmark": "external:oscd",
+    "dataset": "OSCD (Onera Satellite Change Detection)",
+    "split": "n/a (not provisioned)",
+    "samples": 0,
+    "seed": 42,
+    "timestamp_utc": "2026-09-06T09:01:18.814094+00:00",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "device": {
+      "device": "cuda",
+      "torch_cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 2050",
+      "gpu_vram_bytes": 4294443008
+    },
+    "git_commit": "HEAD / uncommitted",
+    "models": {},
+    "extra": {}
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "key": "bigearthnet_txt",
+    "name": "BigEarthNet.txt (Lithuania/Summer captioning subset)",
+    "task": "image-text retrieval (adaptation + evaluation)",
+    "source": "Hugging Face / BigEarthNet v2 imagery + BigEarthNet.txt captions",
+    "license": "Imagery CDLA-Permissive-1.0; captions per BigEarthNet.txt release",
+    "expected_path": "data/bigearthnet/prepared/test.jsonl",
+    "compatibility_note": "Provisioned. Used by the Phase 5 LoRA adaptation and its held-out retrieval evaluation. Retrieval metrics only \u2014 never VQA/caption accuracy.",
+    "approx_size": "~2.5 GB (LMDB) + captions"
+  },
+  "provisioned": true,
+  "status": "PROVISIONED (run adapter)",
+  "reason": "",
+  "reproducible_command": "python scripts/eval_external.py --dataset bigearthnet_txt",
+  "environment": {
+    "benchmark": "external:bigearthnet_txt",
+    "dataset": "BigEarthNet.txt (Lithuania/Summer captioning subset)",
+    "split": "see adapter",
+    "samples": 0,
+    "seed": 42,
+    "timestamp_utc": "2026-09-06T09:01:01.241848+00:00",
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "device": {
+      "device": "cuda",
+      "torch_cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 2050",
+      "gpu_vram_bytes": 4294443008
+    },
+    "git_commit": "HEAD / uncommitted",
+    "models": {},
+    "extra": {}
+  }
+}

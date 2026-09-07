@@ -1,0 +1,68 @@
+{
+  "dataset": "BigEarthNet.txt",
+  "purpose": "Phase 5 remote-sensing vision-language adaptation (LoRA on CLIP)",
+  "created_utc": "2026-09-05T15:03:22.804267+00:00",
+  "preprocessing_version": "phase5-rgb-v1",
+  "seed": 42,
+  "filters": {
+    "country": "Lithuania",
+    "season": "Summer",
+    "type": "captioning"
+  },
+  "split_source": "official `split` column of BigEarthNet.txt (no custom splitting)",
+  "annotations": {
+    "role": "image-text annotations (OFFICIAL source)",
+    "repo": "BIFOLD-BigEarthNetv2-0/BigEarthNet.txt",
+    "url": "https://huggingface.co/datasets/BIFOLD-BigEarthNetv2-0/BigEarthNet.txt",
+    "file": "BigEarthNet.txt.parquet",
+    "size_bytes": 466819745,
+    "license": "CDLA-Permissive-1.0",
+    "total_rows": 9553962,
+    "sha256": "d3b97f999456016bb13c2a8e94b8f47825654f07a0394a6b266a38b750ca1554"
+  },
+  "imagery": {
+    "role": "Sentinel-1/2 pixels",
+    "repo": "hackelle/BigEarthNetV2-Lithuania-Summer-LMDB",
+    "url": "https://huggingface.co/datasets/hackelle/BigEarthNetV2-Lithuania-Summer-LMDB",
+    "provenance_warning": "Publisher declares this an UNOFFICIAL pre-conversion of the official BigEarthNet v2.0 release (10.5281/zenodo.10891137), converted with rico-hdl (the officially recommended converter). Pairing is validated against the official annotation file.",
+    "official_source": "https://zenodo.org/records/10891137",
+    "license": "CDLA-Permissive-1.0",
+    "lmdb": "data.mdb",
+    "lmdb_size_bytes": 2481856512,
+    "metadata_file": "metadata_lithuania_summer.parquet",
+    "bands_used": [
+      "B04",
+      "B03",
+      "B02"
+    ],
+    "sentinel1_used_for_training": false,
+    "sentinel1_note": "Sentinel-1 is present in the LMDB and recorded, but Phase 5 trains on Sentinel-2 RGB only. No optical-SAR fusion is learned here (that is Phase 7).",
+    "stretch": {
+      "method": "per-image joint percentile stretch across B04/B03/B02",
+      "percentiles": [
+        2.0,
+        98.0
+      ],
+      "rationale": "Measured raw uint16 RGB values in this subset: p50=277, p99=528, max=1148. A fixed ceiling of 3000 produced near-black images (mean 24/255), so a per-image stretch matching the inference-time renderer is used instead."
+    },
+    "lmdb_sha256": "54c0d0cdf7d674528c2f436bb2f215e682b2f7d985ae323eb4b56311c8de95e4"
+  },
+  "counts": {
+    "annotations_scanned": 9553962,
+    "matched_country_season": 185443,
+    "captioning_rows": 8362,
+    "retained": 8362,
+    "excluded_missing_image": 0,
+    "excluded_unreadable_image": 0,
+    "excluded_empty_caption": 0,
+    "excluded_duplicate": 0,
+    "per_split": {
+      "train": 4008,
+      "validation": 2291,
+      "test": 2053,
+      "bench": 10
+    },
+    "excluded_examples": []
+  },
+  "unique_patches": 8362
+}

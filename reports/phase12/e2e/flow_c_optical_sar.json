@@ -1,0 +1,489 @@
+{
+  "upload_optical": {
+    "id": "5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6",
+    "created_at": "2026-09-06T19:01:09.192014",
+    "original_filename": "demo_optical.tif",
+    "size_bytes": 154850,
+    "role": "optical",
+    "modality": "optical",
+    "detected_modality": "optical",
+    "width": 160,
+    "height": 160,
+    "band_count": 3,
+    "dtype": "uint16",
+    "driver": "GTiff",
+    "georeference": {
+      "is_georeferenced": true,
+      "crs": "EPSG:32643",
+      "crs_epsg": 32643,
+      "transform": [
+        10.0,
+        0.0,
+        500000.0,
+        0.0,
+        -10.0,
+        1500000.0
+      ],
+      "bounds": [
+        500000.0,
+        1498400.0,
+        501600.0,
+        1500000.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ]
+    },
+    "bands": [
+      {
+        "index": 1,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Red"
+      },
+      {
+        "index": 2,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Green"
+      },
+      {
+        "index": 3,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "NIR"
+      }
+    ],
+    "nodata": null,
+    "tags": {
+      "AREA_OR_POINT": "Area"
+    },
+    "preview_url": "/api/v1/uploads/5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6/preview",
+    "warnings": []
+  },
+  "upload_sar": {
+    "id": "49cb2c5f-0a65-45f9-9300-07fa8bf374be",
+    "created_at": "2026-09-06T19:01:09.290243",
+    "original_filename": "demo_sar.tif",
+    "size_bytes": 102844,
+    "role": "sar",
+    "modality": "sar",
+    "detected_modality": "sar",
+    "width": 160,
+    "height": 160,
+    "band_count": 1,
+    "dtype": "float32",
+    "driver": "GTiff",
+    "georeference": {
+      "is_georeferenced": true,
+      "crs": "EPSG:32643",
+      "crs_epsg": 32643,
+      "transform": [
+        10.0,
+        0.0,
+        500000.0,
+        0.0,
+        -10.0,
+        1500000.0
+      ],
+      "bounds": [
+        500000.0,
+        1498400.0,
+        501600.0,
+        1500000.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ]
+    },
+    "bands": [
+      {
+        "index": 1,
+        "dtype": "float32",
+        "nodata": null,
+        "description": null
+      }
+    ],
+    "nodata": null,
+    "tags": {
+      "AREA_OR_POINT": "Area"
+    },
+    "preview_url": "/api/v1/uploads/49cb2c5f-0a65-45f9-9300-07fa8bf374be/preview",
+    "warnings": []
+  },
+  "analysis": {
+    "id": "28efed25-f4c3-44e5-9252-0209300378f8",
+    "created_at": "2026-09-06T19:01:09.887412",
+    "status": "completed",
+    "task": "optical_sar_fusion",
+    "query": "Compare what the optical and SAR sensors reveal about this area.",
+    "answer": "demo_optical.tif and demo_sar.tif can be analyzed together with 100% spatial overlap. SAR shows structure the optical image does not over 2.9% of the scene (rough/high-backscatter areas that are optically smooth). SAR here is log10-scaled backscatter (uncalibrated; relative intensity only); its structured fraction is 7.9% versus 5.0% for optical brightness, and 25.0% of the scene is SAR-dark (smooth surfaces such as calm water or roads). Notable regions: SAR-revealed structure in the northern part (near 13.5644, 75.0053); optical/SAR water agreement in the southern part (near 13.5571, 75.0073). SAR is illumination-independent, so this structural evidence does not depend on sunlight or cloud cover.",
+    "confidence": {
+      "level": "High",
+      "score": 0.952,
+      "signals": [
+        "Specialist result strength 1.00",
+        "Query routing score 0.76",
+        "All inputs georeferenced",
+        "15 evidence item(s) attached"
+      ]
+    },
+    "evidence": [
+      {
+        "kind": "comparison",
+        "label": "Pair compatibility assessment",
+        "asset_id": null,
+        "detail": {
+          "compatible": true,
+          "overlap_ratio": 1.0,
+          "same_crs": true,
+          "resampling_required": false,
+          "alignment_required": false,
+          "issues": [],
+          "notes": [
+            "Images are co-registered and directly comparable."
+          ]
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical.tif",
+        "asset_id": "5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6",
+        "detail": {},
+        "reference": "/api/v1/uploads/5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6/preview"
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_sar.tif",
+        "asset_id": "49cb2c5f-0a65-45f9-9300-07fa8bf374be",
+        "detail": {},
+        "reference": "/api/v1/uploads/49cb2c5f-0a65-45f9-9300-07fa8bf374be/preview"
+      },
+      {
+        "kind": "fusion_composite",
+        "label": "Optical+SAR false-colour composite (R=SAR, G/B=optical)",
+        "asset_id": null,
+        "detail": {
+          "channels": {
+            "red": "SAR backscatter",
+            "green": "optical brightness",
+            "blue": "optical brightness"
+          },
+          "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+          "correlation": 0.8234,
+          "complementarity": 0.1766,
+          "note": "Reddish = SAR-strong (rough/structured); cyan = optically bright, low SAR return."
+        },
+        "reference": "/api/v1/evidence/c79f4b2994924e0b"
+      },
+      {
+        "kind": "fusion_complementary",
+        "label": "Complementary-information map",
+        "asset_id": null,
+        "detail": {
+          "optical_only_information": 0.0,
+          "sar_only_information": 0.0292,
+          "shared_information": 0.05,
+          "region_count": 2
+        },
+        "reference": "/api/v1/evidence/188b048c841b4772"
+      },
+      {
+        "kind": "aligned_optical",
+        "label": "Aligned optical (demo_optical.tif)",
+        "asset_id": null,
+        "detail": {
+          "bands": 3,
+          "grid": "160x160"
+        },
+        "reference": "/api/v1/evidence/e2f8ecd158a54e67"
+      },
+      {
+        "kind": "aligned_sar",
+        "label": "Aligned SAR (demo_sar.tif)",
+        "asset_id": null,
+        "detail": {
+          "bands": 1,
+          "representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+          "grid": "160x160"
+        },
+        "reference": "/api/v1/evidence/4591c1173ac347a5"
+      },
+      {
+        "kind": "modality_comparison",
+        "label": "Optical vs SAR measured features",
+        "asset_id": null,
+        "detail": {
+          "optical": {
+            "modality": "optical",
+            "mean_level": 0.7667,
+            "spread": 0.3112,
+            "texture": 0.0355,
+            "structured_fraction": 0.05,
+            "spectral_variance": 0.6535,
+            "ndvi_mean": 0.5084,
+            "ndwi_mean": -0.3785
+          },
+          "sar": {
+            "modality": "sar",
+            "mean_level": 0.5017,
+            "spread": 0.2382,
+            "texture": 0.0558,
+            "structured_fraction": 0.0792,
+            "dark_fraction": 0.25,
+            "bright_fraction": 0.0859,
+            "band_count": 1.0
+          },
+          "correlation": 0.8234,
+          "complementarity": 0.1766,
+          "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+          "sar_calibrated": false,
+          "note": "SAR features are measured backscatter/roughness statistics, not land-cover classes."
+        },
+        "reference": null
+      },
+      {
+        "kind": "cross_modal_water",
+        "label": "Optical vs SAR water agreement",
+        "asset_id": null,
+        "detail": {
+          "available": true,
+          "reason": "",
+          "optical_water_fraction": 0.1375,
+          "sar_dark_fraction": 0.25,
+          "agreement_iou": 0.55,
+          "agree_fraction": 0.1375,
+          "optical_only_fraction": 0.0,
+          "sar_only_fraction": 0.1125
+        },
+        "reference": null
+      },
+      {
+        "kind": "complementary_region",
+        "label": "Complementary region 1 (sar structure) - 748 px in the northern part",
+        "asset_id": "49cb2c5f-0a65-45f9-9300-07fa8bf374be",
+        "detail": {
+          "index": 1,
+          "kind": "sar_structure",
+          "pixel_count": 748,
+          "box": [
+            30,
+            22,
+            84,
+            68
+          ],
+          "fraction_of_scene": 0.02922,
+          "position": "northern part",
+          "area_m2": 74800.0,
+          "centroid_lonlat": [
+            75.005268,
+            13.564382
+          ],
+          "units": "square metres"
+        },
+        "reference": null
+      },
+      {
+        "kind": "complementary_region",
+        "label": "Complementary region 2 (water agreement) - 3520 px in the southern part",
+        "asset_id": "5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6",
+        "detail": {
+          "index": 2,
+          "kind": "water_agreement",
+          "pixel_count": 3520,
+          "box": [
+            0,
+            115,
+            159,
+            136
+          ],
+          "fraction_of_scene": 0.1375,
+          "position": "southern part",
+          "area_m2": 352000.0,
+          "centroid_lonlat": [
+            75.007348,
+            13.557103
+          ],
+          "units": "square metres"
+        },
+        "reference": null
+      },
+      {
+        "kind": "scores",
+        "label": "Optical land-cover reading (indicative, optical only)",
+        "asset_id": null,
+        "detail": {
+          "concepts": [
+            {
+              "key": "water",
+              "label": "water",
+              "probability": 0.5211
+            },
+            {
+              "key": "a river",
+              "label": "a river",
+              "probability": 0.2365
+            },
+            {
+              "key": "snow or ice",
+              "label": "snow or ice",
+              "probability": 0.161
+            },
+            {
+              "key": "sparse vegetation",
+              "label": "sparse vegetation",
+              "probability": 0.0233
+            },
+            {
+              "key": "cloud cover",
+              "label": "cloud cover",
+              "probability": 0.0232
+            }
+          ],
+          "method": "zero-shot CLIP on optical",
+          "note": "Zero-shot land-cover reading of the OPTICAL image only; indicative, not benchmark validated, and not applied to SAR."
+        },
+        "reference": null
+      },
+      {
+        "kind": "model",
+        "label": "Method provenance",
+        "asset_id": null,
+        "detail": {
+          "algorithm": "optical-SAR feature-level cross-modal analysis",
+          "algorithm_version": "xmodal-1.0.0",
+          "learned_component": "none for fusion; optional zero-shot CLIP land-cover reading of the optical image only",
+          "device": "cpu",
+          "deterministic": true,
+          "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)"
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Original optical (demo_optical.tif)",
+        "asset_id": "5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6",
+        "detail": {},
+        "reference": "/api/v1/uploads/5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6/preview"
+      },
+      {
+        "kind": "preview",
+        "label": "Original sar (demo_sar.tif)",
+        "asset_id": "49cb2c5f-0a65-45f9-9300-07fa8bf374be",
+        "detail": {},
+        "reference": "/api/v1/uploads/49cb2c5f-0a65-45f9-9300-07fa8bf374be/preview"
+      }
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "2 image(s) - optical:demo_optical.tif (optical, georeferenced), sar:demo_sar.tif (sar, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (64 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as optical_sar_fusion (routing score 0.76); matched on: optical and sar, optical+SAR pair supplied"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 2: optical_sar_fusion vxmodal-1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; benchmark=not benchmarked"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; trained on=none - the analysis is algorithmic, not trained; method=none (deterministic feature-level cross-modal analysis); benchmark=not benchmarked"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Requires exactly one optical and one SAR image of the same area; refuses otherwise. | SAR is treated as log-scaled, uncalibrated backscatter unless metadata declares calibration; sigma0/gamma0 is never assumed. | Reports measured backscatter/roughness for SAR, not semantic land-cover classes."
+      },
+      {
+        "step": "Execution (registration_validator)",
+        "status": "ok",
+        "detail": "demo_optical.tif and demo_sar.tif can be analyzed together with 100% spatial overlap."
+      },
+      {
+        "step": "Modality resolution",
+        "status": "ok",
+        "detail": "optical=demo_optical.tif, SAR=demo_sar.tif"
+      },
+      {
+        "step": "Co-registration",
+        "status": "ok",
+        "detail": "resampled both images onto a shared 160 x 160 grid using average resampling. Common grid: 160x160 px, optical 3 band(s) + SAR 1 band(s), 100% valid in both. CRS EPSG:32643."
+      },
+      {
+        "step": "Cross-modal analysis",
+        "status": "ok",
+        "detail": "xmodal-1.0.0; SAR=log10-scaled backscatter (uncalibrated; relative intensity only); correlation=0.823, complementarity=0.1766, optical-only=0.00 / SAR-only=0.03 / shared=0.05 structure"
+      },
+      {
+        "step": "Execution (optical_sar_fusion)",
+        "status": "ok",
+        "detail": "SAR shows structure the optical image does not over 2.9% of the scene (rough/high-backscatter areas that are optically smooth). SAR here is log10-scaled backscatter (uncalibrated; relative intensity o\u2026"
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "15 item(s): 1 aligned_optical, 1 aligned_sar, 1 comparison, 2 complementary_region, 1 cross_modal_water, 1 fusion_complementary, 1 fusion_composite, 1 modality_comparison, 1 model, 4 preview, 1 scores"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "High (score 0.95)"
+      }
+    ],
+    "plan": {
+      "task": "optical_sar_fusion",
+      "steps": [
+        {
+          "order": 1,
+          "tool_id": "registration_validator",
+          "tool_version": "1.0.0",
+          "description": "Verify the image pair describes the same area",
+          "parameters": {}
+        },
+        {
+          "order": 2,
+          "tool_id": "optical_sar_fusion",
+          "tool_version": "xmodal-1.0.0",
+          "description": "Jointly analyze optical and SAR imagery",
+          "parameters": {}
+        }
+      ],
+      "selection_notes": []
+    },
+    "issues": [],
+    "warnings": [],
+    "input_asset_ids": [
+      "5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6",
+      "49cb2c5f-0a65-45f9-9300-07fa8bf374be"
+    ]
+  }
+}

@@ -1,0 +1,512 @@
+{
+  "upload_t1": {
+    "id": "5cd18321-b9d6-426d-9f46-9efed642de03",
+    "created_at": "2026-09-06T19:41:58.230190",
+    "original_filename": "demo_optical_t1.tif",
+    "size_bytes": 154850,
+    "role": "t1",
+    "modality": "optical",
+    "detected_modality": "optical",
+    "width": 160,
+    "height": 160,
+    "band_count": 3,
+    "dtype": "uint16",
+    "driver": "GTiff",
+    "georeference": {
+      "is_georeferenced": true,
+      "crs": "EPSG:32643",
+      "crs_epsg": 32643,
+      "transform": [
+        10.0,
+        0.0,
+        500000.0,
+        0.0,
+        -10.0,
+        1500000.0
+      ],
+      "bounds": [
+        500000.0,
+        1498400.0,
+        501600.0,
+        1500000.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ]
+    },
+    "bands": [
+      {
+        "index": 1,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Red"
+      },
+      {
+        "index": 2,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Green"
+      },
+      {
+        "index": 3,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "NIR"
+      }
+    ],
+    "nodata": null,
+    "tags": {
+      "AREA_OR_POINT": "Area"
+    },
+    "preview_url": "/api/v1/uploads/5cd18321-b9d6-426d-9f46-9efed642de03/preview",
+    "warnings": []
+  },
+  "upload_t2": {
+    "id": "3059e2f2-3ed4-4f04-9637-6e2cbdf0d655",
+    "created_at": "2026-09-06T19:41:58.281458",
+    "original_filename": "demo_optical_t2.tif",
+    "size_bytes": 154850,
+    "role": "t2",
+    "modality": "optical",
+    "detected_modality": "optical",
+    "width": 160,
+    "height": 160,
+    "band_count": 3,
+    "dtype": "uint16",
+    "driver": "GTiff",
+    "georeference": {
+      "is_georeferenced": true,
+      "crs": "EPSG:32643",
+      "crs_epsg": 32643,
+      "transform": [
+        10.0,
+        0.0,
+        500000.0,
+        0.0,
+        -10.0,
+        1500000.0
+      ],
+      "bounds": [
+        500000.0,
+        1498400.0,
+        501600.0,
+        1500000.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ]
+    },
+    "bands": [
+      {
+        "index": 1,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Red"
+      },
+      {
+        "index": 2,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "Green"
+      },
+      {
+        "index": 3,
+        "dtype": "uint16",
+        "nodata": null,
+        "description": "NIR"
+      }
+    ],
+    "nodata": null,
+    "tags": {
+      "AREA_OR_POINT": "Area"
+    },
+    "preview_url": "/api/v1/uploads/3059e2f2-3ed4-4f04-9637-6e2cbdf0d655/preview",
+    "warnings": []
+  },
+  "analysis": {
+    "id": "83de205b-936d-4800-b927-bfaa1d7d9078",
+    "created_at": "2026-09-06T19:41:58.712230",
+    "status": "completed",
+    "task": "change_vqa",
+    "query": "What changed between these two images?",
+    "answer": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap. Change affects 8.6% of the shared area (about 219,300 m\u00b2), concentrated in the northern part (centred near 13.5644, 75.0053), and the changed areas are brighter in the later image. A land-cover reading of that area returns 'water' both before and after (55%), so the imagery shows that something changed without supporting a specific land-cover cause.",
+    "confidence": {
+      "level": "High",
+      "score": 0.867,
+      "signals": [
+        "Specialist result strength 0.94",
+        "Query routing score 0.48",
+        "All inputs georeferenced",
+        "11 evidence item(s) attached"
+      ]
+    },
+    "evidence": [
+      {
+        "kind": "comparison",
+        "label": "Pair compatibility assessment",
+        "asset_id": null,
+        "detail": {
+          "compatible": true,
+          "overlap_ratio": 1.0,
+          "same_crs": true,
+          "resampling_required": false,
+          "alignment_required": false,
+          "issues": [],
+          "notes": [
+            "Images are co-registered and directly comparable."
+          ]
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t1.tif",
+        "asset_id": "5cd18321-b9d6-426d-9f46-9efed642de03",
+        "detail": {},
+        "reference": "/api/v1/uploads/5cd18321-b9d6-426d-9f46-9efed642de03/preview"
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t2.tif",
+        "asset_id": "3059e2f2-3ed4-4f04-9637-6e2cbdf0d655",
+        "detail": {},
+        "reference": "/api/v1/uploads/3059e2f2-3ed4-4f04-9637-6e2cbdf0d655/preview"
+      },
+      {
+        "kind": "change_map",
+        "label": "Measured change map (later image with flagged areas)",
+        "asset_id": "3059e2f2-3ed4-4f04-9637-6e2cbdf0d655",
+        "detail": {
+          "method": "change_vector_analysis",
+          "algorithm_version": "cva-robust-1.1.0",
+          "algorithm": "change_vector_analysis",
+          "threshold": 0.0001,
+          "threshold_method": "any measurable difference (unchanged pixels are identical)",
+          "otsu_threshold": 0.002,
+          "noise_floor": 0.0,
+          "changed_pixels": 2193,
+          "valid_pixels": 25600,
+          "changed_fraction": 0.08566,
+          "changed_percent": 8.57,
+          "raw_changed_pixels": 2193,
+          "coherence": 1.0,
+          "region_count": 1,
+          "brightness_delta": 923.1242,
+          "band_deltas": [
+            1858.4127,
+            1551.4802,
+            -640.5203
+          ],
+          "normalization_refined": true,
+          "registration_peak_offset": [
+            0,
+            0
+          ],
+          "registration_peak_correlation": 0.8171,
+          "registration_zero_correlation": 0.8171,
+          "registration_shift_explains": 0.0,
+          "registration_shift_pixels": 0,
+          "area_units": "square metres",
+          "changed_area_m2": 219300.0,
+          "georeferenced": true,
+          "significant": true,
+          "thresholds": {
+            "noise_sigma": 3.0,
+            "opening_size": 3,
+            "min_region_pixels": 25,
+            "max_shift_pixels": 3,
+            "min_changed_fraction": 0.005,
+            "suspicious_changed_fraction": 0.6,
+            "min_valid_fraction": 0.2,
+            "low_correlation": 0.3,
+            "min_shift_explains": 0.5,
+            "max_tolerable_shift_pixels": 1
+          },
+          "normalization": [
+            {
+              "gain": 1.0,
+              "offset": 0.0
+            },
+            {
+              "gain": 1.0,
+              "offset": 0.0
+            },
+            {
+              "gain": 1.0,
+              "offset": 0.0
+            }
+          ],
+          "co_registration": [
+            "resampled both images onto a shared 160 x 160 grid using average resampling"
+          ],
+          "grid": "160x160",
+          "crs": "EPSG:32643"
+        },
+        "reference": "/api/v1/evidence/986172a8b959475b"
+      },
+      {
+        "kind": "temporal_compare",
+        "label": "T1 / T2 / change on the shared grid",
+        "asset_id": null,
+        "detail": {
+          "panels": [
+            "T1 (earlier)",
+            "T2 (later)",
+            "measured change"
+          ],
+          "earlier": "demo_optical_t1.tif",
+          "later": "demo_optical_t2.tif",
+          "note": "All three panels share one grid, so the same position is the same ground location in each."
+        },
+        "reference": "/api/v1/evidence/925f2ff2f36f4944"
+      },
+      {
+        "kind": "change_region",
+        "label": "Changed region 1 - 2193 px in the northern part",
+        "asset_id": "3059e2f2-3ed4-4f04-9637-6e2cbdf0d655",
+        "detail": {
+          "index": 1,
+          "pixel_count": 2193,
+          "box": [
+            32,
+            24,
+            82,
+            66
+          ],
+          "centroid": [
+            57.0,
+            45.0
+          ],
+          "mean_magnitude": 0.9666,
+          "max_magnitude": 1.0451,
+          "brightness_delta": 923.1242,
+          "fraction_of_scene": 0.08566,
+          "area_m2": 219300.0,
+          "centroid_lonlat": [
+            75.005268,
+            13.564382
+          ],
+          "position": "northern part",
+          "units": "square metres"
+        },
+        "reference": null
+      },
+      {
+        "kind": "indices",
+        "label": "Spectral index change",
+        "asset_id": null,
+        "detail": {
+          "indices": [
+            {
+              "name": "NDVI",
+              "available": true,
+              "reason": "",
+              "mean_before": 0.5084,
+              "mean_after": 0.4529,
+              "delta": -0.0555,
+              "delta_in_changed": -0.6482
+            },
+            {
+              "name": "NDWI",
+              "available": true,
+              "reason": "",
+              "mean_before": -0.3786,
+              "mean_after": -0.3319,
+              "delta": 0.0466,
+              "delta_in_changed": 0.5446
+            }
+          ],
+          "note": "Computed from bands the rasters explicitly declare, on unnormalised reflectance."
+        },
+        "reference": null
+      },
+      {
+        "kind": "scores",
+        "label": "Land cover of the largest changed region, before and after",
+        "asset_id": null,
+        "detail": {
+          "available": true,
+          "reason": "",
+          "variant": "adapted",
+          "model_version": "clip-rsicd-v2+lora-ben-txt-r16a32",
+          "before_label": "water",
+          "before_probability": 0.3633,
+          "after_label": "water",
+          "after_probability": 0.5494,
+          "largest_shifts": [
+            [
+              "water",
+              0.1861
+            ],
+            [
+              "a river",
+              -0.1672
+            ],
+            [
+              "cloud cover",
+              0.112
+            ],
+            [
+              "sparse vegetation",
+              -0.1048
+            ],
+            [
+              "snow or ice",
+              -0.0725
+            ]
+          ],
+          "transition_supported": false,
+          "note": "Zero-shot land-cover scoring of the changed region, before and after. Indicative only: no change-type classifier was trained or evaluated."
+        },
+        "reference": null
+      },
+      {
+        "kind": "model",
+        "label": "Method provenance",
+        "asset_id": null,
+        "detail": {
+          "algorithm": "change_vector_analysis",
+          "algorithm_version": "cva-robust-1.1.0",
+          "learned_component": "none for detection; optional zero-shot CLIP reading for land-cover description only",
+          "device": "cpu",
+          "deterministic": true,
+          "note": "Change detection is algorithmic and reproducible: the same pair and config always produce the same mask."
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t1.tif",
+        "asset_id": "5cd18321-b9d6-426d-9f46-9efed642de03",
+        "detail": {},
+        "reference": "/api/v1/uploads/5cd18321-b9d6-426d-9f46-9efed642de03/preview"
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t2.tif",
+        "asset_id": "3059e2f2-3ed4-4f04-9637-6e2cbdf0d655",
+        "detail": {},
+        "reference": "/api/v1/uploads/3059e2f2-3ed4-4f04-9637-6e2cbdf0d655/preview"
+      }
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "2 image(s) - t1:demo_optical_t1.tif (optical, georeferenced), t2:demo_optical_t2.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (38 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as change_vqa (routing score 0.48); matched on: T1/T2 pair supplied, between these, change, changed"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 2: change_vqa vcva-robust-1.1.0 (parameters: min_changed_fraction=0.005, min_region_pixels=25, noise_sigma=3.0)"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; benchmark=not benchmarked"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; trained on=none - answers are derived from measurements, not generated; method=none (deterministic change vector analysis); benchmark=not benchmarked; CDVQA evaluation is Phase 9"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Answers only questions the measurement supports: occurrence, location, extent, and NDVI/NDWI direction. Anything else returns a stated limitation. | No built-up/urban classifier exists, so construction is never confirmed. | Vegetation and water trends need declared band roles; otherwise it declines."
+      },
+      {
+        "step": "Execution (registration_validator)",
+        "status": "ok",
+        "detail": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap."
+      },
+      {
+        "step": "Temporal inputs",
+        "status": "ok",
+        "detail": "earlier=demo_optical_t1.tif, later=demo_optical_t2.tif (order from t1/t2 roles)"
+      },
+      {
+        "step": "Co-registration",
+        "status": "ok",
+        "detail": "resampled both images onto a shared 160 x 160 grid using average resampling. Common grid: 160x160 px, 3 band(s), 100% of the grid valid in both images. CRS EPSG:32643."
+      },
+      {
+        "step": "Registration check",
+        "status": "ok",
+        "detail": "best correlation 0.817 at offset (0, 0) (zero-offset 0.817); shift explains 0% of residual difference"
+      },
+      {
+        "step": "Change analysis",
+        "status": "ok",
+        "detail": "change_vector_analysis vcva-robust-1.1.0; threshold 0.0001 chosen by any measurable difference (unchanged pixels are identical) (Otsu 0.0020, noise floor 0.0000); 2193 of 25600 valid px changed (8.57%); 1 coherent region(s); coherence 1.00; radiometric fit refined on unchanged pixels"
+      },
+      {
+        "step": "Execution (change_vqa)",
+        "status": "ok",
+        "detail": "Change affects 8.6% of the shared area (about 219,300 m\u00b2), concentrated in the northern part (centred near 13.5644, 75.0053), and the changed areas are brighter in the later image. A land-cover readin\u2026"
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "11 item(s): 1 change_map, 1 change_region, 1 comparison, 1 indices, 1 model, 4 preview, 1 scores, 1 temporal_compare"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "High (score 0.87)"
+      }
+    ],
+    "plan": {
+      "task": "change_vqa",
+      "steps": [
+        {
+          "order": 1,
+          "tool_id": "registration_validator",
+          "tool_version": "1.0.0",
+          "description": "Verify the image pair describes the same area",
+          "parameters": {}
+        },
+        {
+          "order": 2,
+          "tool_id": "change_vqa",
+          "tool_version": "cva-robust-1.1.0",
+          "description": "Answer the question about the change",
+          "parameters": {
+            "noise_sigma": 3.0,
+            "min_region_pixels": 25,
+            "min_changed_fraction": 0.005
+          }
+        }
+      ],
+      "selection_notes": []
+    },
+    "issues": [],
+    "warnings": [],
+    "input_asset_ids": [
+      "5cd18321-b9d6-426d-9f46-9efed642de03",
+      "3059e2f2-3ed4-4f04-9637-6e2cbdf0d655"
+    ]
+  }
+}

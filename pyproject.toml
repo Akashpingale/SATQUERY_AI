@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# Shared libraries that live at the repository root (see the master plan's repository
+# layout) so both the backend API and the ML pipelines can use them:
+#   geospatial/  raster IO, metadata, validation, alignment, rendering
+#   ml/          model loading and inference backends, training, evaluation
+# Install with:  pip install -e .
+[project]
+name = "satquery-core"
+version = "0.2.0"
+description = "SatQuery AI shared geospatial and ML libraries"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "rasterio>=1.3",
+    "numpy>=1.26",
+    "pyproj>=3.6",
+    "shapely>=2.0",
+    "Pillow>=10.0",
+    # Phase 6 change detection needs connected-component labelling, binary morphology, and
+    # box filtering. scipy.ndimage provides all three as vectorised C. scikit-image and
+    # OpenCV were considered and rejected: scikit-image pulls scipy plus imageio/networkx
+    # for the same three functions, and OpenCV adds ~90 MB for none that we need.
+    "scipy>=1.11",
+]
+
+# Inference/training extras are optional so the geospatial layer stays installable
+# without pulling ~500 MB of ML wheels. Install torch from the CPU index first:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+# (or .../whl/cu124 for the CUDA build used by Phase 5 training).
+#
+# transformers is capped below 5.0: `from transformers import CLIPModel` aborts the
+# interpreter on 5.16.1 with this torch build, so the cap is a real fix, not caution.
+[project.optional-dependencies]
+inference = [
+    "torch>=2.2",
+    "transformers>=4.44,<5",
+    "safetensors>=0.4",
+    # Required to load the Phase 5 LoRA adapter at serving time.
+    "peft>=0.11",
+]
+training = [
+    "torch>=2.2",
+    "transformers>=4.44,<5",
+    "safetensors>=0.4",
+    "peft>=0.11",
+    "accelerate>=0.30",
+    "huggingface-hub>=0.23",
+    # BigEarthNet.txt annotations are Parquet; the imagery mirror is an LMDB store.
+    "pyarrow>=16.0",
+    "lmdb>=1.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["geospatial*", "ml*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "A", "BLE"]

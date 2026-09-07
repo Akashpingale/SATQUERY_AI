@@ -1,0 +1,25 @@
+{
+  "benchmark": "cross_modal_synthetic",
+  "dataset": "synthetic optical+SAR fixtures",
+  "split": "n/a (synthetic)",
+  "samples": 4,
+  "seed": 0,
+  "timestamp_utc": "2026-09-06T08:51:43.759291+00:00",
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.4.6",
+  "torch": "2.6.0+cu124",
+  "transformers": "4.57.6",
+  "peft": "0.20.0",
+  "device": {
+    "device": "cuda",
+    "torch_cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 2050",
+    "gpu_vram_bytes": 4294443008
+  },
+  "git_commit": "HEAD / uncommitted",
+  "models": {
+    "fusion": "xmodal-1.0.0"
+  },
+  "extra": {}
+}

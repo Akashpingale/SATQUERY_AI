@@ -1,0 +1,240 @@
+{
+  "incompatible_pair_analysis": {
+    "id": "4d0d19f2-003f-47a7-9242-1d831a8699bf",
+    "created_at": "2026-09-06T19:01:10.107848",
+    "status": "rejected",
+    "task": "change_vqa",
+    "query": "What changed between these two images?",
+    "answer": "demo_optical.tif and demo_incompatible.tif cannot be analyzed together. The images do not overlap geographically, so they cannot describe the same area.",
+    "confidence": {
+      "level": "High",
+      "score": 0.446,
+      "signals": [
+        "Specialist result strength 0.00",
+        "Query routing score 0.48",
+        "All inputs georeferenced",
+        "3 evidence item(s) attached",
+        "Specialist reported a definite negative finding"
+      ]
+    },
+    "evidence": [
+      {
+        "kind": "comparison",
+        "label": "Pair compatibility assessment",
+        "asset_id": null,
+        "detail": {
+          "compatible": false,
+          "overlap_ratio": 0.0,
+          "same_crs": true,
+          "resampling_required": false,
+          "alignment_required": false,
+          "issues": [
+            {
+              "code": "no_overlap",
+              "message": "The images do not overlap geographically, so they cannot describe the same area.",
+              "severity": "error"
+            }
+          ],
+          "notes": []
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical.tif",
+        "asset_id": "137cf11f-05cf-4851-be38-d351cd1e21b1",
+        "detail": {},
+        "reference": "/api/v1/uploads/137cf11f-05cf-4851-be38-d351cd1e21b1/preview"
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_incompatible.tif",
+        "asset_id": "67acd2f2-4692-49ee-b24b-3b26dcdeb1a7",
+        "detail": {},
+        "reference": "/api/v1/uploads/67acd2f2-4692-49ee-b24b-3b26dcdeb1a7/preview"
+      }
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "2 image(s) - t1:demo_optical.tif (optical, georeferenced), t2:demo_incompatible.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (38 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as change_vqa (routing score 0.48); matched on: T1/T2 pair supplied, between these, change, changed"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 2: change_vqa vcva-robust-1.1.0 (parameters: min_changed_fraction=0.005, min_region_pixels=25, noise_sigma=3.0)"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; benchmark=not benchmarked"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; trained on=none - answers are derived from measurements, not generated; method=none (deterministic change vector analysis); benchmark=not benchmarked; CDVQA evaluation is Phase 9"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Answers only questions the measurement supports: occurrence, location, extent, and NDVI/NDWI direction. Anything else returns a stated limitation. | No built-up/urban classifier exists, so construction is never confirmed. | Vegetation and water trends need declared band roles; otherwise it declines."
+      },
+      {
+        "step": "Execution (registration_validator)",
+        "status": "ok",
+        "detail": "demo_optical.tif and demo_incompatible.tif cannot be analyzed together. The images do not overlap geographically, so they cannot describe the same area."
+      },
+      {
+        "step": "Workflow",
+        "status": "failed",
+        "detail": "Stopped after compatibility check: the images cannot be analyzed together."
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "3 item(s): 1 comparison, 2 preview"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "High (score 0.45)"
+      }
+    ],
+    "plan": {
+      "task": "change_vqa",
+      "steps": [
+        {
+          "order": 1,
+          "tool_id": "registration_validator",
+          "tool_version": "1.0.0",
+          "description": "Verify the image pair describes the same area",
+          "parameters": {}
+        },
+        {
+          "order": 2,
+          "tool_id": "change_vqa",
+          "tool_version": "cva-robust-1.1.0",
+          "description": "Answer the question about the change",
+          "parameters": {
+            "noise_sigma": 3.0,
+            "min_region_pixels": 25,
+            "min_changed_fraction": 0.005
+          }
+        }
+      ],
+      "selection_notes": []
+    },
+    "issues": [
+      {
+        "code": "incompatible_inputs",
+        "message": "demo_optical.tif and demo_incompatible.tif cannot be analyzed together. The images do not overlap geographically, so they cannot describe the same area.",
+        "severity": "error"
+      }
+    ],
+    "warnings": [],
+    "input_asset_ids": [
+      "137cf11f-05cf-4851-be38-d351cd1e21b1",
+      "67acd2f2-4692-49ee-b24b-3b26dcdeb1a7"
+    ]
+  },
+  "unsupported_query_analysis": {
+    "id": "4379d063-6187-44b6-b278-11b96a862c7f",
+    "created_at": "2026-09-06T19:01:10.130650",
+    "status": "rejected",
+    "task": "unsupported",
+    "query": "Predict tomorrow's weather at this location.",
+    "answer": null,
+    "confidence": {
+      "level": "Unable to determine",
+      "score": null,
+      "signals": [
+        "The query could not be matched to a supported analysis task. Try asking about land cover, water, built-up areas, changes between two dates, or image metadata."
+      ]
+    },
+    "evidence": [],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "1 image(s) - t1:demo_optical.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (44 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "failed",
+        "detail": "The query could not be matched to a supported analysis task. Try asking about land cover, water, built-up areas, changes between two dates, or image metadata."
+      }
+    ],
+    "plan": null,
+    "issues": [
+      {
+        "code": "unsupported_query",
+        "message": "The query could not be matched to a supported analysis task. Try asking about land cover, water, built-up areas, changes between two dates, or image metadata.",
+        "severity": "error"
+      }
+    ],
+    "warnings": [],
+    "input_asset_ids": [
+      "137cf11f-05cf-4851-be38-d351cd1e21b1"
+    ]
+  },
+  "compatibility_check": {
+    "compatible": false,
+    "purpose": "temporal",
+    "overlap_ratio": 0.0,
+    "same_crs": true,
+    "resampling_required": false,
+    "alignment_required": false,
+    "issues": [
+      {
+        "code": "no_overlap",
+        "message": "The images do not overlap geographically, so they cannot describe the same area.",
+        "severity": "error"
+      }
+    ],
+    "notes": [],
+    "asset_a": {
+      "id": "137cf11f-05cf-4851-be38-d351cd1e21b1",
+      "filename": "demo_optical.tif",
+      "modality": "optical",
+      "width": 160,
+      "height": 160,
+      "crs": "EPSG:32643",
+      "is_georeferenced": true
+    },
+    "asset_b": {
+      "id": "67acd2f2-4692-49ee-b24b-3b26dcdeb1a7",
+      "filename": "demo_incompatible.tif",
+      "modality": "optical",
+      "width": 160,
+      "height": 160,
+      "crs": "EPSG:32643",
+      "is_georeferenced": true
+    }
+  }
+}

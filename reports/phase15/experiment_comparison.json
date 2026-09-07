@@ -1,0 +1,31 @@
+{
+  "phase": 15,
+  "baseline_model": "cdvqa_trained (CLIP-rsicd features)",
+  "improved_model": "cdvqa_transfer (CLIP-rsicd + change_model BLIP features)",
+  "overall": {
+    "val": {"baseline": 0.7166, "improved": 0.7200, "delta_pp": 0.34},
+    "test": {"baseline": 0.7114, "improved": 0.7156, "delta_pp": 0.42},
+    "test2": {"baseline": 0.6632, "improved": 0.6668, "delta_pp": 0.36}
+  },
+  "test_by_type": {
+    "change_or_not":       {"baseline": 0.8376, "improved": 0.8403, "delta_pp": 0.27},
+    "change_ratio":        {"baseline": 0.3941, "improved": 0.4013, "delta_pp": 0.72},
+    "change_ratio_types":  {"baseline": 0.7176, "improved": 0.7229, "delta_pp": 0.53},
+    "change_to_what":      {"baseline": 0.5834, "improved": 0.6025, "delta_pp": 1.91},
+    "decrease_or_not":     {"baseline": 0.7922, "improved": 0.7933, "delta_pp": 0.11},
+    "increase_or_not":     {"baseline": 0.7813, "improved": 0.7824, "delta_pp": 0.11},
+    "largest_change":      {"baseline": 0.5847, "improved": 0.5771, "delta_pp": -0.76},
+    "smallest_change":     {"baseline": 0.3247, "improved": 0.3388, "delta_pp": 1.41}
+  },
+  "summary": {
+    "categories_improved": 7,
+    "categories_regressed": 1,
+    "regressed": ["largest_change (-0.76 pp)"],
+    "largest_gains": ["change_to_what (+1.91 pp)", "smallest_change (+1.41 pp)", "change_ratio (+0.72 pp)"],
+    "conclusion": "The change_model BLIP features add a complementary signal that improves 7/8 question types and overall accuracy on both frozen test splits. cdvqa_transfer is the best learned Change-VQA model; deterministic remains the general default."
+  },
+  "other_models": {
+    "change_model_blip_generative": {"test": 0.5467, "test2": 0.5033},
+    "blip_features_only_head": {"test": 0.6832, "test2": 0.6346}
+  }
+}

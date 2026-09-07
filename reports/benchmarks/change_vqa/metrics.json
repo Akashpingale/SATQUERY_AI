@@ -1,0 +1,49 @@
+{
+  "benchmark": "change_vqa_synthetic",
+  "kind": "engineering-validation (synthetic occurrence; not CDVQA)",
+  "metrics": {
+    "samples": 12,
+    "answered": 12,
+    "correct": 12,
+    "accuracy": 1.0,
+    "accuracy_on_answered": 1.0,
+    "coverage": 1.0,
+    "per_type": {
+      "occurrence:large": {
+        "samples": 2.0,
+        "answered": 2.0,
+        "correct": 2.0,
+        "accuracy": 1.0,
+        "coverage": 1.0
+      },
+      "occurrence:medium": {
+        "samples": 2.0,
+        "answered": 2.0,
+        "correct": 2.0,
+        "accuracy": 1.0,
+        "coverage": 1.0
+      },
+      "occurrence:none": {
+        "samples": 6.0,
+        "answered": 6.0,
+        "correct": 6.0,
+        "accuracy": 1.0,
+        "coverage": 1.0
+      },
+      "occurrence:small": {
+        "samples": 2.0,
+        "answered": 2.0,
+        "correct": 2.0,
+        "accuracy": 1.0,
+        "coverage": 1.0
+      }
+    },
+    "note": "Synthetic change-occurrence VQA (engineering validation; not CDVQA)."
+  },
+  "accuracy_ci_wilson": {
+    "n": 12,
+    "accuracy": 1.0,
+    "ci_low": 0.7575,
+    "ci_high": 1.0
+  }
+}

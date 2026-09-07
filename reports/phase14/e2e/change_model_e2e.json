@@ -1,0 +1,342 @@
+{
+  "full_response": {
+    "id": "a177ba49-16ff-4c6b-8d35-5b62316942f3",
+    "created_at": "2026-09-07T04:33:52.159169",
+    "status": "completed",
+    "task": "change_vqa",
+    "query": "Did the scene change between the two dates?",
+    "answer": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap. The trained Change-VQA model (external BLIP) answers: \"yes\" (generation confidence 0.83, uncalibrated).",
+    "confidence": {
+      "level": "Medium",
+      "score": 0.518,
+      "signals": [
+        "Specialist result strength 0.83",
+        "Query routing score 0.47",
+        "All inputs georeferenced",
+        "6 evidence item(s) attached",
+        "3 warning(s) reduced confidence"
+      ]
+    },
+    "evidence": [
+      {
+        "kind": "comparison",
+        "label": "Pair compatibility assessment",
+        "asset_id": null,
+        "detail": {
+          "compatible": true,
+          "overlap_ratio": 1.0,
+          "same_crs": true,
+          "resampling_required": false,
+          "alignment_required": false,
+          "issues": [],
+          "notes": [
+            "Images are co-registered and directly comparable."
+          ]
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t1.tif",
+        "asset_id": "144a45a6-49e7-49b8-90ef-2bd96ff124ea",
+        "detail": {},
+        "reference": "/api/v1/uploads/144a45a6-49e7-49b8-90ef-2bd96ff124ea/preview"
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t2.tif",
+        "asset_id": "47497fa3-578a-4a71-b284-d5a7e5f96d99",
+        "detail": {},
+        "reference": "/api/v1/uploads/47497fa3-578a-4a71-b284-d5a7e5f96d99/preview"
+      },
+      {
+        "kind": "model",
+        "label": "Trained Change-VQA model (external BLIP)",
+        "asset_id": null,
+        "detail": {
+          "model_id": "change_vqa_blip",
+          "architecture": "BlipForQuestionAnswering (single-image, 384px, generative)",
+          "checkpoint": "change_model/model.safetensors",
+          "version": "blip-vqa-cdvqa-external (single-image, 384px)",
+          "device": "cpu",
+          "raw_generation": "yes",
+          "pair_presentation": "single-image BLIP applied to the T1/T2 pair via the frozen 't1' convention (selected on CDVQA validation only)",
+          "training_dataset": "CDVQA (external fine-tune; not trained by this project)",
+          "benchmark": "CDVQA held-out Test 0.5467 / Test2 0.5033 (n=600 each)",
+          "note": "Generative single-image VQA. Confidence is an uncalibrated mean token probability, not a probability of correctness."
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t1.tif",
+        "asset_id": "144a45a6-49e7-49b8-90ef-2bd96ff124ea",
+        "detail": {},
+        "reference": "/api/v1/uploads/144a45a6-49e7-49b8-90ef-2bd96ff124ea/preview"
+      },
+      {
+        "kind": "model",
+        "label": "Model provenance",
+        "asset_id": null,
+        "detail": {
+          "model_id": "change_vqa_blip",
+          "device": "cpu",
+          "note": "External BLIP checkpoint fine-tuned on CDVQA; answer generated, not composed."
+        },
+        "reference": null
+      }
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "2 image(s) - t1:demo_optical_t1.tif (optical, georeferenced), t2:demo_optical_t2.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (43 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as change_vqa (routing score 0.47); matched on: T1/T2 pair supplied, between the two, change"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 2: change_vqa_blip vblip-vqa-cdvqa-external (parameters: defaults)"
+      },
+      {
+        "step": "Model selection",
+        "status": "ok",
+        "detail": "change_vqa: selected the external trained BLIP Change-VQA model (CHANGE_VQA_MODEL=blip)."
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; benchmark=not benchmarked"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; base=BlipForQuestionAnswering (Salesforce BLIP VQA base), CDVQA fine-tune; trained on=CDVQA (external fine-tune; NOT trained by this project); method=external BLIP VQA fine-tuning (generative); loaded read-only; benchmark=CDVQA held-out Test 0.5467 / Test2 0.5033 (n=600 each; see reports/change_model)"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Single-image generative VQA; for a T1/T2 pair one image is shown under the frozen 't1' convention (selected on CDVQA validation only). It is NOT a two-image temporal change detector. | On CDVQA held-out it scores BELOW the project's cdvqa_trained (0.5467/0.5033 vs 0.7114/0.6632), so it is an additional option, not a replacement. | Confidence is an uncalibrated mean token probability, not a probability of correctness."
+      },
+      {
+        "step": "Execution (registration_validator)",
+        "status": "ok",
+        "detail": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap."
+      },
+      {
+        "step": "Execution (change_vqa_blip)",
+        "status": "warning",
+        "detail": "The trained Change-VQA model (external BLIP) answers: \"yes\" (generation confidence 0.83, uncalibrated)."
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "6 item(s): 1 comparison, 2 model, 3 preview"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "Medium (score 0.52)"
+      }
+    ],
+    "plan": {
+      "task": "change_vqa",
+      "steps": [
+        {
+          "order": 1,
+          "tool_id": "registration_validator",
+          "tool_version": "1.0.0",
+          "description": "Verify the image pair describes the same area",
+          "parameters": {}
+        },
+        {
+          "order": 2,
+          "tool_id": "change_vqa_blip",
+          "tool_version": "blip-vqa-cdvqa-external",
+          "description": "Answer the question about the change",
+          "parameters": {}
+        }
+      ],
+      "selection_notes": [
+        "change_vqa: selected the external trained BLIP Change-VQA model (CHANGE_VQA_MODEL=blip)."
+      ]
+    },
+    "issues": [],
+    "warnings": [
+      "This answer was generated by the external BLIP Change-VQA checkpoint (change_model/), a single-image generative model. On the CDVQA held-out benchmark it scored Test 0.5467 / Test2 0.5033, BELOW the project's own cdvqa_trained (0.7114 / 0.6632).",
+      "BLIP sees one image; for a temporal pair it uses the single-image BLIP applied to the T1/T2 pair via the frozen 't1' convention (selected on CDVQA validation only).",
+      "The confidence shown is an uncalibrated generation score, not a probability of correctness."
+    ],
+    "input_asset_ids": [
+      "144a45a6-49e7-49b8-90ef-2bd96ff124ea",
+      "47497fa3-578a-4a71-b284-d5a7e5f96d99"
+    ]
+  },
+  "summary": {
+    "health": {
+      "status": "ok",
+      "app": "SatQuery AI",
+      "version": "0.1.0",
+      "environment": "development",
+      "device": "cpu",
+      "database": {
+        "connected": true,
+        "dialect": "sqlite"
+      }
+    },
+    "query": "Did the scene change between the two dates?",
+    "asset_ids": {
+      "t1": "144a45a6-49e7-49b8-90ef-2bd96ff124ea",
+      "t2": "47497fa3-578a-4a71-b284-d5a7e5f96d99"
+    },
+    "status": "completed",
+    "task": "change_vqa",
+    "answer": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap. The trained Change-VQA model (external BLIP) answers: \"yes\" (generation confidence 0.83, uncalibrated).",
+    "confidence": {
+      "level": "Medium",
+      "score": 0.518,
+      "signals": [
+        "Specialist result strength 0.83",
+        "Query routing score 0.47",
+        "All inputs georeferenced",
+        "6 evidence item(s) attached",
+        "3 warning(s) reduced confidence"
+      ]
+    },
+    "plan_tools": [
+      "registration_validator",
+      "change_vqa_blip"
+    ],
+    "selection_notes": [
+      "change_vqa: selected the external trained BLIP Change-VQA model (CHANGE_VQA_MODEL=blip)."
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "2 image(s) - t1:demo_optical_t1.tif (optical, georeferenced), t2:demo_optical_t2.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (43 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as change_vqa (routing score 0.47); matched on: T1/T2 pair supplied, between the two, change"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 2: change_vqa_blip vblip-vqa-cdvqa-external (parameters: defaults)"
+      },
+      {
+        "step": "Model selection",
+        "status": "ok",
+        "detail": "change_vqa: selected the external trained BLIP Change-VQA model (CHANGE_VQA_MODEL=blip)."
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; benchmark=not benchmarked"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; base=BlipForQuestionAnswering (Salesforce BLIP VQA base), CDVQA fine-tune; trained on=CDVQA (external fine-tune; NOT trained by this project); method=external BLIP VQA fine-tuning (generative); loaded read-only; benchmark=CDVQA held-out Test 0.5467 / Test2 0.5033 (n=600 each; see reports/change_model)"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Single-image generative VQA; for a T1/T2 pair one image is shown under the frozen 't1' convention (selected on CDVQA validation only). It is NOT a two-image temporal change detector. | On CDVQA held-out it scores BELOW the project's cdvqa_trained (0.5467/0.5033 vs 0.7114/0.6632), so it is an additional option, not a replacement. | Confidence is an uncalibrated mean token probability, not a probability of correctness."
+      },
+      {
+        "step": "Execution (registration_validator)",
+        "status": "ok",
+        "detail": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap."
+      },
+      {
+        "step": "Execution (change_vqa_blip)",
+        "status": "warning",
+        "detail": "The trained Change-VQA model (external BLIP) answers: \"yes\" (generation confidence 0.83, uncalibrated)."
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "6 item(s): 1 comparison, 2 model, 3 preview"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "Medium (score 0.52)"
+      }
+    ],
+    "blip_model_evidence": [
+      {
+        "kind": "model",
+        "label": "Trained Change-VQA model (external BLIP)",
+        "asset_id": null,
+        "detail": {
+          "model_id": "change_vqa_blip",
+          "architecture": "BlipForQuestionAnswering (single-image, 384px, generative)",
+          "checkpoint": "change_model/model.safetensors",
+          "version": "blip-vqa-cdvqa-external (single-image, 384px)",
+          "device": "cpu",
+          "raw_generation": "yes",
+          "pair_presentation": "single-image BLIP applied to the T1/T2 pair via the frozen 't1' convention (selected on CDVQA validation only)",
+          "training_dataset": "CDVQA (external fine-tune; not trained by this project)",
+          "benchmark": "CDVQA held-out Test 0.5467 / Test2 0.5033 (n=600 each)",
+          "note": "Generative single-image VQA. Confidence is an uncalibrated mean token probability, not a probability of correctness."
+        },
+        "reference": null
+      },
+      {
+        "kind": "model",
+        "label": "Model provenance",
+        "asset_id": null,
+        "detail": {
+          "model_id": "change_vqa_blip",
+          "device": "cpu",
+          "note": "External BLIP checkpoint fine-tuned on CDVQA; answer generated, not composed."
+        },
+        "reference": null
+      }
+    ],
+    "checks": {
+      "routed_to_change_vqa_blip": true,
+      "executed_change_vqa_blip_in_trace": true,
+      "status_completed": true,
+      "answer_present": true
+    }
+  }
+}

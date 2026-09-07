@@ -1,0 +1,389 @@
+{
+  "benchmark": "cross_modal_synthetic",
+  "kind": "engineering-validation (synthetic; not a real-world benchmark)",
+  "algorithm_version": "xmodal-1.0.0",
+  "scenarios": 4,
+  "checks_total": 4,
+  "checks_passed": 2,
+  "all_passed": false,
+  "checks": [
+    {
+      "key": "correlated",
+      "expectation": "correlated pair less complementary than anticorrelated",
+      "passed": false,
+      "detail": "corr.complementarity=0.0382 < anti=0.0375",
+      "stats": {
+        "algorithm_version": "xmodal-1.0.0",
+        "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+        "sar_calibrated": false,
+        "correlation": 0.9618,
+        "complementarity": 0.0382,
+        "optical_only_information": 0.0,
+        "sar_only_information": 0.0008,
+        "shared_information": 0.0,
+        "valid_fraction": 1.0,
+        "georeferenced": true,
+        "area_units": "square metres",
+        "optical": {
+          "modality": "optical",
+          "mean_level": 0.5001,
+          "spread": 0.2995,
+          "texture": 0.0243,
+          "structured_fraction": 0.0,
+          "spectral_variance": 0.4767,
+          "ndvi_mean": 0.478,
+          "ndwi_mean": -0.4259
+        },
+        "sar": {
+          "modality": "sar",
+          "mean_level": 0.6397,
+          "spread": 0.2758,
+          "texture": 0.0391,
+          "structured_fraction": 0.0008,
+          "dark_fraction": 0.25,
+          "bright_fraction": 0.4316,
+          "band_count": 1.0
+        },
+        "water": {
+          "available": true,
+          "reason": "",
+          "optical_water_fraction": 0.0,
+          "sar_dark_fraction": 0.25,
+          "agreement_iou": 0.0,
+          "agree_fraction": 0.0,
+          "optical_only_fraction": 0.0,
+          "sar_only_fraction": 0.25
+        },
+        "region_count": 0
+      }
+    },
+    {
+      "key": "anticorrelated",
+      "expectation": "anticorrelated pair is strongly complementary (>= 0.5)",
+      "passed": false,
+      "detail": "complementarity=0.0375",
+      "stats": {
+        "algorithm_version": "xmodal-1.0.0",
+        "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+        "sar_calibrated": false,
+        "correlation": -0.9625,
+        "complementarity": 0.0375,
+        "optical_only_information": 0.0,
+        "sar_only_information": 0.0,
+        "shared_information": 0.0,
+        "valid_fraction": 1.0,
+        "georeferenced": true,
+        "area_units": "square metres",
+        "optical": {
+          "modality": "optical",
+          "mean_level": 0.5,
+          "spread": 0.2991,
+          "texture": 0.0246,
+          "structured_fraction": 0.0,
+          "spectral_variance": 0.4776,
+          "ndvi_mean": 0.478,
+          "ndwi_mean": -0.4259
+        },
+        "sar": {
+          "modality": "sar",
+          "mean_level": 0.6399,
+          "spread": 0.2753,
+          "texture": 0.0385,
+          "structured_fraction": 0.0,
+          "dark_fraction": 0.25,
+          "bright_fraction": 0.4375,
+          "band_count": 1.0
+        },
+        "water": {
+          "available": true,
+          "reason": "",
+          "optical_water_fraction": 0.0,
+          "sar_dark_fraction": 0.25,
+          "agreement_iou": 0.0,
+          "agree_fraction": 0.0,
+          "optical_only_fraction": 0.0,
+          "sar_only_fraction": 0.25
+        },
+        "region_count": 0
+      }
+    },
+    {
+      "key": "sar_structure",
+      "expectation": "SAR-only information/structure exceeds the flat-SAR baseline",
+      "passed": true,
+      "detail": "sar_only_information=0.0, structured_fraction=0.04958767361111111 vs flat=0.0007595486111111111",
+      "stats": {
+        "algorithm_version": "xmodal-1.0.0",
+        "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+        "sar_calibrated": false,
+        "correlation": 0.0064,
+        "complementarity": 0.9936,
+        "optical_only_information": 0.9499,
+        "sar_only_information": 0.0,
+        "shared_information": 0.0496,
+        "valid_fraction": 1.0,
+        "georeferenced": true,
+        "area_units": "square metres",
+        "optical": {
+          "modality": "optical",
+          "mean_level": 0.4967,
+          "spread": 0.2371,
+          "texture": 0.2305,
+          "structured_fraction": 0.9995,
+          "spectral_variance": 0.4936,
+          "ndvi_mean": 0.6216,
+          "ndwi_mean": -0.5191
+        },
+        "sar": {
+          "modality": "sar",
+          "mean_level": 0.1929,
+          "spread": 0.2477,
+          "texture": 0.0914,
+          "structured_fraction": 0.0496,
+          "dark_fraction": 0.25,
+          "bright_fraction": 0.0846,
+          "band_count": 1.0
+        },
+        "water": {
+          "available": true,
+          "reason": "",
+          "optical_water_fraction": 0.0,
+          "sar_dark_fraction": 0.25,
+          "agreement_iou": 0.0,
+          "agree_fraction": 0.0,
+          "optical_only_fraction": 0.0,
+          "sar_only_fraction": 0.25
+        },
+        "region_count": 0
+      }
+    },
+    {
+      "key": "water_agreement",
+      "expectation": "cross-modal water agreement available with non-zero overlap",
+      "passed": true,
+      "detail": "available=True, agree_fraction=0.14583333333333334, iou=0.5833333333333334",
+      "stats": {
+        "algorithm_version": "xmodal-1.0.0",
+        "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+        "sar_calibrated": false,
+        "correlation": 0.9776,
+        "complementarity": 0.0224,
+        "optical_only_information": 0.0,
+        "sar_only_information": 0.0,
+        "shared_information": 0.0833,
+        "valid_fraction": 1.0,
+        "georeferenced": true,
+        "area_units": "square metres",
+        "optical": {
+          "modality": "optical",
+          "mean_level": 0.8291,
+          "spread": 0.3429,
+          "texture": 0.0473,
+          "structured_fraction": 0.0833,
+          "spectral_variance": 0.799,
+          "ndvi_mean": 0.4929,
+          "ndwi_mean": -0.3547
+        },
+        "sar": {
+          "modality": "sar",
+          "mean_level": 0.7139,
+          "spread": 0.3015,
+          "texture": 0.0844,
+          "structured_fraction": 0.0833,
+          "dark_fraction": 0.25,
+          "bright_fraction": 0.7886,
+          "band_count": 1.0
+        },
+        "water": {
+          "available": true,
+          "reason": "",
+          "optical_water_fraction": 0.1458,
+          "sar_dark_fraction": 0.25,
+          "agreement_iou": 0.5833,
+          "agree_fraction": 0.1458,
+          "optical_only_fraction": 0.0,
+          "sar_only_fraction": 0.1042
+        },
+        "region_count": 1
+      }
+    }
+  ],
+  "stats": {
+    "correlated": {
+      "algorithm_version": "xmodal-1.0.0",
+      "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+      "sar_calibrated": false,
+      "correlation": 0.9618,
+      "complementarity": 0.0382,
+      "optical_only_information": 0.0,
+      "sar_only_information": 0.0008,
+      "shared_information": 0.0,
+      "valid_fraction": 1.0,
+      "georeferenced": true,
+      "area_units": "square metres",
+      "optical": {
+        "modality": "optical",
+        "mean_level": 0.5001,
+        "spread": 0.2995,
+        "texture": 0.0243,
+        "structured_fraction": 0.0,
+        "spectral_variance": 0.4767,
+        "ndvi_mean": 0.478,
+        "ndwi_mean": -0.4259
+      },
+      "sar": {
+        "modality": "sar",
+        "mean_level": 0.6397,
+        "spread": 0.2758,
+        "texture": 0.0391,
+        "structured_fraction": 0.0008,
+        "dark_fraction": 0.25,
+        "bright_fraction": 0.4316,
+        "band_count": 1.0
+      },
+      "water": {
+        "available": true,
+        "reason": "",
+        "optical_water_fraction": 0.0,
+        "sar_dark_fraction": 0.25,
+        "agreement_iou": 0.0,
+        "agree_fraction": 0.0,
+        "optical_only_fraction": 0.0,
+        "sar_only_fraction": 0.25
+      },
+      "region_count": 0
+    },
+    "anticorrelated": {
+      "algorithm_version": "xmodal-1.0.0",
+      "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+      "sar_calibrated": false,
+      "correlation": -0.9625,
+      "complementarity": 0.0375,
+      "optical_only_information": 0.0,
+      "sar_only_information": 0.0,
+      "shared_information": 0.0,
+      "valid_fraction": 1.0,
+      "georeferenced": true,
+      "area_units": "square metres",
+      "optical": {
+        "modality": "optical",
+        "mean_level": 0.5,
+        "spread": 0.2991,
+        "texture": 0.0246,
+        "structured_fraction": 0.0,
+        "spectral_variance": 0.4776,
+        "ndvi_mean": 0.478,
+        "ndwi_mean": -0.4259
+      },
+      "sar": {
+        "modality": "sar",
+        "mean_level": 0.6399,
+        "spread": 0.2753,
+        "texture": 0.0385,
+        "structured_fraction": 0.0,
+        "dark_fraction": 0.25,
+        "bright_fraction": 0.4375,
+        "band_count": 1.0
+      },
+      "water": {
+        "available": true,
+        "reason": "",
+        "optical_water_fraction": 0.0,
+        "sar_dark_fraction": 0.25,
+        "agreement_iou": 0.0,
+        "agree_fraction": 0.0,
+        "optical_only_fraction": 0.0,
+        "sar_only_fraction": 0.25
+      },
+      "region_count": 0
+    },
+    "sar_structure": {
+      "algorithm_version": "xmodal-1.0.0",
+      "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+      "sar_calibrated": false,
+      "correlation": 0.0064,
+      "complementarity": 0.9936,
+      "optical_only_information": 0.9499,
+      "sar_only_information": 0.0,
+      "shared_information": 0.0496,
+      "valid_fraction": 1.0,
+      "georeferenced": true,
+      "area_units": "square metres",
+      "optical": {
+        "modality": "optical",
+        "mean_level": 0.4967,
+        "spread": 0.2371,
+        "texture": 0.2305,
+        "structured_fraction": 0.9995,
+        "spectral_variance": 0.4936,
+        "ndvi_mean": 0.6216,
+        "ndwi_mean": -0.5191
+      },
+      "sar": {
+        "modality": "sar",
+        "mean_level": 0.1929,
+        "spread": 0.2477,
+        "texture": 0.0914,
+        "structured_fraction": 0.0496,
+        "dark_fraction": 0.25,
+        "bright_fraction": 0.0846,
+        "band_count": 1.0
+      },
+      "water": {
+        "available": true,
+        "reason": "",
+        "optical_water_fraction": 0.0,
+        "sar_dark_fraction": 0.25,
+        "agreement_iou": 0.0,
+        "agree_fraction": 0.0,
+        "optical_only_fraction": 0.0,
+        "sar_only_fraction": 0.25
+      },
+      "region_count": 0
+    },
+    "water_agreement": {
+      "algorithm_version": "xmodal-1.0.0",
+      "sar_representation": "log10-scaled backscatter (uncalibrated; relative intensity only)",
+      "sar_calibrated": false,
+      "correlation": 0.9776,
+      "complementarity": 0.0224,
+      "optical_only_information": 0.0,
+      "sar_only_information": 0.0,
+      "shared_information": 0.0833,
+      "valid_fraction": 1.0,
+      "georeferenced": true,
+      "area_units": "square metres",
+      "optical": {
+        "modality": "optical",
+        "mean_level": 0.8291,
+        "spread": 0.3429,
+        "texture": 0.0473,
+        "structured_fraction": 0.0833,
+        "spectral_variance": 0.799,
+        "ndvi_mean": 0.4929,
+        "ndwi_mean": -0.3547
+      },
+      "sar": {
+        "modality": "sar",
+        "mean_level": 0.7139,
+        "spread": 0.3015,
+        "texture": 0.0844,
+        "structured_fraction": 0.0833,
+        "dark_fraction": 0.25,
+        "bright_fraction": 0.7886,
+        "band_count": 1.0
+      },
+      "water": {
+        "available": true,
+        "reason": "",
+        "optical_water_fraction": 0.1458,
+        "sar_dark_fraction": 0.25,
+        "agreement_iou": 0.5833,
+        "agree_fraction": 0.1458,
+        "optical_only_fraction": 0.0,
+        "sar_only_fraction": 0.1042
+      },
+      "region_count": 1
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{"sample_id": "nochange_0", "predicted": "no", "answered": true, "question_kind": "occurred", "changed_fraction": 0.0, "blocked_reason": "", "detail": "0 of 9216 valid px changed"}
+{"sample_id": "nochange_1", "predicted": "no", "answered": true, "question_kind": "occurred", "changed_fraction": 0.0, "blocked_reason": "", "detail": "0 of 9216 valid px changed"}
+{"sample_id": "nochange_2", "predicted": "no", "answered": true, "question_kind": "occurred", "changed_fraction": 0.0, "blocked_reason": "", "detail": "0 of 9216 valid px changed"}
+{"sample_id": "nochange_3", "predicted": "no", "answered": true, "question_kind": "occurred", "changed_fraction": 0.0, "blocked_reason": "", "detail": "0 of 9216 valid px changed"}
+{"sample_id": "nochange_4", "predicted": "no", "answered": true, "question_kind": "occurred", "changed_fraction": 0.0, "blocked_reason": "", "detail": "0 of 9216 valid px changed"}
+{"sample_id": "nochange_5", "predicted": "no", "answered": true, "question_kind": "occurred", "changed_fraction": 0.0, "blocked_reason": "", "detail": "0 of 9216 valid px changed"}
+{"sample_id": "change_small_0", "predicted": "yes", "answered": true, "question_kind": "occurred", "changed_fraction": 0.01085, "blocked_reason": "", "detail": "100 of 9216 valid px changed"}
+{"sample_id": "change_small_1", "predicted": "yes", "answered": true, "question_kind": "occurred", "changed_fraction": 0.01085, "blocked_reason": "", "detail": "100 of 9216 valid px changed"}
+{"sample_id": "change_medium_2", "predicted": "yes", "answered": true, "question_kind": "occurred", "changed_fraction": 0.08507, "blocked_reason": "", "detail": "784 of 9216 valid px changed"}
+{"sample_id": "change_medium_3", "predicted": "yes", "answered": true, "question_kind": "occurred", "changed_fraction": 0.11111, "blocked_reason": "", "detail": "1024 of 9216 valid px changed"}
+{"sample_id": "change_large_4", "predicted": "yes", "answered": true, "question_kind": "occurred", "changed_fraction": 0.39497, "blocked_reason": "", "detail": "3640 of 9216 valid px changed"}
+{"sample_id": "change_large_5", "predicted": "yes", "answered": true, "question_kind": "occurred", "changed_fraction": 0.47092, "blocked_reason": "", "detail": "4340 of 9216 valid px changed"}

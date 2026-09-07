@@ -1,0 +1,17 @@
+{
+  "phase": 15,
+  "split": "CDVQA Test (frozen, n=39686)",
+  "evaluated_once": true,
+  "cdvqa_transfer_clip_blip": {
+    "accuracy": 0.7156,
+    "by_type": {
+      "change_or_not": 0.8403, "change_ratio": 0.4013, "change_ratio_types": 0.7229,
+      "change_to_what": 0.6025, "decrease_or_not": 0.7933, "increase_or_not": 0.7824,
+      "largest_change": 0.5771, "smallest_change": 0.3388
+    }
+  },
+  "baseline_cdvqa_trained": {"accuracy": 0.7114},
+  "blip_only_ablation": {"accuracy": 0.6832},
+  "change_model_blip_generative": {"accuracy": 0.5467},
+  "delta_vs_baseline_pp": 0.42
+}

@@ -1,0 +1,342 @@
+{
+  "full_response": {
+    "id": "52102772-c04e-4bb1-b67f-d9cc56a644e1",
+    "created_at": "2026-09-07T05:18:51.221373",
+    "status": "completed",
+    "task": "change_vqa",
+    "query": "Did the scene change between the two dates?",
+    "answer": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap. no (improved CDVQA model, confidence 0.74)",
+    "confidence": {
+      "level": "Medium",
+      "score": 0.577,
+      "signals": [
+        "Specialist result strength 0.74",
+        "Query routing score 0.47",
+        "All inputs georeferenced",
+        "7 evidence item(s) attached",
+        "2 warning(s) reduced confidence"
+      ]
+    },
+    "evidence": [
+      {
+        "kind": "comparison",
+        "label": "Pair compatibility assessment",
+        "asset_id": null,
+        "detail": {
+          "compatible": true,
+          "overlap_ratio": 1.0,
+          "same_crs": true,
+          "resampling_required": false,
+          "alignment_required": false,
+          "issues": [],
+          "notes": [
+            "Images are co-registered and directly comparable."
+          ]
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t1.tif",
+        "asset_id": "e9eca732-0050-4498-a87e-56d9427043ff",
+        "detail": {},
+        "reference": "/api/v1/uploads/e9eca732-0050-4498-a87e-56d9427043ff/preview"
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t2.tif",
+        "asset_id": "f56e2518-6fc9-4740-8eec-613a4fe60627",
+        "detail": {},
+        "reference": "/api/v1/uploads/f56e2518-6fc9-4740-8eec-613a4fe60627/preview"
+      },
+      {
+        "kind": "model",
+        "label": "Improved CDVQA model (Phase 15, CLIP+change_model BLIP features)",
+        "asset_id": null,
+        "detail": {
+          "model_id": "cdvqa_transfer",
+          "version": "cdvqa-clip-rsicd+blip-transfer (1280-d, 19-class)",
+          "checkpoint": "models/phase15/cdvqa_clip_blip/cdvqa_transfer_best.pt",
+          "device": "cpu",
+          "feature_sources": "CLIP-rsicd (512) + change_model BLIP vision (768)",
+          "training_dataset": "CDVQA (train split only) over SECOND imagery",
+          "benchmark": "CDVQA frozen Test 0.7156 / Test2 0.6668 (vs Phase 9 baseline 0.7114 / 0.6632)",
+          "note": "Closed 19-answer vocabulary. Uses the external change_model as a complementary frozen feature source. Confidence is an uncalibrated softmax."
+        },
+        "reference": null
+      },
+      {
+        "kind": "scores",
+        "label": "Answer probabilities",
+        "asset_id": null,
+        "detail": {
+          "concepts": [
+            {
+              "key": "no",
+              "label": "no",
+              "probability": 0.7393
+            },
+            {
+              "key": "yes",
+              "label": "yes",
+              "probability": 0.2563
+            },
+            {
+              "key": "0",
+              "label": "0",
+              "probability": 0.0016
+            },
+            {
+              "key": "trees",
+              "label": "trees",
+              "probability": 0.0007
+            },
+            {
+              "key": "0_to_10",
+              "label": "0_to_10",
+              "probability": 0.0005
+            }
+          ],
+          "note": "Softmax over the closed CDVQA answer vocabulary (uncalibrated)."
+        },
+        "reference": null
+      },
+      {
+        "kind": "preview",
+        "label": "Preview of demo_optical_t1.tif",
+        "asset_id": "e9eca732-0050-4498-a87e-56d9427043ff",
+        "detail": {},
+        "reference": "/api/v1/uploads/e9eca732-0050-4498-a87e-56d9427043ff/preview"
+      },
+      {
+        "kind": "model",
+        "label": "Model provenance",
+        "asset_id": null,
+        "detail": {
+          "model_id": "cdvqa_transfer",
+          "device": "cpu",
+          "note": "Trained CDVQA classifier on CLIP-rsicd + change_model BLIP features."
+        },
+        "reference": null
+      }
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "2 image(s) - t1:demo_optical_t1.tif (optical, georeferenced), t2:demo_optical_t2.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (43 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as change_vqa (routing score 0.47); matched on: T1/T2 pair supplied, between the two, change"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 2: cdvqa_transfer vcdvqa-clip-rsicd+blip-transfer (parameters: defaults)"
+      },
+      {
+        "step": "Model selection",
+        "status": "ok",
+        "detail": "change_vqa: selected the learned Change-VQA model 'cdvqa_transfer' (CHANGE_VQA_MODEL=cdvqa_transfer)."
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; benchmark=not benchmarked"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=adapted; base=CLIP-rsicd (frozen) + change_model BLIP vision (frozen) features; adapter=models/phase15/cdvqa_clip_blip; trained on=CDVQA questions + SECOND imagery (train split only); method=trained GRU question encoder + fusion classifier on concatenated frozen CLIP-rsicd + change_model BLIP vision features (real gradient updates); benchmark=CDVQA frozen Test 0.7156 / Test2 0.6668 (vs Phase 9 baseline 0.7114 / 0.6632; see reports/phase15)"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Closed 19-answer vocabulary from CDVQA; cannot answer outside it. | Trained on SECOND 0.1524 m aerial RGB; benefit on other sensors/resolutions is not established. | Improvement over the Phase 9 baseline is small (+0.42 pp Test / +0.36 pp Test2); weakest on smallest_change / change_ratio, like the baseline."
+      },
+      {
+        "step": "Execution (registration_validator)",
+        "status": "ok",
+        "detail": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap."
+      },
+      {
+        "step": "Execution (cdvqa_transfer)",
+        "status": "warning",
+        "detail": "no (improved CDVQA model, confidence 0.74)"
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "7 item(s): 1 comparison, 2 model, 3 preview, 1 scores"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "Medium (score 0.58)"
+      }
+    ],
+    "plan": {
+      "task": "change_vqa",
+      "steps": [
+        {
+          "order": 1,
+          "tool_id": "registration_validator",
+          "tool_version": "1.0.0",
+          "description": "Verify the image pair describes the same area",
+          "parameters": {}
+        },
+        {
+          "order": 2,
+          "tool_id": "cdvqa_transfer",
+          "tool_version": "cdvqa-clip-rsicd+blip-transfer",
+          "description": "Answer the question about the change",
+          "parameters": {}
+        }
+      ],
+      "selection_notes": [
+        "change_vqa: selected the learned Change-VQA model 'cdvqa_transfer' (CHANGE_VQA_MODEL=cdvqa_transfer)."
+      ]
+    },
+    "issues": [],
+    "warnings": [
+      "This answer comes from the Phase 15 improved CDVQA classifier (closed 19-answer vocabulary), trained on CDVQA/SECOND 0.1524 m aerial imagery; benefit on other sensors/resolutions is not established.",
+      "Confidence is an uncalibrated softmax, not a probability of correctness."
+    ],
+    "input_asset_ids": [
+      "e9eca732-0050-4498-a87e-56d9427043ff",
+      "f56e2518-6fc9-4740-8eec-613a4fe60627"
+    ]
+  },
+  "summary": {
+    "health": {
+      "status": "ok",
+      "app": "SatQuery AI",
+      "version": "0.1.0",
+      "environment": "development",
+      "device": "cpu",
+      "database": {
+        "connected": true,
+        "dialect": "sqlite"
+      }
+    },
+    "query": "Did the scene change between the two dates?",
+    "checkpoint": "models\\phase15\\cdvqa_clip_blip\\cdvqa_transfer_best.pt",
+    "checkpoint_sha256": "0e17b9ca42f213c3e110d8480596cb0a570c5a7e98c4085a19c0856ecd09d330",
+    "status": "completed",
+    "task": "change_vqa",
+    "answer": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap. no (improved CDVQA model, confidence 0.74)",
+    "confidence": {
+      "level": "Medium",
+      "score": 0.577,
+      "signals": [
+        "Specialist result strength 0.74",
+        "Query routing score 0.47",
+        "All inputs georeferenced",
+        "7 evidence item(s) attached",
+        "2 warning(s) reduced confidence"
+      ]
+    },
+    "plan_tools": [
+      "registration_validator",
+      "cdvqa_transfer"
+    ],
+    "selection_notes": [
+      "change_vqa: selected the learned Change-VQA model 'cdvqa_transfer' (CHANGE_VQA_MODEL=cdvqa_transfer)."
+    ],
+    "trace": [
+      {
+        "step": "Input inspection",
+        "status": "ok",
+        "detail": "2 image(s) - t1:demo_optical_t1.tif (optical, georeferenced), t2:demo_optical_t2.tif (optical, georeferenced)"
+      },
+      {
+        "step": "Query understanding",
+        "status": "ok",
+        "detail": "Query accepted (43 characters)."
+      },
+      {
+        "step": "Task classification",
+        "status": "ok",
+        "detail": "Classified as change_vqa (routing score 0.47); matched on: T1/T2 pair supplied, between the two, change"
+      },
+      {
+        "step": "Validation",
+        "status": "ok",
+        "detail": "Inputs, task shape, tool registration, and parameters validated."
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+      },
+      {
+        "step": "Tool selection",
+        "status": "ok",
+        "detail": "Step 2: cdvqa_transfer vcdvqa-clip-rsicd+blip-transfer (parameters: defaults)"
+      },
+      {
+        "step": "Model selection",
+        "status": "ok",
+        "detail": "change_vqa: selected the learned Change-VQA model 'cdvqa_transfer' (CHANGE_VQA_MODEL=cdvqa_transfer)."
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=none; benchmark=not benchmarked"
+      },
+      {
+        "step": "Model provenance",
+        "status": "ok",
+        "detail": "variant=adapted; base=CLIP-rsicd (frozen) + change_model BLIP vision (frozen) features; adapter=models/phase15/cdvqa_clip_blip; trained on=CDVQA questions + SECOND imagery (train split only); method=trained GRU question encoder + fusion classifier on concatenated frozen CLIP-rsicd + change_model BLIP vision features (real gradient updates); benchmark=CDVQA frozen Test 0.7156 / Test2 0.6668 (vs Phase 9 baseline 0.7114 / 0.6632; see reports/phase15)"
+      },
+      {
+        "step": "Limitations",
+        "status": "warning",
+        "detail": "Closed 19-answer vocabulary from CDVQA; cannot answer outside it. | Trained on SECOND 0.1524 m aerial RGB; benefit on other sensors/resolutions is not established. | Improvement over the Phase 9 baseline is small (+0.42 pp Test / +0.36 pp Test2); weakest on smallest_change / change_ratio, like the baseline."
+      },
+      {
+        "step": "Execution (registration_validator)",
+        "status": "ok",
+        "detail": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap."
+      },
+      {
+        "step": "Execution (cdvqa_transfer)",
+        "status": "warning",
+        "detail": "no (improved CDVQA model, confidence 0.74)"
+      },
+      {
+        "step": "Evidence",
+        "status": "ok",
+        "detail": "7 item(s): 1 comparison, 2 model, 3 preview, 1 scores"
+      },
+      {
+        "step": "Confidence",
+        "status": "ok",
+        "detail": "Medium (score 0.58)"
+      }
+    ],
+    "checks": {
+      "routed_to_cdvqa_transfer": true,
+      "executed_cdvqa_transfer_in_trace": true,
+      "status_completed": true,
+      "answer_present": true
+    }
+  }
+}

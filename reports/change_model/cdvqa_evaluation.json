@@ -1,0 +1,187 @@
+{
+  "model_dir": "D:\\SatQuery-AI\\change_model",
+  "architecture": "BlipForQuestionAnswering (single-image, 384px, 3ch)",
+  "device": "cuda",
+  "seed": 42,
+  "note": "Single-image model evaluated on bi-temporal CDVQA. The pair-presentation convention was selected on the VALIDATION split only; Test/Test2 were evaluated once with the frozen choice. Subsampled with a fixed seed; Wilson CIs reported.",
+  "val_convention_selection": {
+    "t1": {
+      "samples": 150,
+      "correct": 90,
+      "accuracy": 0.6,
+      "accuracy_ci_wilson": {
+        "n": 150,
+        "accuracy": 0.6,
+        "ci_low": 0.52,
+        "ci_high": 0.675
+      },
+      "accuracy_by_type": {
+        "change_or_not": 0.8393,
+        "change_ratio": 0.2,
+        "change_ratio_types": 0.9231,
+        "change_to_what": 0.2857,
+        "decrease_or_not": 0.6154,
+        "increase_or_not": 0.5217,
+        "largest_change": 0.1176,
+        "smallest_change": 0.375
+      },
+      "samples_by_type": {
+        "change_or_not": 56,
+        "change_ratio": 5,
+        "change_ratio_types": 13,
+        "change_to_what": 7,
+        "decrease_or_not": 13,
+        "increase_or_not": 23,
+        "largest_change": 17,
+        "smallest_change": 16
+      },
+      "seconds": 24.0
+    },
+    "t2": {
+      "samples": 150,
+      "correct": 90,
+      "accuracy": 0.6,
+      "accuracy_ci_wilson": {
+        "n": 150,
+        "accuracy": 0.6,
+        "ci_low": 0.52,
+        "ci_high": 0.675
+      },
+      "accuracy_by_type": {
+        "change_or_not": 0.8393,
+        "change_ratio": 0.2,
+        "change_ratio_types": 0.9231,
+        "change_to_what": 0.2857,
+        "decrease_or_not": 0.6154,
+        "increase_or_not": 0.5217,
+        "largest_change": 0.1176,
+        "smallest_change": 0.375
+      },
+      "samples_by_type": {
+        "change_or_not": 56,
+        "change_ratio": 5,
+        "change_ratio_types": 13,
+        "change_to_what": 7,
+        "decrease_or_not": 13,
+        "increase_or_not": 23,
+        "largest_change": 17,
+        "smallest_change": 16
+      },
+      "seconds": 22.8
+    },
+    "side_by_side": {
+      "samples": 150,
+      "correct": 90,
+      "accuracy": 0.6,
+      "accuracy_ci_wilson": {
+        "n": 150,
+        "accuracy": 0.6,
+        "ci_low": 0.52,
+        "ci_high": 0.675
+      },
+      "accuracy_by_type": {
+        "change_or_not": 0.8393,
+        "change_ratio": 0.2,
+        "change_ratio_types": 0.9231,
+        "change_to_what": 0.2857,
+        "decrease_or_not": 0.6154,
+        "increase_or_not": 0.5217,
+        "largest_change": 0.1176,
+        "smallest_change": 0.375
+      },
+      "samples_by_type": {
+        "change_or_not": 56,
+        "change_ratio": 5,
+        "change_ratio_types": 13,
+        "change_to_what": 7,
+        "decrease_or_not": 13,
+        "increase_or_not": 23,
+        "largest_change": 17,
+        "smallest_change": 16
+      },
+      "seconds": 23.4
+    }
+  },
+  "selected_convention": "t1",
+  "val_subsample": {
+    "used": 150,
+    "total": 16441
+  },
+  "test": {
+    "samples": 600,
+    "correct": 328,
+    "accuracy": 0.5467,
+    "accuracy_ci_wilson": {
+      "n": 600,
+      "accuracy": 0.5467,
+      "ci_low": 0.5067,
+      "ci_high": 0.5861
+    },
+    "accuracy_by_type": {
+      "change_or_not": 0.7789,
+      "change_ratio": 0.2759,
+      "change_ratio_types": 0.7059,
+      "change_to_what": 0.0192,
+      "decrease_or_not": 0.6322,
+      "increase_or_not": 0.5692,
+      "largest_change": 0.1026,
+      "smallest_change": 0.283
+    },
+    "samples_by_type": {
+      "change_or_not": 190,
+      "change_ratio": 29,
+      "change_ratio_types": 85,
+      "change_to_what": 52,
+      "decrease_or_not": 87,
+      "increase_or_not": 65,
+      "largest_change": 39,
+      "smallest_change": 53
+    },
+    "seconds": 94.8,
+    "subsample": {
+      "used": 600,
+      "total": 39686
+    }
+  },
+  "test2": {
+    "samples": 600,
+    "correct": 302,
+    "accuracy": 0.5033,
+    "accuracy_ci_wilson": {
+      "n": 600,
+      "accuracy": 0.5033,
+      "ci_low": 0.4634,
+      "ci_high": 0.5432
+    },
+    "accuracy_by_type": {
+      "change_or_not": 0.8229,
+      "change_ratio": 0.25,
+      "change_ratio_types": 0.6594,
+      "change_to_what": 0.0877,
+      "decrease_or_not": 0.5882,
+      "increase_or_not": 0.6333,
+      "largest_change": 0.037,
+      "smallest_change": 0.2656
+    },
+    "samples_by_type": {
+      "change_or_not": 96,
+      "change_ratio": 36,
+      "change_ratio_types": 229,
+      "change_to_what": 57,
+      "decrease_or_not": 34,
+      "increase_or_not": 30,
+      "largest_change": 54,
+      "smallest_change": 64
+    },
+    "seconds": 92.5,
+    "subsample": {
+      "used": 600,
+      "total": 31036
+    }
+  },
+  "phase9_classifier_reference": {
+    "test_accuracy": 0.7114,
+    "test2_accuracy": 0.6632,
+    "note": "Measured on the FULL Test/Test2 splits (reports/benchmarks/cdvqa/metrics.json)."
+  }
+}

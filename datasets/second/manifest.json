@@ -1,0 +1,43 @@
+{
+  "dataset": "SECOND (SEmantic Change detectiON Dataset) \u2014 TRAIN set",
+  "sih_status": "ADDITIONAL PUBLIC dataset (NOT SIH-provided) for change-detection training / external validation, and the image source for CDVQA.",
+  "source": "User-provided archive. Original: SECOND semantic change detection dataset (Google Drive: SECOND_train_set.rar).",
+  "local_archive": "D:\\dataset\\SECOND_train_set.rar",
+  "archive_sha256": "5ee2a82b5824b3f5e3c5bfaf018835862e7623993ff9ac5ce57fd11fcfad2b4e",
+  "archive_size_bytes": 2406111691,
+  "extracted_path": "D:\\dataset\\second",
+  "extraction_tool": "tar (bsdtar/libarchive) \u2014 RAR read support",
+  "extraction_date": "2026-09-06T10:44:05.786556+00:00",
+  "structure": {
+    "im1": "T1 RGB image (512x512)",
+    "im2": "T2 RGB image (512x512)",
+    "label1": "T1 semantic land-cover label (RGB-coded)",
+    "label2": "T2 semantic land-cover label (RGB-coded)"
+  },
+  "counts": {
+    "im1": 2968,
+    "im2": 2968,
+    "label1": 2968,
+    "label2": 2968
+  },
+  "image_pairs": 2968,
+  "image_size": [
+    512,
+    512
+  ],
+  "image_mode": "RGB",
+  "label_encoding": "RGB colour per class",
+  "classes": {
+    "255,255,255": "no_change",
+    "128,128,128": "nvg_surface",
+    "0,128,0": "tree",
+    "0,255,0": "low_vegetation",
+    "0,0,255": "water",
+    "128,0,0": "buildings",
+    "255,0,0": "playground"
+  },
+  "num_semantic_classes": 6,
+  "no_change_color": "255,255,255",
+  "official_splits": "Only a TRAIN set is provided (no official val/test in this archive). Val/Test are created from these pairs with a fixed seed; the held-out portion is an INTERNAL test split, NOT the official SECOND test set.",
+  "license": "See SECOND dataset release (research use)"
+}

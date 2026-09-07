@@ -1,0 +1,13 @@
+{
+  "phase": 15,
+  "generated_utc": "2026-09-07",
+  "backend_pytest": {"passed": 460, "failed": 0, "baseline_before_phase15": 455, "added": 5, "log": "reports/phase15_pytest.log"},
+  "ruff": "clean",
+  "frontend_typecheck": "clean",
+  "frontend_eslint": "clean",
+  "frontend_vitest": {"passed": 126, "total": 126},
+  "frontend_build": "clean",
+  "docker_compose_config": "valid",
+  "playwright": {"passed": 6, "total": 6, "note": "run against default deterministic config"},
+  "notes": "Default CHANGE_VQA_MODEL=deterministic preserves prior behaviour; +5 backend tests are the Phase 15 cdvqa_transfer tests."
+}

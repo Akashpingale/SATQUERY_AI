@@ -1,0 +1,546 @@
+{
+  "generated_utc": "2026-09-06T19:01:02.335856+00:00",
+  "base_url": "http://localhost:8000/api/v1",
+  "flows": {
+    "A_single_image": {
+      "id": "58a1a6ac-d4bb-4d53-816e-64e40a7e5707",
+      "status": "completed",
+      "task": "vqa",
+      "query": "What land cover types are visible in this scene?",
+      "answer": "The scene is most consistent with water (52%). The next closest match is a river (24%).",
+      "confidence": {
+        "level": "Medium",
+        "score": 0.47,
+        "signals": [
+          "Specialist result strength 0.52",
+          "Query routing score 0.43",
+          "All inputs georeferenced",
+          "4 evidence item(s) attached",
+          "2 warning(s) reduced confidence"
+        ]
+      },
+      "plan_tools": [
+        "vqa_adapted"
+      ],
+      "plan_versions": [
+        "clip-rsicd-v2+lora-ben-txt"
+      ],
+      "selection_notes": [
+        "vqa: selected the Phase 5 adapted model (adapter present)"
+      ],
+      "evidence_kinds": [
+        "scores",
+        "model",
+        "model",
+        "preview"
+      ],
+      "trace": [
+        {
+          "step": "Input inspection",
+          "status": "ok",
+          "detail": "1 image(s) - optical:demo_optical.tif (optical, georeferenced)"
+        },
+        {
+          "step": "Query understanding",
+          "status": "ok",
+          "detail": "Query accepted (48 characters)."
+        },
+        {
+          "step": "Task classification",
+          "status": "ok",
+          "detail": "Classified as vqa (routing score 0.43); matched on: visible, what"
+        },
+        {
+          "step": "Validation",
+          "status": "ok",
+          "detail": "Inputs, task shape, tool registration, and parameters validated."
+        },
+        {
+          "step": "Tool selection",
+          "status": "ok",
+          "detail": "Step 1: vqa_adapted vclip-rsicd-v2+lora-ben-txt (parameters: defaults)"
+        },
+        {
+          "step": "Model selection",
+          "status": "ok",
+          "detail": "vqa: selected the Phase 5 adapted model (adapter present)"
+        },
+        {
+          "step": "Model provenance",
+          "status": "ok",
+          "detail": "variant=adapted; base=flax-community/clip-rsicd-v2; adapter=models/phase5/adapter; trained on=BigEarthNet.txt (Lithuania/Summer captioning subset); method=LoRA, symmetric contrastive (InfoNCE) objective; benchmark=evaluated on held-out BigEarthNet.txt retrieval; see reports/phase5"
+        },
+        {
+          "step": "Limitations",
+          "status": "warning",
+          "detail": "Adapted on a Lithuania/Summer Sentinel-2 subset; benefit on other regions, seasons, or sensors is not established. | Trained on Sentinel-2 RGB only; no optical-SAR fusion was learned. | Captions were truncated to CLIP's 77-token limit (~11% of samples affected)."
+        },
+        {
+          "step": "Execution (vqa_adapted)",
+          "status": "warning",
+          "detail": "The scene is most consistent with water (52%). The next closest match is a river (24%)."
+        },
+        {
+          "step": "Evidence",
+          "status": "ok",
+          "detail": "4 item(s): 2 model, 1 preview, 1 scores"
+        },
+        {
+          "step": "Confidence",
+          "status": "ok",
+          "detail": "Medium (score 0.47)"
+        }
+      ],
+      "issues": [],
+      "warnings": [
+        "Scores come from an uncalibrated zero-shot model and are relative to its concept vocabulary; treat them as indicative rather than absolute.",
+        "This answer used the Phase 5 adapted model (LoRA on BigEarthNet.txt captions). Adaptation was trained on a Lithuania/Summer Sentinel-2 subset, so its benefit on other regions, seasons, or sensors is not established."
+      ],
+      "asset_ids": {
+        "optical": "d41aab55-209f-4206-81f5-e3664a1ba035"
+      }
+    },
+    "B_temporal": {
+      "id": "769bea2e-e3e6-4709-936c-f8031ab2ce00",
+      "status": "completed",
+      "task": "change_vqa",
+      "query": "What changed between these two images?",
+      "answer": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap. Change affects 8.6% of the shared area (about 219,300 m\u00b2), concentrated in the northern part (centred near 13.5644, 75.0053), and the changed areas are brighter in the later image. A land-cover reading of that area returns 'water' both before and after (55%), so the imagery shows that something changed without supporting a specific land-cover cause.",
+      "confidence": {
+        "level": "High",
+        "score": 0.867,
+        "signals": [
+          "Specialist result strength 0.94",
+          "Query routing score 0.48",
+          "All inputs georeferenced",
+          "11 evidence item(s) attached"
+        ]
+      },
+      "plan_tools": [
+        "registration_validator",
+        "change_vqa"
+      ],
+      "plan_versions": [
+        "1.0.0",
+        "cva-robust-1.1.0"
+      ],
+      "selection_notes": [],
+      "evidence_kinds": [
+        "comparison",
+        "preview",
+        "preview",
+        "change_map",
+        "temporal_compare",
+        "change_region",
+        "indices",
+        "scores",
+        "model",
+        "preview",
+        "preview"
+      ],
+      "trace": [
+        {
+          "step": "Input inspection",
+          "status": "ok",
+          "detail": "2 image(s) - t1:demo_optical_t1.tif (optical, georeferenced), t2:demo_optical_t2.tif (optical, georeferenced)"
+        },
+        {
+          "step": "Query understanding",
+          "status": "ok",
+          "detail": "Query accepted (38 characters)."
+        },
+        {
+          "step": "Task classification",
+          "status": "ok",
+          "detail": "Classified as change_vqa (routing score 0.48); matched on: T1/T2 pair supplied, between these, change, changed"
+        },
+        {
+          "step": "Validation",
+          "status": "ok",
+          "detail": "Inputs, task shape, tool registration, and parameters validated."
+        },
+        {
+          "step": "Tool selection",
+          "status": "ok",
+          "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+        },
+        {
+          "step": "Tool selection",
+          "status": "ok",
+          "detail": "Step 2: change_vqa vcva-robust-1.1.0 (parameters: min_changed_fraction=0.005, min_region_pixels=25, noise_sigma=3.0)"
+        },
+        {
+          "step": "Model provenance",
+          "status": "ok",
+          "detail": "variant=none; benchmark=not benchmarked"
+        },
+        {
+          "step": "Model provenance",
+          "status": "ok",
+          "detail": "variant=none; trained on=none - answers are derived from measurements, not generated; method=none (deterministic change vector analysis); benchmark=not benchmarked; CDVQA evaluation is Phase 9"
+        },
+        {
+          "step": "Limitations",
+          "status": "warning",
+          "detail": "Answers only questions the measurement supports: occurrence, location, extent, and NDVI/NDWI direction. Anything else returns a stated limitation. | No built-up/urban classifier exists, so construction is never confirmed. | Vegetation and water trends need declared band roles; otherwise it declines."
+        },
+        {
+          "step": "Execution (registration_validator)",
+          "status": "ok",
+          "detail": "demo_optical_t1.tif and demo_optical_t2.tif can be analyzed together with 100% spatial overlap."
+        },
+        {
+          "step": "Temporal inputs",
+          "status": "ok",
+          "detail": "earlier=demo_optical_t1.tif, later=demo_optical_t2.tif (order from t1/t2 roles)"
+        },
+        {
+          "step": "Co-registration",
+          "status": "ok",
+          "detail": "resampled both images onto a shared 160 x 160 grid using average resampling. Common grid: 160x160 px, 3 band(s), 100% of the grid valid in both images. CRS EPSG:32643."
+        },
+        {
+          "step": "Registration check",
+          "status": "ok",
+          "detail": "best correlation 0.817 at offset (0, 0) (zero-offset 0.817); shift explains 0% of residual difference"
+        },
+        {
+          "step": "Change analysis",
+          "status": "ok",
+          "detail": "change_vector_analysis vcva-robust-1.1.0; threshold 0.0001 chosen by any measurable difference (unchanged pixels are identical) (Otsu 0.0020, noise floor 0.0000); 2193 of 25600 valid px changed (8.57%); 1 coherent region(s); coherence 1.00; radiometric fit refined on unchanged pixels"
+        },
+        {
+          "step": "Execution (change_vqa)",
+          "status": "ok",
+          "detail": "Change affects 8.6% of the shared area (about 219,300 m\u00b2), concentrated in the northern part (centred near 13.5644, 75.0053), and the changed areas are brighter in the later image. A land-cover readin\u2026"
+        },
+        {
+          "step": "Evidence",
+          "status": "ok",
+          "detail": "11 item(s): 1 change_map, 1 change_region, 1 comparison, 1 indices, 1 model, 4 preview, 1 scores, 1 temporal_compare"
+        },
+        {
+          "step": "Confidence",
+          "status": "ok",
+          "detail": "High (score 0.87)"
+        }
+      ],
+      "issues": [],
+      "warnings": [],
+      "asset_ids": {
+        "t1": "34a61994-b221-4b1a-9653-b3c03ada3b5f",
+        "t2": "68f8efdf-4c3b-4fb7-9781-919c77f17f1d"
+      }
+    },
+    "C_optical_sar": {
+      "id": "28efed25-f4c3-44e5-9252-0209300378f8",
+      "status": "completed",
+      "task": "optical_sar_fusion",
+      "query": "Compare what the optical and SAR sensors reveal about this area.",
+      "answer": "demo_optical.tif and demo_sar.tif can be analyzed together with 100% spatial overlap. SAR shows structure the optical image does not over 2.9% of the scene (rough/high-backscatter areas that are optically smooth). SAR here is log10-scaled backscatter (uncalibrated; relative intensity only); its structured fraction is 7.9% versus 5.0% for optical brightness, and 25.0% of the scene is SAR-dark (smooth surfaces such as calm water or roads). Notable regions: SAR-revealed structure in the northern part (near 13.5644, 75.0053); optical/SAR water agreement in the southern part (near 13.5571, 75.0073). SAR is illumination-independent, so this structural evidence does not depend on sunlight or cloud cover.",
+      "confidence": {
+        "level": "High",
+        "score": 0.952,
+        "signals": [
+          "Specialist result strength 1.00",
+          "Query routing score 0.76",
+          "All inputs georeferenced",
+          "15 evidence item(s) attached"
+        ]
+      },
+      "plan_tools": [
+        "registration_validator",
+        "optical_sar_fusion"
+      ],
+      "plan_versions": [
+        "1.0.0",
+        "xmodal-1.0.0"
+      ],
+      "selection_notes": [],
+      "evidence_kinds": [
+        "comparison",
+        "preview",
+        "preview",
+        "fusion_composite",
+        "fusion_complementary",
+        "aligned_optical",
+        "aligned_sar",
+        "modality_comparison",
+        "cross_modal_water",
+        "complementary_region",
+        "complementary_region",
+        "scores",
+        "model",
+        "preview",
+        "preview"
+      ],
+      "trace": [
+        {
+          "step": "Input inspection",
+          "status": "ok",
+          "detail": "2 image(s) - optical:demo_optical.tif (optical, georeferenced), sar:demo_sar.tif (sar, georeferenced)"
+        },
+        {
+          "step": "Query understanding",
+          "status": "ok",
+          "detail": "Query accepted (64 characters)."
+        },
+        {
+          "step": "Task classification",
+          "status": "ok",
+          "detail": "Classified as optical_sar_fusion (routing score 0.76); matched on: optical and sar, optical+SAR pair supplied"
+        },
+        {
+          "step": "Validation",
+          "status": "ok",
+          "detail": "Inputs, task shape, tool registration, and parameters validated."
+        },
+        {
+          "step": "Tool selection",
+          "status": "ok",
+          "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+        },
+        {
+          "step": "Tool selection",
+          "status": "ok",
+          "detail": "Step 2: optical_sar_fusion vxmodal-1.0.0 (parameters: defaults)"
+        },
+        {
+          "step": "Model provenance",
+          "status": "ok",
+          "detail": "variant=none; benchmark=not benchmarked"
+        },
+        {
+          "step": "Model provenance",
+          "status": "ok",
+          "detail": "variant=none; trained on=none - the analysis is algorithmic, not trained; method=none (deterministic feature-level cross-modal analysis); benchmark=not benchmarked"
+        },
+        {
+          "step": "Limitations",
+          "status": "warning",
+          "detail": "Requires exactly one optical and one SAR image of the same area; refuses otherwise. | SAR is treated as log-scaled, uncalibrated backscatter unless metadata declares calibration; sigma0/gamma0 is never assumed. | Reports measured backscatter/roughness for SAR, not semantic land-cover classes."
+        },
+        {
+          "step": "Execution (registration_validator)",
+          "status": "ok",
+          "detail": "demo_optical.tif and demo_sar.tif can be analyzed together with 100% spatial overlap."
+        },
+        {
+          "step": "Modality resolution",
+          "status": "ok",
+          "detail": "optical=demo_optical.tif, SAR=demo_sar.tif"
+        },
+        {
+          "step": "Co-registration",
+          "status": "ok",
+          "detail": "resampled both images onto a shared 160 x 160 grid using average resampling. Common grid: 160x160 px, optical 3 band(s) + SAR 1 band(s), 100% valid in both. CRS EPSG:32643."
+        },
+        {
+          "step": "Cross-modal analysis",
+          "status": "ok",
+          "detail": "xmodal-1.0.0; SAR=log10-scaled backscatter (uncalibrated; relative intensity only); correlation=0.823, complementarity=0.1766, optical-only=0.00 / SAR-only=0.03 / shared=0.05 structure"
+        },
+        {
+          "step": "Execution (optical_sar_fusion)",
+          "status": "ok",
+          "detail": "SAR shows structure the optical image does not over 2.9% of the scene (rough/high-backscatter areas that are optically smooth). SAR here is log10-scaled backscatter (uncalibrated; relative intensity o\u2026"
+        },
+        {
+          "step": "Evidence",
+          "status": "ok",
+          "detail": "15 item(s): 1 aligned_optical, 1 aligned_sar, 1 comparison, 2 complementary_region, 1 cross_modal_water, 1 fusion_complementary, 1 fusion_composite, 1 modality_comparison, 1 model, 4 preview, 1 scores"
+        },
+        {
+          "step": "Confidence",
+          "status": "ok",
+          "detail": "High (score 0.95)"
+        }
+      ],
+      "issues": [],
+      "warnings": [],
+      "asset_ids": {
+        "optical": "5e2e90b6-b3ee-4fbd-be95-2fd57e40bda6",
+        "sar": "49cb2c5f-0a65-45f9-9300-07fa8bf374be"
+      }
+    },
+    "E_failure_fallback": {
+      "incompatible_pair": {
+        "id": "4d0d19f2-003f-47a7-9242-1d831a8699bf",
+        "status": "rejected",
+        "task": "change_vqa",
+        "query": "What changed between these two images?",
+        "answer": "demo_optical.tif and demo_incompatible.tif cannot be analyzed together. The images do not overlap geographically, so they cannot describe the same area.",
+        "confidence": {
+          "level": "High",
+          "score": 0.446,
+          "signals": [
+            "Specialist result strength 0.00",
+            "Query routing score 0.48",
+            "All inputs georeferenced",
+            "3 evidence item(s) attached",
+            "Specialist reported a definite negative finding"
+          ]
+        },
+        "plan_tools": [
+          "registration_validator",
+          "change_vqa"
+        ],
+        "plan_versions": [
+          "1.0.0",
+          "cva-robust-1.1.0"
+        ],
+        "selection_notes": [],
+        "evidence_kinds": [
+          "comparison",
+          "preview",
+          "preview"
+        ],
+        "trace": [
+          {
+            "step": "Input inspection",
+            "status": "ok",
+            "detail": "2 image(s) - t1:demo_optical.tif (optical, georeferenced), t2:demo_incompatible.tif (optical, georeferenced)"
+          },
+          {
+            "step": "Query understanding",
+            "status": "ok",
+            "detail": "Query accepted (38 characters)."
+          },
+          {
+            "step": "Task classification",
+            "status": "ok",
+            "detail": "Classified as change_vqa (routing score 0.48); matched on: T1/T2 pair supplied, between these, change, changed"
+          },
+          {
+            "step": "Validation",
+            "status": "ok",
+            "detail": "Inputs, task shape, tool registration, and parameters validated."
+          },
+          {
+            "step": "Tool selection",
+            "status": "ok",
+            "detail": "Step 1: registration_validator v1.0.0 (parameters: defaults)"
+          },
+          {
+            "step": "Tool selection",
+            "status": "ok",
+            "detail": "Step 2: change_vqa vcva-robust-1.1.0 (parameters: min_changed_fraction=0.005, min_region_pixels=25, noise_sigma=3.0)"
+          },
+          {
+            "step": "Model provenance",
+            "status": "ok",
+            "detail": "variant=none; benchmark=not benchmarked"
+          },
+          {
+            "step": "Model provenance",
+            "status": "ok",
+            "detail": "variant=none; trained on=none - answers are derived from measurements, not generated; method=none (deterministic change vector analysis); benchmark=not benchmarked; CDVQA evaluation is Phase 9"
+          },
+          {
+            "step": "Limitations",
+            "status": "warning",
+            "detail": "Answers only questions the measurement supports: occurrence, location, extent, and NDVI/NDWI direction. Anything else returns a stated limitation. | No built-up/urban classifier exists, so construction is never confirmed. | Vegetation and water trends need declared band roles; otherwise it declines."
+          },
+          {
+            "step": "Execution (registration_validator)",
+            "status": "ok",
+            "detail": "demo_optical.tif and demo_incompatible.tif cannot be analyzed together. The images do not overlap geographically, so they cannot describe the same area."
+          },
+          {
+            "step": "Workflow",
+            "status": "failed",
+            "detail": "Stopped after compatibility check: the images cannot be analyzed together."
+          },
+          {
+            "step": "Evidence",
+            "status": "ok",
+            "detail": "3 item(s): 1 comparison, 2 preview"
+          },
+          {
+            "step": "Confidence",
+            "status": "ok",
+            "detail": "High (score 0.45)"
+          }
+        ],
+        "issues": [
+          {
+            "code": "incompatible_inputs",
+            "message": "demo_optical.tif and demo_incompatible.tif cannot be analyzed together. The images do not overlap geographically, so they cannot describe the same area.",
+            "severity": "error"
+          }
+        ],
+        "warnings": []
+      },
+      "unsupported_query": {
+        "id": "4379d063-6187-44b6-b278-11b96a862c7f",
+        "status": "rejected",
+        "task": "unsupported",
+        "query": "Predict tomorrow's weather at this location.",
+        "answer": null,
+        "confidence": {
+          "level": "Unable to determine",
+          "score": null,
+          "signals": [
+            "The query could not be matched to a supported analysis task. Try asking about land cover, water, built-up areas, changes between two dates, or image metadata."
+          ]
+        },
+        "plan_tools": [],
+        "plan_versions": [],
+        "selection_notes": [],
+        "evidence_kinds": [],
+        "trace": [
+          {
+            "step": "Input inspection",
+            "status": "ok",
+            "detail": "1 image(s) - t1:demo_optical.tif (optical, georeferenced)"
+          },
+          {
+            "step": "Query understanding",
+            "status": "ok",
+            "detail": "Query accepted (44 characters)."
+          },
+          {
+            "step": "Task classification",
+            "status": "failed",
+            "detail": "The query could not be matched to a supported analysis task. Try asking about land cover, water, built-up areas, changes between two dates, or image metadata."
+          }
+        ],
+        "issues": [
+          {
+            "code": "unsupported_query",
+            "message": "The query could not be matched to a supported analysis task. Try asking about land cover, water, built-up areas, changes between two dates, or image metadata.",
+            "severity": "error"
+          }
+        ],
+        "warnings": []
+      },
+      "compatibility_check": {
+        "compatible": false,
+        "overlap_ratio": 0.0,
+        "issues": [
+          {
+            "code": "no_overlap",
+            "message": "The images do not overlap geographically, so they cannot describe the same area.",
+            "severity": "error"
+          }
+        ]
+      }
+    },
+    "D_learned_temporal": {
+      "status": "NOT EVALUATED - dependency unavailable",
+      "error": "cannot identify image file 'D:\\\\SatQuery-AI\\\\storage\\\\uploads\\\\277feb7a6281_demo_optical_t1.tif'",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\SatQuery-AI\\scripts\\phase12\\e2e_validate.py\", line 280, in main\n    SUMMARY[\"flows\"][\"D_learned_temporal\"] = flow_d(b_full[\"upload_t1\"], b_full[\"upload_t2\"])\n                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\SatQuery-AI\\scripts\\phase12\\e2e_validate.py\", line 225, in flow_d\n    second = SecondChangeSpecialist().run(ctx(db, [t1_asset, t2_asset]))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\SatQuery-AI\\backend\\app\\agent\\specialists\\second_change.py\", line 36, in run\n    pred = second_infer.predict(str(t1), str(t2))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\SatQuery-AI\\ml\\inference\\second_infer.py\", line 75, in predict\n    im1 = Image.open(t1_path).convert(\"RGB\").resize((size, size), Image.BILINEAR)\n          ^^^^^^^^^^^^^^^^^^^\n  File \"D:\\SatQuery-AI\\.venv\\Lib\\site-packages\\PIL\\Image.py\", line 3715, in open\n    raise UnidentifiedImageError(msg)\nPIL.UnidentifiedImageError: cannot identify image file 'D:\\\\SatQuery-AI\\\\storage\\\\uploads\\\\277feb7a6281_demo_optical_t1.tif'\n"
+    }
+  },
+  "health": {
+    "status": "ok",
+    "app": "SatQuery AI",
+    "version": "0.1.0",
+    "environment": "development",
+    "device": "cpu",
+    "database": {
+      "connected": true,
+      "dialect": "sqlite"
+    }
+  }
+}
